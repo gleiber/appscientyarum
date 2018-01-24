@@ -1,0 +1,36 @@
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+<div class="row header" style="background-color: #1f4bae;">
+<h1 class="center-align col-lg-12 text-center"><b> Correos </b></h1>
+</div>
+<div class="text-center">
+<%= link_to  new_email_path, {class:"btn btn-success", style: "margin: 25px auto;" } do%>
+<i class="fa fa-plus" aria-hidden="true"></i> Agregar Correo
+<% end %>
+</div>
+<table id="tabla_vp" class="table table-hover text-center">
+<thead>
+<tr>
+  <th class="text-center">Descripcion</th>
+  <th class="text-center" colspan="3">Accion</th>
+</tr>
+</thead>
+<tbody class="searchable">
+<% @emails.each do |email| %>
+<tr>
+<td><%= email.descripcion %></td>
+
+<td><%= link_to edit_email_path(email) ,class: "btn btn-info" do %>
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+<% end %>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+

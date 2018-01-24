@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  coh_per_sub_u_id: 
+  nota: MyString
+
+two:
+  user_id: 
+  coh_per_sub_u_id: 
+  nota: MyString

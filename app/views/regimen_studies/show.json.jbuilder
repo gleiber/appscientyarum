@@ -1,0 +1,1 @@
+json.partial! "regimen_studies/regimen_study", regimen_study: @regimen_study

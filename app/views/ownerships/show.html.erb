@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Postulate:</strong>
+  <%= @ownership.academic_degree.descripcion %>
+</p>
+
+<p>
+  <strong>Academic degree:</strong>
+  <%= @ownership.speciality.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_ownership_path(@ownership) %> |
+<%= link_to 'Back', ownerships_path %>
+
+

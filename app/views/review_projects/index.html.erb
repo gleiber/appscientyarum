@@ -1,0 +1,107 @@
+
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+  <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+    <div class="row header" style="background-color: #1f4bae;">
+      <h1 class="center-align col-lg-12 text-center"><b> Evaluaciones de Proyectos </b></h1>
+    </div>
+
+
+          <<% if current_user.role.descripcion == "Coordinador de Programa"  %>
+          <% @projects = Array.new  %>
+          <% if current_user.program %> 
+            <% puts "tiene un programa" %>
+            <% if current_user.program.cohort_program.each do |p| %> 
+            <% puts "tiene cohortes programas" %>
+              <% p.users.each do |u| %>
+                <% puts "usuario" %>
+                <% if u.project.present?   %>
+                  <% puts "usuario tiene project" %>
+                  <% @projects.push(u.project) %>
+              
+                <%end %> 
+              <% end %>
+            <% end %> 
+          <% end %>
+        <% end %>
+        <% elsif current_user.role.descripcion == "Coordinador General" %>
+          <% @projects = Project.all %>
+              <% end %>
+        
+    <table id="tabla_vp" class="table table-hover text-center">
+      <thead>
+      <tr>
+        <th class="text-center">Titulo</th>
+        <th class="text-center">Participante</th>
+         <th class="text-center">Tutor</th>
+        <th  class="text-center"colspan="3">Acción</th>
+      </tr>
+      </thead>
+      <tbody class="searchable">
+       <% if @projects %>
+      
+      <% @projects.each do |project| %>
+          <tr>
+
+            <td><%= project.titulo %></td>
+            <td><%= project.user.nombre %></td>
+            <td> <% tutor = User.find(project.tutor)%> <%= tutor.nombre %> </td> 
+
+            <% review = project.review_projects.last%>
+            <% if review %>
+              <% if review.type_review_id == 1 %>
+                <td>
+                  <%= link_to '/review_projects/show?'+ {project_id: project.id}.to_param,class: "btn btn-primary" do %>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  <% end %>
+                </td>
+              <% else %>
+              <td>
+                  <%= link_to new_review_project_path(project_id: project),class: "btn btn-info" do %>
+                      <i class="" aria-hidden="true"></i>
+                      <span class=""></span> Evaluar
+                  <% end %>
+              </td>
+            <% end %>
+          <% else %>
+              <td>
+              <%= link_to new_review_project_path(project_id: project),class: "btn btn-info" do %>
+                    <i class="" aria-hidden="true"></i>
+                    <span class=""></span> Evaluar
+                <% end %>
+              </td>
+            <% end %>
+
+          </tr>
+        <% end %>
+       
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $('#filter').keyup(function () {
+
+    var rex = new RegExp($(this).val(), 'i');
+    $('.searchable tr').hide();
+    $('.searchable tr').filter(function () {
+      return rex.test($(this).text());
+    }).show();
+
+  });
+</script>
+<style type="text/css">
+  form{
+    background-color:transparent !important;
+    box-shadow: none !important;
+  }
+</style>
+

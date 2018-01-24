@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Schedule Cohort Periods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schedule</th>
+      <th>Cohort period</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedule_cohort_periods.each do |schedule_cohort_period| %>
+      <tr>
+        <td><%= schedule_cohort_period.schedule %></td>
+        <td><%= schedule_cohort_period.cohort_period %></td>
+        <td><%= link_to 'Show', schedule_cohort_period %></td>
+        <td><%= link_to 'Edit', edit_schedule_cohort_period_path(schedule_cohort_period) %></td>
+        <td><%= link_to 'Destroy', schedule_cohort_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule cohort period', new_schedule_cohort_period_path %>

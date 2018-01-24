@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @cohort.descripcion %>
+</p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @cohort.program %>
+</p>
+
+<%= link_to 'Edit', edit_cohort_path(@cohort) %> |
+<%= link_to 'Back', cohorts_path %>

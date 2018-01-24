@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @schedule.fecha %>
+</p>
+
+<p>
+  <strong>Hora inicio:</strong>
+  <%= @schedule.hora_inicio %>
+</p>
+
+<p>
+  <strong>Hora final:</strong>
+  <%= @schedule.hora_final %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

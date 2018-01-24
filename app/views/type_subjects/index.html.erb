@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Type Subjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Subject</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_subjects.each do |type_subject| %>
+      <tr>
+        <td><%= type_subject.descripcion %></td>
+        <td><%= link_to 'Show', type_subject %></td>
+        <td><%= link_to 'Edit', edit_type_subject_path(type_subject) %></td>
+        <td><%= link_to 'Destroy', type_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type Subject', new_type_subject_path %>

@@ -1,0 +1,1 @@
+json.partial! "survey_response_questions/survey_response_question", survey_response_question: @survey_response_question

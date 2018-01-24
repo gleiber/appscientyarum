@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  postulate_id: 
+  program_id: 
+
+two:
+  descripcion: MyText
+  postulate_id: 
+  program_id: 

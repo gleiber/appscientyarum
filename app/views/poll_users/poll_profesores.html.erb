@@ -1,0 +1,70 @@
+<% if notice %>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue">
+      <div class="card-content white-text">
+        <span class="card-title">Noticia</span>
+        <p id="notice"><%= notice %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+  <div class="col-lg-1 col-md-1"></div>
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" >
+    <div class="row header" style="background-color: #1f4bae;">
+      <h1 class="center-align col-lg-12 text-center"></i><b>Pool de Profesores</b></h1>
+    </div>
+
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="form-group col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
+       <div class="row">
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+         <div class="input-group2">
+           <%= label_tag :line_investigation_id, "Linea de Investigación" %>
+           <br>
+           <br>
+           <%= select_tag "line_investigation_id", options_for_select(@line_investigations.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione una Linea" %>
+         </div>
+        </div>
+      </div>   
+      <div id="divareaInteres" hidden="true">
+        <div class="row" >
+          <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">    
+            <div class="input-group2">
+              <%= label_tag :area_interest_id, "Área de Interes", class: "text-center"%>
+              <br>
+              <br>
+            <%= select_tag "area_interest_id_poll", options_for_select(@area_interests.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione una Area de Interes" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div id="tabla" hidden="true" >
+      <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th class="text-center">Nombre y Apellido </th>
+          <th class="text-center">Correo</th>
+          <th class="text-center">Telefono</th>
+          <th class="text-center">Sexo</th>
+          <% #if current_user.role.descripcion == "Participante" or current_user.role.descripcion == "participante"  %>
+          <th class="text-center">Acción</th>
+          <% #end %>
+        </tr3>
+      </thead>
+      <tbody class="searchable" id="users_poll">
+        <div id="usuarios_poll"></div>
+      </tbody>
+    </table>
+  </div> 
+  </div>
+  <div class="col-lg-2 col-md-2"></div>
+  <br>
+ 
+  </div>
+  <div class="col-lg-1 col-md-1"></div>
+</div>

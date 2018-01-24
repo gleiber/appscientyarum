@@ -1,0 +1,2 @@
+module RegimenDurationsHelper
+end

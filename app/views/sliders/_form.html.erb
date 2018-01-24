@@ -1,0 +1,115 @@
+<%= form_for(@slider,  :html => {:class => 'form'}) do |f| %>
+<% if @slider.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@slider.errors.count, "error") %> prohibited this slider from being saved:</h2>
+    
+<ul>
+<% @slider.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="text-center"><b> Slider web </b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div class="input-group2">
+<%= f.text_area :titulo, class: "form-control2",autoresize: "true" %>
+<%= f.label :titulo, "Titulo" %><br>
+</div>
+</div> 
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div class="input-group2">
+<%= f.text_area :descripcion, class: "form-control2",autoresize: "true" %>
+<%= f.label :descripcion, "Descripción" %><br>
+</div>
+</div> 
+</div>
+</div>
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" >
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div id="clock"></div> 
+<div class="btn btn-primary btn-file " style="width: 100px; margin-top:10px; ">
+<i class="fa fa-file-image-o"></i>
+Imagen  <%= f.file_field :avatar, id:"slider_avatar" %>
+
+</div>
+</div>      
+</div>
+</div>
+
+
+</div>
+
+<div class="row" style="margin-top: 50px;">
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div class="input-group2">
+<div class="col-md-6 col-sm-6 col-xs-6 text-center" >
+<%= link_to sliders_path, class: "btn btn-warning", style:"width: 100px;" do %>
+<span class="fa fa-reply"></span> Atras    
+<% end %>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6 text-center" >
+<%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Guardar    
+<% end %>
+</div>
+</div>
+</div> 
+</div> 
+</div>
+
+<% end %>
+
+
+
+
+
+
+<script type="text/javascript">
+document.getElementById('slider_avatar').addEventListener('change', readURL, true);
+
+function readURL(){
+var file = document.getElementById("slider_avatar").files[0];
+var reader = new FileReader();
+reader.onloadend = function(){
+
+document.getElementById('clock').style.backgroundImage = "url(" + reader.result + ")";        
+}
+if(file){
+reader.readAsDataURL(file);
+}else{
+}
+}
+</script>
+
+
+<style type="text/css">
+#clock{
+background-image:url('');
+background-size:cover;
+background-position: center;
+height: 300px;
+width: 300px;
+border: 1px solid #bbb;
+}
+</style>
+
+
+
+
+
+
+
+
+

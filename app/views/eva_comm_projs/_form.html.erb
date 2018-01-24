@@ -1,0 +1,120 @@
+
+ <% if @eva_comm_proj.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @eva_comm_proj.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+
+
+<%= form_for(@eva_comm_proj, :html => {:style => 'width: 80%'}, url: {action: @eva_comm_proj.project.nil? ? "create" : "update", params: {id: @eva_comm_proj.project_id}}) do |f| %>
+
+    
+
+ 
+
+    <div class="row header" style="background-color: #1f4bae">
+      <h1 class="center-align col-lg-12 text-center"><i class=""></i><b> Asignar comisión evaluadora</b><i class=""></i>
+      </h1>
+    </div>
+    <div class="row" style="margin-top: 30px">
+      <div class="row" style="margin-top: 30px">
+
+
+    <div class="row">
+        <div class="form-group">
+          <div class="col-md-12 col-sm-6 col-xs-12 first" >
+            <div class="input-group2">
+              <%= f.label :nombre, "Titulo de Proyecto" %><br><br>
+              <%= f.text_field :project_id, value: @project.id, hidden: true  %>
+              <%= text_field_tag :titulo, @project.titulo , class: "form-control2", disabled: true %>
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+
+     
+
+        <div class="col-md-8 col-sm-6 col-xs-12 first">
+          <div class="input-group2">
+            <%= f.label :principal_1, "Principal 1" %>
+            <br>
+            <br>
+            <%= f.select "principal_1", options_for_select(@users1.collect { |u| [u.nombre, u.id] }, @eva_comm_proj.principal_1), {}, {:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione evaluador principal 1"} %>
+
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12 first">
+          <div class="input-group2">
+            <%= f.label :coordinador, " Coordinador" %>
+            <br>
+            <br>
+            <%= f.select "coordinador", options_for_select(@users1.collect { |u| [u.nombre, u.id] }, @eva_comm_proj.coordinador), {}, {:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Coordinador"} %>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-md-8 col-sm-6 col-xs-12 first">
+          <div class="input-group2">
+            <%= f.label :principal_2, "Principal 2" %>
+            <br>
+            <br>
+            <%= f.select "principal_2", options_for_select(@users1.collect { |u| [u.nombre, u.id] }, @eva_comm_proj.principal_2), {}, {:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione evaluador principal 2"} %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-8 col-sm-6 col-xs-12 first">
+          <div class="input-group2">
+            <%= f.label :principal_3, "Principal 3" %>
+            <br>
+            <br>
+            <%= f.select "principal_3", options_for_select(@users1.collect { |u| [u.nombre, u.id] }, @eva_comm_proj.principal_3), {}, {:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione evaluador principal 3"} %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-md-8 col-sm-6 col-xs-12 first">
+          <div class="input-group2">
+            <%= f.label :suplente_1, "Suplente 1" %>
+            <br>
+            <br>
+            <%= f.select "suplente_1", options_for_select(@users1.collect { |u| [u.nombre, u.id] }, @eva_comm_proj.suplente_1), {}, {:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione evaluador Suplente 1"} %>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+
+
+    <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
+      <div class="col-md-2 col-md-offset-3" >
+        <%= link_to eva_comm_projs_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-2 col-md-offset-1" >
+        <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar
+        <% end %>
+      </div>
+    </div>
+
+<% end %>
+

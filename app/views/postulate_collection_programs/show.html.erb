@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Postulate:</strong>
+  <%= @postulate_collection_program.postulate %>
+</p>
+
+<p>
+  <strong>Collection program:</strong>
+  <%= @postulate_collection_program.collection_program %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @postulate_collection_program.estado %>
+</p>
+
+<%= link_to 'Edit', edit_postulate_collection_program_path(@postulate_collection_program) %> |
+<%= link_to 'Back', postulate_collection_programs_path %>

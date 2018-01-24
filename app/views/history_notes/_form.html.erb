@@ -1,0 +1,84 @@
+<%= form_for(@history_note) do |f| %>
+  <% if @history_note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@history_note.errors.count, "error") %> prohibited this history_note from being saved:</h2> <ul>
+      <% @history_note.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+       </ul>
+      </div>
+      <% end %>
+      
+      <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"></i><b> Historico de Notas </b></h1>
+     </div>
+     
+    <div class="row" style="margin-top: 30px">
+      
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">         
+     <div class="input-group2">
+     <%= f.collection_select :cohorte, Cohort.all, :id,:cohorte,{ 
+      include_blank: true}, { class: "form-control2 first"}%>
+     <%= f.label :cohorte, "Cohorte"%> 
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">         
+     <div class="input-group2">
+     <%= f.collection_select :periodo, Period.all, :id,:periodo,{ 
+      include_blank: true}, { class: "form-control2"}%>
+     <%= f.label :periodo, "Periodo"%> 
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">         
+     <div class="input-group2">
+     <%= f.collection_select :participante, User.all, :id,:participante,{ 
+      include_blank: true}, { class: "form-control2"}%>
+     <%= f.label :participante, "Participante"%> 
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">         
+     <div class="input-group2">
+     <%= f.collection_select :materia, Subject.all, :id,:descripcion,{ 
+      include_blank: true}, { class: "form-control2"}%>
+     <%= f.label :materia, "Materia"%> 
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">         
+     <div class="input-group2">
+     <%= f.collection_select :nota, Subject.all, :id,:nota,{ 
+      include_blank: true}, { class: "form-control2"}%>
+     <%= f.label :nota, "Nota"%> 
+     </div>
+     </div>
+     </div>
+
+    <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >
+     <div class="input-group2 textarea">
+     <%= button_to "", class: "btn btn-primary" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div>
+
+
+    </div>
+  
+  <% end %>
+  
+ 
+  

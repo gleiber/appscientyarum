@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  postgraduate_coordination_id: 
+
+two:
+  descripcion: MyText
+  postgraduate_coordination_id: 

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Civil Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @civil_statuses.each do |civil_status| %>
+      <tr>
+        <td><%= civil_status.descripcion %></td>
+        <td><%= link_to 'Show', civil_status %></td>
+        <td><%= link_to 'Edit', edit_civil_status_path(civil_status) %></td>
+        <td><%= link_to 'Destroy', civil_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Civil Status', new_civil_status_path %>

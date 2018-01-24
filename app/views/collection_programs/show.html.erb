@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @collection_program.program %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @collection_program.collection %>
+</p>
+
+<%= link_to 'Edit', edit_collection_program_path(@collection_program) %> |
+<%= link_to 'Back', collection_programs_path %>

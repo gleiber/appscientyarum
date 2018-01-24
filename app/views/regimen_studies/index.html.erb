@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Regimen Studies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regimen_studies.each do |regimen_study| %>
+      <tr>
+        <td><%= regimen_study.descripcion %></td>
+        <td><%= link_to 'Show', regimen_study %></td>
+        <td><%= link_to 'Edit', edit_regimen_study_path(regimen_study) %></td>
+        <td><%= link_to 'Destroy', regimen_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Regimen Study', new_regimen_study_path %>

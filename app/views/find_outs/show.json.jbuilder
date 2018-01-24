@@ -1,0 +1,1 @@
+json.partial! "find_outs/find_out", find_out: @find_out

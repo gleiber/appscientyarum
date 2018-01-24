@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @email.descripcion %>
+</p>
+
+<p>
+  <strong>Postgraduate coordination:</strong>
+  <%= @email.postgraduate_coordination %>
+</p>
+
+<%= link_to 'Edit', edit_email_path(@email) %> |
+<%= link_to 'Back', emails_path %>

@@ -1,0 +1,51 @@
+
+
+
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Solicitudes de Aulas y Laboratorio </b></h1>
+     </div>
+     <div class="text-center">
+    <%= link_to new_request_class_lab_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+   <i class="fa fa-plus" aria-hidden="true"></i> Registrar Solicitud
+    <% end %>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+           <tr>
+               <th>Descripcion</th>
+               <th>Solicitante</th>
+               <th>Inicio del Rango de Fecha</th>
+               <th>Final del Rango de Fecha</th>
+               <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @request_class_labs.each do |request_class_lab| %>
+              <tr>
+
+                <td><%= request_class_lab.descripcion %></td>
+                <td><%= request_class_lab.solicitante %></td>
+                <td><%= request_class_lab.start.strftime("%d/%m/%Y") %></td>
+                <td><%= request_class_lab.end.strftime("%d/%m/%Y")%></td>
+                
+                <td><%= link_to edit_request_class_lab_path(request_class_lab),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+                <td><%= button_to request_class_lab, method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Esta Seguro?'} do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+
+

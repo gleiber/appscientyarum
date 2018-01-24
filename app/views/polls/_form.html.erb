@@ -1,0 +1,102 @@
+
+
+ <% if @poll.errors.any? %>
+    <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @poll.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+
+     <%= form_for(@poll, :html => {:class => 'form'}) do |f| %>
+   
+     
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Nueva Encuesta </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 50px">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >        
+     <div class="input-group2" style="width: 90%">
+      <%= f.text_area :descripcion, value: @poll.descripcion, class: "form-control2"%>
+      <%= f.label :descripcion, "Descripción" %><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+     <%= select_tag "type_poll_id", options_for_select(@type_polls.collect{ |u| [u.descripcion, u.id]}, @poll.type_poll_id), class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Tipo de Encuesta" %>
+
+     </div>
+     </div> 
+     </div>
+
+    
+
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+     <div class="row" >
+     <h2 class="center-align col-lg-12 text-center"><b> Preguntas </b></h2>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+     <div class="input-group2" style="width: 90%">
+     <% @questions.each do |question| %>
+     <div class="col-md-4 " id="idPreguntas">
+     <%= check_box_tag "questions[]", question.id, @poll.questions.include?(question) %> <%= question.descripcion %>
+     </div>
+     <% end %>
+     </div>
+     </div> 
+     </div>
+
+
+     
+     </div>
+
+ 
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to polls_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+
+
+     

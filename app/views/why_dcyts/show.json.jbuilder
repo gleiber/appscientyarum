@@ -1,0 +1,1 @@
+json.partial! "why_dcyts/why_dcyt", why_dcyt: @why_dcyt

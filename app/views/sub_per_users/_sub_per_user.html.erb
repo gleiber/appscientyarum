@@ -1,0 +1,51 @@
+
+
+     <div class="form-group">
+     <div class="col-md-4 col-sm-4 col-xs-12  text-center" >
+     <div class="input-group2">
+     <%= text_field_tag :nombre, sub_per_user.user.nombre , class: "form-control2", disabled: true %>
+     <%= label :nombre, "Nombre" %><br>
+    
+     </div>
+     </div> 
+     </div> 
+
+     <div class="form-group">
+     <div class="col-md-4 col-sm-4 col-xs-12  text-center" >
+     <div class="input-group2">
+     <%= text_field_tag :nombre, sub_per_user.user.cedula , class: "form-control2", disabled: true %>
+     <%= label :nombre, "Cedula" %><br>
+    
+     </div>
+     </div> 
+     </div> 
+
+     <div class="form-group">
+     <div class="col-md-4 col-sm-4 col-xs-12  text-center" >
+     <div class="input-group2">
+     <% if sub_per_user.nota.present? %>
+        <%= text_field_tag sub_per_user.user.id, sub_per_user.nota, class: "form-control2" %>
+     <% else %>
+        <%= text_field_tag sub_per_user.user.id, nil, class: "form-control2" %>
+     <% end %>
+     <%= label :nombre, "Nota" %><br>
+    
+     </div>
+     </div> 
+     </div> 
+
+
+     <script>
+$('.form-control2').change(function(){
+  changeState($(this));
+});
+$('.form-control2').each(function(){
+  changeState($(this));
+});
+function changeState($selector){
+   if($selector.val().length > 0 )
+     $selector.addClass('not-empty');
+ else
+   $selector.removeClass('not-empty');
+}
+</script>

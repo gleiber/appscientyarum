@@ -1,0 +1,1 @@
+json.partial! "postulate_area_interests/postulate_area_interest", postulate_area_interest: @postulate_area_interest

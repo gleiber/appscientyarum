@@ -1,0 +1,99 @@
+<%= simple_form_for @event do |f| %>
+<% @classroom_laboratories = ClassroomLaboratory.all %>
+<div class="form-inputs col-sm-offset-2" style="height: 600px;"> 
+
+<div class="col-sm-8 "  style="margin-left: 10px">
+<div class= "row">
+<div class="form-group">
+<%= f.input :title ,  input_html: {class: "form-control"}, label: 'Titulo'  %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-8"  style="margin-left: 10px">
+<div class= "row">
+<div class="form-group">
+<%= f.input :solicitante, input_html: {class: "form-control"}, label: 'Solicitante' %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-8"  style="margin-left: 10px">
+<div class= "row">
+<div class="form-group">
+<%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" }, label: 'Rango de Tiempo ' %>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-sm-8"  style="margin-left: 10px;">
+<div class="row">
+<%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
+<%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
+</div>
+</div>
+
+
+<div class="col-sm-8"  style="margin-left: 10px;">
+<div class="row">
+<div class="form-group">
+ <%= f.input :color, as: :select, collection: [['Negro','black'], ['Verde','green'], ['Rojo','red']], input_html: {class: "form-control"} %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-8"  style="margin-left: 10px;">
+<div class="row">
+<div class="form-group">
+<%= f.input :aula, :label => "Aula", :collection => @classroom_laboratories,:label_method => :descripcion,:value_method => :descripcion, :selected => "lead",input_html: {class: "form-control"} %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-8"  style="margin-left: 10px;">
+<div class="row">
+<div class="form-group">
+<%= f.label :recurrencia, "Recurrencia"%>
+   <%= select_tag(:recurrencia, options_for_select([['Unico', 0], ['Semanal', 1]], selected: :recurrencia ),class: "form-control") %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-8"  style="margin-left: 10px;">
+<div class="row">
+<div class="form-group">
+<%= f.label :duracion, "Duracion"%>
+<%= select_tag(:duracion, options_for_select([['Evento Unico', 1], ['Por un Mes ', 4], ['Por un Trimestre', 12], ['Por un Semestre', 24]], selected: :duracion ), class: "form-control") %>
+</div>
+</div>
+</div>
+
+</div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Delete',  event, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' },remote: true unless @event.new_record? %>
+  </div>
+<% end %>
+
+<style type="text/css" media="screen">
+    
+
+label {
+ position: relative; 
+    top: 0px;
+    
+    color: #9e9e9e;
+    left: 3px;
+    z-index: 0;
+}
+</style>
+
+
+
+
+
+
+

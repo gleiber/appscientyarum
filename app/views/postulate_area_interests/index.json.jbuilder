@@ -1,0 +1,1 @@
+json.array! @postulate_area_interests, partial: 'postulate_area_interests/postulate_area_interest', as: :postulate_area_interest

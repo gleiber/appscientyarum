@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+  <div class="col-lg-1 col-md-1"></div>
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" >
+    <div class="row header" style="background-color: #1f4bae;">
+      <h1 class="center-align col-lg-12 text-center"><b> Constancias </b></h1>
+    </div>
+    <br>
+
+    <div class="row " style="margin-top: 10px; ">
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="form-group col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">      
+       <div class="input-group2">
+        <%= form_tag certificates_path, enforce_utf8: false, remote: true, :method => 'get' do %>  
+          <%= select_tag :status, options_for_select(@type_status_certificates.collect{ |u| [u.descripcion, u.id]}), include_blank: "Todos", remote: true, 'data-live-search'=>"true", class: "selectpicker", :onchange => "this.form.submit();", Title: "Seleccione"  %>
+          <%= label_tag :status, "Seleccione", class: "labelfijo"%><br>
+          
+            <% if params[:status].blank? 
+              @certificates = @certificates_temp
+              else
+                @certificates = @certificates_temp.where(type_status_certificate_id: params[:status])
+              end  %>
+          
+        <% end  %>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-2"></div>
+  <br>
+  <table id="tabla_vp" class="table table-hover text-center">
+    <thead>
+      <tr>
+        <th class="text-center">Fecha de Solicitud</th>
+        <th class="text-center">Fecha de Actualización</th>
+        <th class="text-center">Participante</th>
+        <th class="text-center">Tipo de Constancia</th>
+        <th class="text-center">Estado</th>
+        <th class="text-center" colspan="3">Acción</th>
+      </tr>
+    </thead>
+    <tbody class="searchable">
+      <% @certificates.each do |certificate| %>
+      <tr>
+        <td><%= certificate.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= certificate.updated_at.strftime("%d/%m/%Y") %></td>
+        <td><%= certificate.user.nombre %></td>
+        <td><%= certificate.type_certificate.descripcion %></td>
+        <td><%= certificate.type_status_certificate.descripcion %></td>
+        <td><%= link_to edit_certificate_path(certificate),class: "btn btn-info" do %>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-1 col-md-1"></div>
+</div>

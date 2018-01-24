@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Programa: <%= @program.titulo %></h1>
+<br><br>
+<% @regimen_durations.each do |regimen_duration| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+          <h3> <%= regimen_duration.program.regimen_study.descripcion %> # <%= regimen_duration.numero%> </h3>
+        </div>
+        <div class="col-md-6 ">
+          <%= render 'subject_regimen_durations/form', subject_regimen_duration: @subject_regimen_duration,   regimen_duration: regimen_duration %>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+          <table class="table text-center table-inverse">
+            <thead class="thead-inverse">
+              <tr>
+                <th class="text-center">Materia</th>
+                <th class="text-center">Acción</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% regimen_duration.subject_regimen_durations.each do |subject_regimen_duration| %>
+                <tr>
+                  <td><%= subject_regimen_duration.subject.descripcion %></td>
+                  <td><%= button_to subject_regimen_duration, method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Are you sure?'} do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<% end %>
+<br>
+<style type="text/css">
+  .container {
+    width: 100% !important;
+}
+</style>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postulate_id: 
+  collection_program_id: 
+  estado: false
+
+two:
+  postulate_id: 
+  collection_program_id: 
+  estado: false

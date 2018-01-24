@@ -1,0 +1,74 @@
+
+
+ <% if @poll.errors.any? %>
+    <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @poll.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+<%= form_for "guardar_encuesta_llenada",
+             url: {action: "guardar_encuesta_llenada",
+             params: {id: @poll.id,
+             questions: @questions}} do |f| %>
+
+
+
+        <div class="row header" style="background-color: #1f4bae;">
+          <h1 class="center-align col-lg-12 text-center"><b> llena la encuesta:
+            <strong><%= @poll.descripcion.titleize %></strong></b></h1>
+        </div>
+
+        <div class="container" style=" margin-top: 50px;">
+
+
+          <% @questions.each do |q|
+            @answers = q.answers
+            if @answers.count > 0
+          %>
+              <div class ="row">
+                <div class="row header" style="background-color: #1f4bae;">
+                  <h3 class="center-align col-lg-12 text-center">
+                    <strong><%= q.descripcion %></strong></h3>
+                </div>
+
+                  <%= f.label :pregunta, q.descripcion %>
+
+              </div>
+              <div class="row answers" style="padding-top: 3px; padding-bottom: 3px">
+              <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="input-group2">
+                    <% @answers.each do |a| %>
+                        <div class="col-md-11 " id="idUsers">
+                          <%= check_box_tag q.id, a.id.to_i %> <%=  a.descripcion %>
+                        </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              </div>
+          <% end end %>
+          <br>
+          <br>
+          <br>
+          <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
+            <div class="col-md-2 col-md-offset-1" >
+              <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+                  <span class="fa fa-thumbs-o-up"></span> Terminar
+              <% end %>
+            </div>
+          </div>
+          <div class="form-actions">
+          </div>
+        </div>
+    <% end %>
+
+

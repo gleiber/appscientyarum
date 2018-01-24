@@ -1,0 +1,103 @@
+
+
+<div class="form">
+ <%= simple_form_for @request_class_lab do |f| %>
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Solicitud de Aula o Laboratorio </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+       <%= f.text_field :start, disabled: true, class: "form-control2"%>
+       <%= f.label :start, "Fecha Desde" %><br>
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >        
+     <div class="input-group2">
+     <%= f.text_field :end, disabled: true, class: "form-control2 datetimepicker1" %>
+       <%= f.label :end, "Fecha Hasta" %><br>
+     </div>
+     </div>
+     </div>
+
+    
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="input-group2">
+      <%= f.text_field :solicitante, class: "form-control2" %>
+      <%= f.label :solicitante, "Solicitante" %><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :descripcion,disabled: true, class: "form-control2" %>
+       <%= f.label :descripcion, "Descripción" %><br>
+     </div>
+     </div>
+     </div>
+
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="input-group2">
+     <%= f.input :status, as: :select, collection: [['En tramite', 'tramite'], ['Aprobado', 'aprobado'], ['Cancelado', 'cancelado']],input_html: { class: "form-control selectpicker", include_blank: "Estatus" } %>
+     </div>
+     </div>
+     </div>
+
+
+
+     
+
+
+     
+
+
+
+
+     </div>
+
+     
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+      <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to @request_class_labs_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+     </div>
+
+     
+    

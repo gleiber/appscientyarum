@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descipcion:</strong>
+  <%= @reason.descipcion %>
+</p>
+
+<p>
+  <strong>Type reason:</strong>
+  <%= @reason.type_reason %>
+</p>
+
+<p>
+  <strong>Request classroom laboratory:</strong>
+  <%= @reason.request_classroom_laboratory %>
+</p>
+
+<%= link_to 'Edit', edit_reason_path(@reason) %> |
+<%= link_to 'Back', reasons_path %>

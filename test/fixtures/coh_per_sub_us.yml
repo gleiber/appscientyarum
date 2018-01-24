@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject_user_id: 
+  cohort_period_id: 
+  schedule_cohort_period_id: 
+
+two:
+  subject_user_id: 
+  cohort_period_id: 
+  schedule_cohort_period_id: 

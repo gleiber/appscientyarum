@@ -1,0 +1,98 @@
+
+<%= form_for(@period, :html => {:class => 'form'}, url: "/save_period_users") do |f| %>
+
+  <div class="row header" style="background-color: #1f4bae">
+     <h1 class=" text-center"><b> Registrar Participantes en el Periodo </b></h1>
+  </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <%= select_tag "program_id", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}), class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+     </div>
+     </div> 
+     </div>
+<% @cohorts = Cohort.all %>
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+     <div id="div_cohort">
+     </div>
+     </div> 
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+     <div id="div_period">
+     </div>
+     </div> 
+     </div>
+     </div>
+
+     </div>
+
+<div id="divparticipante_periodo" hidden="true">
+     
+  
+  
+     <div class="row" style="margin-top:30px;">
+
+
+     <div class="row">
+     <h1 class=" text-center"><b> Participantes </b></h1>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="row">
+     <div class="col-md-11 col-md-offset-1">
+          <div id="divUsers">
+               <div class="row" id="idUsers">
+          </div>
+     </div>
+     </div>
+     </div> 
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+      <div class="col-md-2 col-sm-6 col-xs-6" >
+     
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+  
+ 
+
+  
+</div>  
+
+<% end %>
+
+
+
+

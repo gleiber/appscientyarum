@@ -1,0 +1,53 @@
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Listado de Encuestas</b></h1>
+     </div>
+    
+        <div class="text-center">
+        <%= link_to new_poll_path , {class:"btn btn-success", style: "margin: 25px auto;" } do%>
+        <i class="fa fa-plus"></i> Registrar Encuesta
+        <% end %>
+
+        </div>
+
+
+
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Titulo</th>
+              <th class="text-center">Tipo</th>
+              <th  class="text-center" colspan="2">Acción</th>
+            </tr>
+          </thead>
+        
+        <tbody>
+          <% @polls.each do |poll| %>
+            <tr>
+              <td><%= poll.descripcion %></td>
+              <td><%= poll.type_poll.descripcion %></td>
+              <td><%= link_to edit_poll_path(poll),class: "btn btn-info" do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                  <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+
+
+        </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<br>
+

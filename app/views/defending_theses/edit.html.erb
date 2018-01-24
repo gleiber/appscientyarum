@@ -1,0 +1,137 @@
+
+<%= form_for(@defending_thesis, :html => {:class => 'form'}) do |f| %>
+
+
+
+
+<div class="row header" style="background-color: #1f4bae;"">
+<h1 class="center-align col-lg-12 text-center"><b> Editar Defensa de Tesis/TEG </b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first">
+<div class="input-group2" style="width: 90%">
+<%= text_field_tag :titulo, @defending_thesis.thesis.titulo , class: "form-control2", disabled: true %>
+<%= f.label :nombre, "Titulo de Tesis/TEG" %><br>
+</div>
+</div> 
+</div>
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" >        
+<div class="input-group2">
+<%= text_field_tag :fecha, @defending_thesis.fecha, {readonly: true, class: "form-control2 form_date"} %>
+<%= f.label :fecha, "Fecha de Defensa" %><br>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="input-group2">
+<%= text_field_tag :hora, @defending_thesis.hora, {readonly: true, class: "form-control2 form_time"} %>
+<%= f.label :hora, "Hora de Defensa" %>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div class="input-group2" style="width: 90%">    
+<%= f.text_field :lugar , class: "form-control2"%>
+<%= f.label :lugar, " Aula de Defensa de la Tesis/TEG " %>
+</div>
+</div> 
+</div>
+
+
+</div>
+
+
+
+<div class="row" style="margin-top: 50px;">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+<div class="input-group2">
+<div class="col-md-6 col-sm-6 col-xs-6" >
+<%= link_to defending_theses_path, class: "btn btn-warning", style:"width: 100px;" do %>
+<span class="fa fa-reply"></span> Atras    
+<% end %>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6" >
+<%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Guardar    
+<% end %>
+</div>
+</div>
+</div> 
+</div> 
+
+
+</div>
+
+<% end %>
+<br><br>
+
+
+
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+<script >
+  $('.form_date').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse:0,
+    clearBtn: true,
+    format: 'dd-mm-yyyy'
+    });
+    $('.form_time').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0,
+    datepicker:false,
+      format:'H:i'
+
+
+    });
+ 
+  
+
+  
+</script>
+
+<style>
+  .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td{
+    padding: 7px;
+    }
+.datetimepicker td, .datetimepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+}
+
+ 
+
+</style>

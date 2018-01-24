@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @subject_user.subject %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @subject_user.user %>
+</p>
+
+<%= link_to 'Edit', edit_subject_user_path(@subject_user) %> |
+<%= link_to 'Back', subject_users_path %>

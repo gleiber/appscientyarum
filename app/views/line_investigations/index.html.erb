@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Line Investigations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Program</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_investigations.each do |line_investigation| %>
+      <tr>
+        <td><%= line_investigation.descripcion %></td>
+        <td><%= line_investigation.program.titulo %></td>
+        <td><%= link_to 'Show', line_investigation %></td>
+        <td><%= link_to 'Edit', edit_line_investigation_path(line_investigation) %></td>
+        <td><%= link_to 'Destroy', line_investigation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line investigation', new_line_investigation_path(id: @program.id) %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cohort_id: 
+  period_id: 
+
+two:
+  cohort_id: 
+  period_id: 

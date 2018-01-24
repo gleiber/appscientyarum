@@ -1,0 +1,226 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a href="/">
+                        <img alt="image" style="width: 100%;" src="<%= image_url 'logo_negro_sf.png' %>"/>
+                    </a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">Niriaska Perozo</strong>
+                            </span> <span class="text-muted text-xs block">Coordinador General<b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                         <li>  <%= link_to'Mi Perfil', edit_user_path(current_user) %></li>
+                        </li>
+                        <li><a href="">Configurar Cuenta</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    SC
+                </div>
+            </li>
+            <li class="">
+                <a href=""><i class="fa fa-briefcase" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Ofertas</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class=""><%= link_to "Registrar Oferta de Programa", offers_path %></li>
+                    <li class=""><%= link_to "Admisión de Postulado ", postulates_path %></li>
+                    <li class=""><%= link_to "Asignar Recursos a la Oferta", '/recursos_oferta' %></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="glyphicon glyphicon-education" aria-hidden="true"></i></i> <span class="nav-label" data-i18n="nav.dashboard">Operaciones</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class=""><%= link_to "Registrar Planificación de la Cohorte", "/cohorts" %></li>
+                    <li id="" class=""><%= link_to "Asignación de Recursos a la Cohorte","/asignacion_recursos" %></li>
+                    <li id="" class=""><%= link_to "Registrar Participantes en el Periodo", '/registrar_participantes' %></li>
+                    <li id="" class=""><%= link_to "Registrar Resultados","/resultado" %></li>
+                    <li id="" class=""><%= link_to "Ver Ficha", tokens_path %></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="glyphicon glyphicon-book" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Proyecto/Tesis/TEG</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                   <li class="">
+                <a href=""><i class="" aria-hidden="true"></i></i> <span class="nav-label" data-i18n="nav.dashboard">Proyecto</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-third-level collapse ">
+                     <li class=" "><%= link_to "Registrar Proyecto", projects_path %></li>
+                      <li class=""><%= link_to "Registrar Comisión Evaluadora", eva_comm_projs_path %></li>
+                      <li class=""><%= link_to "Registrar Evaluación", review_projects_path %></li>
+                      <li class=""><%= link_to "Mi Proyecto","/mi_proyecto" %></li>
+                      <li class=""><%= link_to "Seguimento del Proyecto", "/seguimiento" %></li>
+                </ul>
+                </li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i></i> <span class="nav-label" data-i18n="nav.dashboard">Tesis/TEG</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse ">
+                            <li class=""><%= link_to "Registrar Tesis/TEG",theses_path %></li>  
+                            <li class=""><%= link_to "Registrar Jurado Evaluador",eva_comm_theses_path %></li>
+                            <li class=""><%= link_to "Registrar Evaluación",review_theses_path %></li>
+                            <li class=""><%= link_to "Registrar Defensa",defending_theses_path %></li>
+                            <li class=""><%= link_to "Mi Tesis/TEG","/mi_tesis" %></li>
+                            <li class=""><%= link_to "Seguimiento de la Tesis/TEG","/seguimiento1"  %></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="fa fa-university" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Aulas/Laboratorios</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class=""><%= link_to "Regitrar Solicitud de Reserva","/request_class_labs" %></li>
+                    <li class=""><%= link_to "Calendario","/appviews/calendar" %></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="fa fa-thumb-tack" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Servicios</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class=""><%= link_to "Constancias", certificates_path %></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="fa fa-line-chart" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Reportes y Consultas</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Estructurados</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=" "><%= link_to "Pools de Profesores", '/poll_profesores' %></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">No Estructurados</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Estadísticos</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=""><%= link_to "Reportes Estadísticos",reports_path %></li>
+                            <li class=""><%= link_to "Postulados",'/reporte_postulados_pordia' %></li>
+                            <li class=""><%= link_to "Contactos",'/reporte_tipo_contacto' %></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="fa fa-bullhorn" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Difusion y Escucha al Cliente</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class=" "><%= link_to "Cartelera de Noticia", '/news' %></li>
+                    <li class=" "><%= link_to "Crear Noticia", '/news/new' %></li>
+                    <li class=" "><%= link_to "Crear Encuesta", polls_path %></li>
+                    <li class=" "><%= link_to "Contacto", contacts_path %></li>
+                    <li class=" "><%= link_to "Interesados", interesteds_path %></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="glyphicon glyphicon-cog"></i> <span class="nav-label" data-i18n="nav.dashboard">Configuración</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Web</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=" "><%= link_to "Slider Principal", sliders_path %></li>
+                            <li class=" "><%= link_to "Widget Sociales", social_widgets_path %></li>
+                            <li class=" "><%= link_to "Encuesta", '/encuesta_web' %></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Utilidades del Sistema</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=" "><%= link_to "Respaldo de Base de Datos","" %></li>                           
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="glyphicon glyphicon-tasks"></i> <span class="nav-label" data-i18n="nav.dashboard">Parametrización</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Oferta</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse ">
+                            <li class=""><%= link_to "Recaudos", '/maestricos/prueba?titulo=Recaudo&tabla=Collection', method: :post %></li>
+                            <li class=""><%= link_to "Materias", subjects_path %></li>
+                            <li class=""><%= link_to "Programas", programs_path %></li>
+                            <li class=""><%= link_to "Pensum de Programas", '/pensum_programa' %></li>
+                            <li class=""><%= link_to "Lineas de Investigación de Programas", "/lineas_programa" %></li>
+                             <li class=""><%= link_to "Perfil del Egresado del Programa", "/perfil_egresado_programa" %></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Operaciones</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=""><%= link_to "Cohorte", '/maestricos/prueba?titulo=Cohorte&tabla=Cohort', method: :post %></li>
+                            <li class=""><%= link_to "Periodos", periods_path %></li>   
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Aulas/Laboratorios</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=""><%= link_to "Aulas/Laboratorios", '/maestricos/prueba?titulo=Aulas/Laboratorios&tabla=ClassroomLaboratory', method: :post %></li>                     
+                            <li class=""><%= link_to "Recursos", '/maestricos/prueba?titulo=Recursos&tabla=resource', method: :post %></li>                                
+                        </ul>
+                    </li>                  
+                    <li class="">
+                    <i class="" aria-hidden="true"></i><%= link_to "Coordinación",  postgraduate_coordinations_path %></li>
+                    <li class="">
+                        <a href=""><i class="" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard">Parametros</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse ">
+                            <li class=""><%= link_to "Tipo de Constancias", '/maestricos/prueba?titulo=Tipo+de+Constancias&tabla=Type_Certificate', method: :post %></li>
+                            <li class=""><%= link_to "Especialidad", '/maestricos/prueba?titulo=Especialidad&tabla=Speciality', method: :post %></li>
+                            <li class=""><%= link_to "Sexo", '/maestricos/prueba?titulo=Sexo&tabla=Sex', method: :post %></li>
+                            <li class=""><%= link_to "Estado Civil", '/maestricos/prueba?titulo=Estado+Civil&tabla=CivilStatus', method: :post %></li>
+                            <li class=""><%= link_to "Estado", '/maestricos/prueba?titulo=Estado&tabla=Estado', method: :post %></li>
+                            <li class=""><%= link_to "Ciudad", '/maestricos/prueba?titulo=Ciudad&tabla=City', method: :post %></li>
+                            <li class=""><%= link_to "Títulos Académicos", ownerships_path%></li>
+                            <li class=""><%= link_to "Detalle", '/maestricos/prueba?titulo=Detalle&tabla=Detail', method: :post %></li>
+                            <li class=""><%= link_to "Institución Académica", '/maestricos/prueba?titulo=Institucion&tabla=Institution', method: :post %></li>
+                            <li class=""><%= link_to "Área de Interés", "/area_line" %></li>
+                            <li class=""><%= link_to "Tipo de Materia", '/maestricos/prueba?titulo=Tipo+de+Materia&tabla=Type_Subjects', method: :post %></li>
+                            <li class=""><%= link_to "Régimen de Estudio", '/maestricos/prueba?titulo=Regimen+de+Estudio&tabla=RegimenStudy', method: :post %></li>
+                            <li class=""><%= link_to "Modalidad de Programa", '/maestricos/prueba?titulo=Modalidad+de+Programa&tabla=Modality', method: :post %></li>
+                            <li class=""><%= link_to "Tipo de Opinión", '/maestricos/prueba?titulo=Tipo+de+Opinion&tabla=TypeOpinion', method: :post %></li>
+                            <li class=""><%= link_to "Tipo de Revisión", '/maestricos/prueba?titulo=Tipo+de+Revisión&tabla=TypeReview', method: :post %></li>
+                            <li class=""><%= link_to "Tipo de Encuesta", '/maestricos/prueba?titulo=Tipo+de+Encuesta&tabla=TypePoll', method: :post %></li>
+                            <li class=""><%= link_to "Tipo de Solicitud", '/maestricos/prueba?titulo=Tipo+de+Solicitud&tabla=TypeRequest', method: :post %></li>
+                            <li class=""><%= link_to "Tipo de Motivo", '/maestricos/prueba?titulo=Tipo+de+Motivo&tabla=TypeReason', method: :post %></li>
+                            <li class=""><%= link_to "Grado Académico", '/maestricos/prueba?titulo=Grado+Academico&tabla=AcademicDegree', method: :post %></li>
+                            <li class=""><%= link_to "Tipos de Notificaciones","" %></li>
+                            <li class=""><%= link_to "Tipo de Respuesta de Solicitud", '/maestricos/prueba?titulo=Tipo+de+Respuesta+de+Solicitud&tabla=TypeReqResps', method: :post %></li>
+                            <li class=""><%= link_to "Estado de Recursos", '/maestricos/prueba?titulo=Estado+de+Recursos&tabla=State', method: :post %></li>
+                            <li class=""><%= link_to "Preguntas de Encuestas", '/maestricos/prueba?titulo=Tipo+de+Motivo&tabla=TypeReason', method: :post %></li>
+                            <li class=""><%= link_to "Respuestas de Encuestas", '/maestricos/prueba?titulo=Respuestas+de+Encuestas&tabla=Answer', method: :post %></li>
+                            <li class=""><%= link_to "¿Como Se Entero?", '/maestricos/prueba?titulo=Como+Se+Entero&tabla=FindOut', method: :post %></li>
+                            <li class=""><%= link_to "¿Por Que DCYT?", '/maestricos/prueba?titulo=Por+que+DCYT&tabla=WhyDcyt', method: :post %></li>
+                            <li class=""><%= link_to "Tipo Contacto", '/maestricos/prueba?titulo=Tipo+Contacto&tabla=TypeContacts', method: :post %></li>
+                            <li class=""><%= link_to "Contacto Sobre", '/maestricos/prueba?titulo=Contacto+Sobre&tabla=ContactAbouts', method: :post %></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href=""><i class="glyphicon glyphicon-warning-sign"></i> <span class="nav-label" data-i18n="nav.dashboard">Seguridad Funcional</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class=""><%= link_to "Usuarios", users_path %></li>
+                    <li class=""><%= link_to "Roles del Sistema", '/maestricos/prueba?titulo=Roles+del+Sistema&tabla=Role', method: :post %></li>
+                    <li class=""><%= link_to "Permisologia del Menú", role_funcions_path %></li>
+                </ul>
+            </li>
+        </ul>
+
+ 
+<%if  user_signed_in? %>
+<script type="text/javascript">
+    $( "#1" ).hide();
+
+</script>
+<%end%>
+    </div>
+</nav>
+
+
+

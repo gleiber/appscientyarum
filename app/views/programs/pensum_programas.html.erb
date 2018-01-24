@@ -1,0 +1,38 @@
+
+<div class="form">
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b> Pensum de programa </b></h1>
+</div>
+
+
+
+<%= form_for(@program, url: "/PensumPrograms" ) do |f| %>
+
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first">
+<div class="input-group2">
+<%= select_tag "program_id_regimen", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}),class: "form-control selectpicker", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+</div>
+</div> 
+</div>
+
+</div>
+<% end %>
+
+
+
+<div class="row" id="regimen-contenedor" style="margin-top:50px;margin-bottom: 50px;">
+<div id="regimen"></div>
+</div>
+
+
+</div>
+<br><br>
+
+
+
+

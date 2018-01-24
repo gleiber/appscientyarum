@@ -1,0 +1,56 @@
+
+
+
+
+<% if notice %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Noticia</span>
+            <p data-toggle="modal" data-target="#myModal"><%= notice %></p>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Bloques de horario </b></h1>
+     </div>
+     <div class="text-center">
+    <%= link_to  new_block_path , {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+   <i class="fa fa-plus" aria-hidden="true"></i> Registrar Bloque
+    <% end %>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+             <th class="text-center">Desde</th>
+             <th  class="text-center">Hasta</th>
+             <th class="text-center"> Eliminar</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+               <% @blocks.each do |block| %>
+              <tr>
+                 <td><%= block.desde %></td>
+                 <td><%= block.hasta %></td>
+                
+                <td><%= button_to block, method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Are you sure?'} do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+
+

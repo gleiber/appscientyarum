@@ -1,0 +1,1 @@
+json.array! @why_dcyts, partial: 'why_dcyts/why_dcyt', as: :why_dcyt

@@ -1,0 +1,31 @@
+
+<h1>Programa: <%= @line_investigation.program.titulo %></h1>
+<br><br>
+<h1>Linea de Investigación: <%= @line_investigation.descripcion %></h1>
+<h1>Listing Area Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line investigation</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @area_interests.each do |area_interest| %>
+      <tr>
+        <td><%= area_interest.line_investigation %></td>
+        <td><%= area_interest.descripcion %></td>
+        <td><%= link_to 'Show', area_interest %></td>
+        <td><%= link_to 'Edit', edit_area_interest_path(area_interest) %></td>
+        <td><%= link_to 'Destroy', area_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Area interest', new_area_interest_path(id: @line_investigation.id) %>

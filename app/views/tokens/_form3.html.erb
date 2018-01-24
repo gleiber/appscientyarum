@@ -1,0 +1,376 @@
+
+<%= form_for @user, :url=>{:action=>:update}, :html=>{:method=>:POST} do |f| %>
+ 
+
+   
+
+<div class="container" style=" margin-top: 50px;">
+  <div class="row">
+
+
+<div class="row wrapper border-bottom white-bg page-heading container ">
+  <div class="col-lg-12">
+
+
+<div class="row header" style="background-color: #1f4bae;width: 97.7%; ">
+     <h1 class="center-align col-lg-12 text-center">
+     <b> Ver Ficha </b></h1>
+        <div class="col-lg-2">
+        </div>
+</div>
+
+<div class="wrapper wrapper-content">
+<div class="row animated fadeInRight">
+
+<div class="col-md-12">
+  <div class="ibox float-e-margins">
+
+
+<div class="ibox-title"  style="background: #1F4BAE;width: 97.7%;">
+    <h5 style="color: white;">Informacion  Personal</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+</div>
+            
+
+<div class="">
+  <div>
+    <div class="feed-activity-list">
+      <div class="media-body ">
+        <div class="">        
+          <div class="media-body ">
+
+                                        
+<div class="col-md-6">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :nombre, "Nombres y Apellidos" %><br>
+        <%= f.text_field :nombre, class: "form-control2", disabled: true%>
+   </div>
+</div>
+
+<div class="col-md-4">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :cedula, "Cedula" %><br>
+        <%= f.text_field :cedula, class: "form-control2", disabled: true%>
+   </div>
+</div>
+
+
+<div class="col-md-8">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :direccion, "Dirección" %><br>
+        <%= f.text_field :direccion, class: "form-control2", disabled: true%>
+   </div>
+</div>
+
+<div class="col-md-6">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :telefono, "Telefono" %><br>
+        <%= f.text_field :telefono, class: "form-control2", disabled: true%>
+   </div>
+</div>                  
+
+<div class="col-md-4">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :email, "email" %><br>
+        <%= f.text_field :email, class: "form-control2", disabled: true%>
+   </div>
+</div>
+
+<div class="col-md-4">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :civil_status_id, "Estado Civil" %><br>
+        <%= f.text_field :civil_status_id, class: "form-control2", disabled: true%>
+   </div>
+</div>
+                                     
+<div class="col-md-4">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :sex_id, "Sexo" %><br>
+
+           <%= f.text_field :sex_id, :value => @user.sex.descripcion, class: "form-control2", disabled: true%>
+
+   </div>
+</div>
+
+<div class="col-md-4">
+   <div class="input-group2 input "  style="margin: 0px auto; width: 100%">
+        <%= f.label :fecha_nacimiento %><br>
+        <%= f.text_field :fecha_nacimiento, class: "form-control2", disabled: true%>
+   </div>
+</div>
+                                 
+
+     </div>
+  </div>      
+</div>
+
+
+<div class="feed-element">
+
+
+  <div class="ibox-title">
+    <h5>Titulos Academicos Obtenidos</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+  </div>
+<% if  @ownerships%>
+ <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <% @ownerships.each do |a| %> 
+            <li><%= a.academic_degree.descripcion%></li>
+              
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+ <% else %>
+ 
+
+
+ <% end %>
+
+   <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <% @ownerships.each do |a| %> 
+            <li><%= a.academic_degree.descripcion%>
+                <%= a.speciality.descripcion%></li>
+              
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+
+
+</div>
+
+</div>
+              
+<div class="">
+  <div class="ibox-title">
+      <h5>Areas de Interes</h5>
+        <div class="ibox-tools">
+           <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i></a>
+        </div>
+   </div>
+
+<div class="">
+  <label >Linea de Investigacion</label>
+    
+
+    <div class="form-group">
+      <br>    
+      <% if @user.line_investigation %>
+        <%= @user.line_investigation.descripcion%>
+        <% else %>
+          Sin Lineas Seleccionadas
+        <% end%>
+    </div>
+
+ <div class="">
+    <label  style="position: inherit;">Areas de Interes</label>
+       <br>
+       <%@area_interests.each do |area_interest|%>
+       <%= area_interest.descripcion %>
+  </div>
+  <%end%>
+  <%end%>
+</div>
+
+</div>
+<div class="feed-element">
+    <div class="ibox-title">
+        <h5>Carga Academica Actual</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+              
+            </div>
+    </div>
+    <%contSub= 0%>
+    <%@sub_per_users.each do |sub_per_user|%>
+    <ul class="">
+      <li class=" col-md-4"><%=@subjects[contSub]%><%= sub_per_user.nota%></li>
+    </ul>
+    <%contSub = contSub + 1%>
+    <%end%>
+  
+
+<div class="feed-element">
+    <div class="ibox-title">
+        <h5>Recaudos</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+              
+            </div>
+            </div>
+            </div>
+
+    <div class="">       
+<div class="form-group">
+               <div class="col-md-12 col-sm-12 col-xs-12" >
+                    <div class="input-group2">
+                         <% @collections.each do |collection| %>
+                         <div class="col-md-4 text-left" id="idRecaudos" style="margin-top:20px;">
+                              <%= check_box_tag "collections[]", collection.id,@user.collections.include?(collection) %> <%= collection.descripcion %>
+                         </div>
+                         <% end %>
+
+                         
+                    </div>
+               </div> 
+          </div></div>
+ </div>   
+
+  
+   <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+
+
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+ 
+
+          <div class="row" style="margin-top: 50px;">
+            <div class="col-md-2 col-md-offset-2" >
+              <%= link_to tokens_path, class: "btn btn-warning", style:"width: 100px;" do %>
+                <span class="fa fa-reply"></span> Atras    
+              <% end %>
+            </div>
+            <div class="col-md-2 col-md-offset-3" >
+              <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+                <span class="fa fa-floppy-o"></span> Guardar    
+              <% end %>
+            </div>
+        </div>
+
+
+<script >
+  $('.form_date').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse:0,
+    clearBtn: true,
+    format: 'dd-mm-yyyy'
+    });
+ 
+  
+
+  
+</script>
+
+
+
+
+<style type="text/css">
+
+
+.feed-element, .media-body {
+    overflow: hidden;
+}
+
+.wrapper-content {
+    padding: 24px 25px 30px;
+}
+    
+
+.datetimepicker td, .datetimepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+}
+
+
+.input{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 94%;
+}
+
+
+.ibox-title {
+background: #1F4BAE;
+}
+  h5 {
+
+    color: white;
+  }
+
+  label{
+
+
+    position: inherit;
+  }
+
+  .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td{
+    padding: 7px;
+    }
+.datetimepicker td, .datetimepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+}
+
+.form-control {
+
+
+width: 85%;
+
+}
+
+
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:hover, .btn-primary.active:focus {
+    background-color: #1C84C6;
+    border-color: #1C84C6;
+    color: white;
+}
+
+
+input.btn-block[type="submit"], input.btn-block[type="reset"], input.btn-block[type="button"] {
+    width: 80%;
+    padding: 1.5%;
+}
+
+
+
+</style>
+
+
+

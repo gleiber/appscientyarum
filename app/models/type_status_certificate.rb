@@ -1,0 +1,2 @@
+class TypeStatusCertificate < ApplicationRecord
+end

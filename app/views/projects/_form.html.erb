@@ -1,0 +1,116 @@
+     
+      <% if @project.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @project.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+
+   <%= form_for(@project,:html => {:class => 'form'}) do |f| %>
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Proyecto </b></h1>
+     </div>
+
+     <div  class="row" style="margin-top: 30px">
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_area :titulo , class: "form-control2"%>
+     <%= f.label :titulo, "Titulo del Proyeto  " %><br>
+     </div>
+     </div>
+     </div>
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="input-group2">
+      <%= select_tag "user_id", options_for_select(@users.collect { |u| [u.nombre, u.id] }, @project.user_id), :class =>"selectpicker form-control",  'data-live-search'=>"true", "title"=>"Seleccione un Participante", desabled:"true" %>
+     </div>
+     </div> 
+     </div>
+
+     <div id="cohort_program" >
+       
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <%= select_tag "tutor_id", options_for_select(@users1.collect { |u| [u.nombre, u.id] } ), :class =>"selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione un Tutor"  %>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <%= select_tag "select_line", options_for_select(@line_investigations.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione una línea  " %>
+    
+     </div>
+     </div> 
+     </div>
+
+     </div>
+
+      <div class="row">
+
+      <div class="row">
+      <h2 class="center-align col-lg-12 text-center"><b>Areas de Interes</b></h2>
+      </div>
+
+
+        <div class="form-group">
+          <div class="col-md-12 col-sm-6 col-xs-12 col-md-offset-0">
+            <div class="input-group2">
+            
+            
+              <div id="area_interes_project">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to projects_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+     <br><br>
+    
+
+
+    

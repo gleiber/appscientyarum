@@ -1,0 +1,30 @@
+<br>
+
+<br><br>
+
+<br>
+
+<div class="row">
+	
+<div class="col-sm-12">
+	
+     <div class="row header" style="background-color: #1f4bae;">
+     <h2 class="center-align col-lg-12 text-center"></i><b>Reporte de Mensajes recibidos por dia</b></h2>
+    </div>
+
+
+<br>
+
+<br>
+<br>
+<br>
+<%= line_chart @tipocontactos.map { |goal|
+    {name: goal.descripcion, data: goal.contacts.group_by_day(:created_at).count}
+}, xtitle: "Fecha", ytitle: "Cantidad de Mensajes de contacto", legend: "top",download: "Cantidad_de_mensajes_dia" %>
+
+
+
+
+</div>
+
+</div>

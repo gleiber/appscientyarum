@@ -1,0 +1,25 @@
+ <% if @cohort.errors.any? %>
+    <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @cohort.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+
+<%= form_for(@cohort) do |f| %>
+  
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

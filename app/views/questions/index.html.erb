@@ -1,0 +1,54 @@
+<% if notice %>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue">
+        <div class="card-content white-text">
+          <span class="card-title">Noticia</span>
+          <p id="notice"><%= notice %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"></i><b>Preguntas de Encuestas</b></h1>
+    </div>
+    <div class="text-center">
+      <%= link_to  new_question_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %><i class="fa fa-plus"></i> Registrar Pregunta de Encuesta
+     <% end %>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Descripción</th>
+              <th  class="text-center" colspan="2">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @questions.each do |question| %>
+              <tr>
+                <td><%= question.descripcion %></td>
+                <td><%= link_to edit_question_path(question),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>
+
+
+

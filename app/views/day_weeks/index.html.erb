@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Day Weeks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @day_weeks.each do |day_week| %>
+      <tr>
+        <td><%= day_week.descripcion %></td>
+        <td><%= link_to 'Show', day_week %></td>
+        <td><%= link_to 'Edit', edit_day_week_path(day_week) %></td>
+        <td><%= link_to 'Destroy', day_week, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Day Week', new_day_week_path %>

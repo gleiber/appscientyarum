@@ -1,0 +1,549 @@
+<%= form_for(@user,  :html => {:class => 'form'}) do |f| %>
+
+ 
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Ficha </b></h1>
+     </div>
+
+       <div class="container" style=" margin-top: 50px;">
+  
+          <div class="col-md-4">
+          
+
+          
+                <div class="ibox-content no-padding border-left-right"  >
+                  <div style="width: 237%;margin: 0%;">
+                 <span class=" btn btn-primary btn-file" style="padding: 6px;width: 42%;"><i class="fa fa-upload" aria-hidden="true"></i>
+
+                
+                    Cargar Imagen
+               <%= f.file_field :avatar,  disabled: true %>
+                </span>
+        
+
+             </div>
+                 <%= image_tag @user.avatar.url(:medium)%>
+               </div>
+
+    <div class="ibox float-e-margins">
+  <div class="ibox-title"  style="background: #1F4BAE">
+    <h5 style="color: white;">Configuracion</h5>
+    <div class="ibox-tools">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+      <a class="close-link">
+      
+      </a>
+    </div>
+  </div>
+
+</div>          
+
+      
+                 <div class="row">
+
+
+                   <div class="form-group">
+                     <div class="col-md-8 col-sm-6 col-xs-12 first">
+
+        
+                       <div class="input-group2">
+                        <%= f.text_field :username, disabled: true,  class: "form-control2"%>
+                        <%= f.label :username, " username " %>
+                        <br>
+                      </div>
+                    </div> 
+
+                </div> 
+
+
+
+
+        
+
+                   <div class="form-group">
+                     <div class="col-md-8 col-sm-6 col-xs-12 first">
+
+        
+                       <div class="input-group2">
+                        <%= f.password_field :password, value: @user.password, disabled: true, class: "form-control2"%>
+                        <%= f.label :password, " Contraseña " %>
+                        <br>
+                      </div>
+                    </div> 
+
+                </div> 
+
+                </div>
+      
+
+<div class="ibox float-e-margins">
+  <div class="ibox-title"  style="background: #1F4BAE">
+    <h5 style="color: white;"> Mis Titulos Academicos</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+   
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+      <a class="close-link">
+      
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+ <%= link_to "/titulos_academicos", class: "btn btn-primary"  do %>
+         </span><i class="fa fa-plus" aria-hidden="true"></i>
+  Agregar titulos    
+        <% end %>
+ 
+
+<br>
+<br>
+
+ <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <% @ownerships.each do |a| %> 
+            <li><%= a.academic_degree.descripcion%>
+                <%= a.speciality.descripcion%></li>
+              
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+      </div>  <!-- fin colunma 4 filas  -->          
+
+
+   
+
+
+
+<div class="col-md-6">
+ <div class="ibox float-e-margins">
+  <div class="ibox-title"  style="background: #1F4BAE">
+    <h5 style="color: white;">Informacion  Personal</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+   
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+      <a class="close-link">
+      
+      </a>
+    </div>
+  </div>
+
+</div>
+
+                
+
+              <div class="">
+  
+
+             
+                <div class="col-md-6 col-sm-6 col-xs-12 first" >
+                <div class="input-group2">
+                    <%= f.text_field :cedula, class: "form-control2" %>
+                    <%= f.label :cedula, "cedula" %><br>
+                </div>
+                </div>
+
+
+
+
+                <div class="col-md-6 col-sm-6 col-xs-12 first" >
+                <div class="input-group2">
+                    <%= f.text_field :nombre, class: "form-control2" %>
+                    <%= f.label :nombre, "Nombres Y Apellidos " %><br>
+                </div>
+               </div>
+              
+              
+
+
+  
+
+
+          <div class="row">
+
+
+
+            <div class="col-md-6  first" >
+                <div class="input-group2">
+                    <%= f.text_field :telefono, class: "form-control2" %>
+                    <%= f.label :telefono, "Telefono" %><br>
+                </div>
+               </div>
+
+
+
+             <div class="">
+            <div class="col-md-6  first" >
+                <div class="input-group2">
+                    <%= f.text_field :direccion, class: "form-control2" %>
+                    <%= f.label :direccion, "Direccion" %><br>
+                </div>
+               </div>
+               </div>
+
+               
+
+
+               </div>
+
+
+
+               <div class="row">
+
+
+
+               <div class="col-md-6 first" >
+                <div class="input-group2">
+                  
+             <%= f.text_field :fecha_nacimiento, {class: "form-control2 form_date"} %>
+             <%= f.label :fecha_nacimiento, "Fecha Nacimiento" %>
+                     </div>
+
+             </div>
+
+
+              
+
+          
+
+          
+            <div class="col-md-6  first" >
+                <div class="input-group2">
+                    <%= f.text_field :email, class: "form-control2" %>
+                    <%= f.label :email, "Correo" %><br>
+                </div>
+               </div>
+              
+
+          
+               
+
+
+                </div>
+  
+
+
+
+
+
+
+        
+              
+
+                  <div class="col-md-6 first" >
+                      <div class="input-group2"><br>
+              
+                  <%= f.radio_button :sexo, "Hombre" %> Hombre
+                  <%= f.radio_button :sexo, "Mujer"  %> Mujer
+                       <%= f.label :sexo, "Sexo" %>
+                </div>
+               </div>
+              
+
+              
+
+
+                 <div class="col-md-6  first" >
+                <div class="input-group2"><br>
+
+                  
+
+                   <%= select_tag :estado_civil, options_for_select([["Casado", "casado"], ["Soltero", "Soltero"],["Divorciado", "divorciado"],["Viudo", "viudo"]] ,@user.estado_civil), class: "selectpicker dropdown-toggle  bootstrap-select   ", "title"=>"Seleccione" %>
+                    <%= f.label :estado_civil, "estado Civil" %>
+
+
+                </div>
+               </div>
+
+        
+
+
+
+
+
+
+
+<div class="ibox float-e-margins">
+  <div class="ibox-title"  style="background: #1F4BAE">
+    <h5 style="color: white;"> Mi Linea de Investigacion</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+   
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+      <a class="close-link">
+      
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+    <br>    
+
+    <div class="input-group2 "  style="margin: 0px auto; width: 100% ">
+    
+           <%= select_tag "line_investigation_id", options_for_select(@line_investigations.collect{ |u| [u.descripcion, u.id]},@user.line_investigation_id),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"linea de Investigacion" %>
+ 
+   </div>
+
+   <br>
+   <br>
+
+
+
+
+
+
+ <div class="ibox float-e-margins">
+  <div class="ibox-title"  style="background: #1F4BAE">
+    <h5 style="color: white;"> Mis Areas de Interes</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+   
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+      <a class="close-link">
+      
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+  <div class="form-group">
+
+
+   
+
+
+
+   <div class="">
+
+
+
+  </div>
+
+  <div class="">
+
+    <div style="margin-top: 23px;" >
+      
+        <%= link_to "/user_area_interest", class: "btn btn-primary"  do %>
+         </span><i class="fa fa-plus" aria-hidden="true"></i>
+    Agregar Areas de Interes   
+        <% end %>
+      
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <% @area_interests.each do |a| %> 
+            <li><%= a.descripcion%></li>
+
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+ </div>
+
+
+<div class="form-group col-md-6 col-xs-6 col-sm-6" style="margin-top: 30px;">
+  <%= f.submit "Actualizar" , class: "btn btn-primary ", style:"width: 100px;" do %>
+  <% end %>   
+   </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<% end %>
+
+<script >
+
+
+
+
+  $('.form_date').datetimepicker({
+    language:  'es',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse:0,
+    clearBtn: true,
+    format: 'dd-mm-yyyy'
+  });
+
+  
+  
+</script>
+
+
+
+
+<style type="text/css">
+
+img {
+
+
+  margin: 6%;
+}
+
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.bootstrap-select>.dropdown-toggle {
+  width:70%;
+  padding-right:25px;
+  z-index:1
+}
+
+
+.input-group2 {
+    position: initial;
+    margin: 20px -12px;
+    width: 90%;
+
+}
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+
+  
+
+.form{
+
+  margin: 6%;
+  margin-top: 3%
+}
+
+
+</style>
+
+
+

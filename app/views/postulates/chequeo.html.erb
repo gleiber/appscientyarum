@@ -1,0 +1,128 @@
+     <%= form_for(@postulate,:html => {:class => 'form'}) do |f| %>
+     <% if @postulate.errors.any? %>
+     <div id="error_explanation">
+          <h2><%= pluralize(@postulate.errors.count, "error") %> prohibited this postulate from being saved:</h2>
+
+          <ul>
+               <% @postulate.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+               <% end %>
+          </ul>
+     </div>
+     <% end %>
+     <% if notice %>
+     <div class="row">
+          <div class="col-md-12">
+               <div class="card blue">
+                    <div class="card-content">
+                         <span class="card-title">Noticia</span>
+                         <p id="notice"><%= notice %></p>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <%end%>
+
+
+     <div class="row header" style="background-color: #1f4bae">
+          <h1 class="center-align col-lg-12 text-center"><b>Información de la Postulación</b></h1>
+     </div>
+     <%= f.text_field :id, hidden: true  %>
+
+
+     <div class="row" style="margin-top: 30px">
+
+
+          <div class="form-group">
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="input-group2" style="width: 90%">
+                         <%= f.text_field :nombre, value: @postulate.offer.titulo , class: "form-control2", disabled: true %>
+                         <%= f.label :nombre, "Oferta" %><br>
+                    </div>
+               </div> 
+          </div>
+
+          <div class="form-group">
+               <div class="col-md-12 col-sm-12 col-xs-12">        
+                    <div class="input-group2" style="width: 90%">
+                         <%= f.text_field :nombre, value: @postulate.offer.program.titulo , class: "form-control2", disabled: true %>
+                         <%= f.label :nombre, "Programa" %><br>
+                    </div>
+               </div>
+          </div>
+
+          <div class="form-group">
+               <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="input-group2">
+                         <%= f.text_field :nombre, value: @postulate.nombre, class: "form-control2", disabled: true %>
+                         <%= f.label :nombre, "Postulado" %><br>
+                    </div>
+               </div>
+          </div>
+
+          <div class="form-group">
+               <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="input-group2">
+                         <%= f.text_field :nombre, value: @postulate.cedula, class: "form-control2", disabled: true %>
+                         <%= f.label :nombre, "Cedula" %><br>
+                    </div>
+               </div> 
+          </div>
+
+     </div>
+
+     <div class="row">
+
+          
+          <h1 class="center-align col-lg-12 text-center"><b>Chequeo de Recaudos</b></h1>
+          
+
+
+
+          <div class="form-group">
+               <div class="col-md-12 col-sm-12 col-xs-12" >
+                    <div class="input-group2">
+                         <% @collections.each do |collection| %>
+                         <div class="col-md-4 text-left" id="idRecaudos" style="margin-top:20px;">
+                              <%= check_box_tag "collections[]", collection.id,@postulate.collections.include?(collection) %> <%= collection.descripcion %>
+                         </div>
+                         <% end %>
+
+                         
+                    </div>
+               </div> 
+          </div>
+
+     </div>
+
+     
+
+     <div class="row" style="margin-top: 50px;">
+          <div class="form-group">
+               <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+                    <div class="input-group2">
+                     <div class="col-md-6 col-sm-6 col-xs-6" >
+                         <%= link_to postulates_path, class: "btn btn-warning", style:"width: 100px;" do %>
+                         <span class="fa fa-reply"></span> Atras    
+                         <% end %>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6" >
+                         <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+                         <span class="fa fa-floppy-o"></span> Guardar    
+                         <% end %>
+                    </div>
+               </div>
+          </div> 
+     </div> 
+
+
+
+
+     
+
+     <% end %>
+     <br><br>
+     
+
+
+     

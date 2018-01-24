@@ -1,0 +1,163 @@
+
+
+     <%= form_for(@thesis, :html => {:class => 'form'}) do |f| %>
+    <% if @thesis.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@thesis.errors.count, "error") %> prohibited this thesis from being saved:</h2>
+          <ul>
+            <% @thesis.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+<% if notice %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Noticia</span>
+            <p id="notice"><%= notice %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+    
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Tesis/TEG </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >
+     <div class="input-group2" style="width: 90%">
+      <%= f.text_field :titulo, class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+      <%= f.label :titulo, "Titulo de la Tesis/TEG" %><br>
+     </div>
+     </div> 
+     </div>
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <% user = User.find(@thesis.user) %>
+     <%= f.text_field :user_id, value: user.cohort_program.program.titulo ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+     <%= f.label :program_id, "Programa " %><br>
+     </div>
+     </div>
+     </div>
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+     <% user = User.find(@thesis.user) %>
+     <%= f.text_field :user_id, value: user.nombre ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+     <%= f.label :user_id, "Participante" %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px;" >        
+     <div class="input-group2">
+     <% user = User.find(@thesis.user) %>
+     <%= f.text_field :user_id, value: user.cohort_program.cohort.descripcion ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+     <%= f.label :cohorts_id, "Cohorte" %><br>
+     </div>
+     </div>
+     </div>
+
+    
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <% tutor = User.find(@thesis.tutor) %>
+     <%= f.text_field :tutor, value: tutor.nombre,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+     <%= f.label :tutor, "Tutor" %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <%= f.text_field :line_investigation_id, value: @thesis.line_investigation.descripcion  ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+     <%= f.label :line_investigations, "Línea de investigación" %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 text-left" >
+     <div class="input-group2" >
+     <h3><b>Areas de Interes</b></h3>
+     <% @area_interests.each do |p| %>
+     <div class="col-md-12 text-left" style="margin-top: 10px;">
+     <li><%= p.descripcion %></li>
+    </div>
+<% end %>
+
+
+
+</div>
+</div> 
+</div> 
+
+     </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+    <% if @thesis.user_id == current_user.id %>
+
+    <div class="row" style="margin-bottom: 70px; margin-top: 70px; " >
+      <div class="col-md-2  col-md-offset-4" >
+        <%= link_to mi_tesis_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-4 " >
+        <%= link_to seguimiento1_path, class: "btn btn-primary", style:"width: 120px;" do %>
+            <span class="fa fa-map-marker"></span> seguimiento
+        <% end %> 
+      </div>
+   </div>
+
+     <% else %>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+      <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to theses_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to edit_thesis_path, class: "btn btn-primary", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Editar
+        <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+     <% end %>
+
+
+     </div>
+
+     <% end %>
+     <br><br>
+    
+
+
+    

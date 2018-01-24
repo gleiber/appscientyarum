@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  principal_1: MyString
+  principal_2: MyString
+  principal_3: MyString
+  suplente_1: MyString
+  suplente_2: MyString
+  suplente_3: MyString
+  project_id: 
+
+two:
+  principal_1: MyString
+  principal_2: MyString
+  principal_3: MyString
+  suplente_1: MyString
+  suplente_2: MyString
+  suplente_3: MyString
+  project_id: 

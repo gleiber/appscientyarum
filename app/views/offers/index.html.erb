@@ -1,0 +1,75 @@
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Ofertas de Programas </b></h1>
+     </div>
+     <div class="text-center">
+    <%= link_to new_offer_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+   <i class="fa fa-plus" aria-hidden="true"></i> Registrar Oferta
+    <% end %>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Titulo</th>
+              <th class="text-center">Programa</th>
+              <th class="text-center">Fecha de Inicio</th>
+              <th class="text-center">Fecha de Finalización</th>
+              <th  class="text-center" colspan="">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @offers.each do |offer| %>
+              <tr>
+                <td><%= offer.titulo %></td>
+                <td><%= offer.program.titulo %></td>
+                <td><%= offer.fecha_desde.strftime("%d/%m/%Y") %></td>
+                <td><%= offer.fecha_hasta.strftime("%d/%m/%Y") %></td>
+                
+                <td><%= link_to edit_offer_path(offer),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+
+
+<div class="col-md-1">
+    <button type="button" class="btn btn-success btn-ayuda" data-toggle="modal" data-target="#modalAyuda"><i class="fa fa-question-circle-o fa-2x"></i> </button>
+  
+</div>
+
+
+
+
+    </div>
+
+
+
+    <div id="modalAyuda" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title text-center"><img src="/images/logo_sc_peq.png"> Ayuda Scientiarum</h4>
+    </div>
+    <div class="modal-body">
+    <img src="/images/ayudaoferta.jpg">
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+  
+

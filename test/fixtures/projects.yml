@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tutor_id: 
+  descripcion: MyString
+  user_id: 
+  area_interest_id: 
+
+two:
+  tutor_id: 
+  descripcion: MyString
+  user_id: 
+  area_interest_id: 

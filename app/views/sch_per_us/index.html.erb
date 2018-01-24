@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sch Per Us</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Coh per sub u</th>
+      <th>Nota</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sch_per_us.each do |sch_per_u| %>
+      <tr>
+        <td><%= sch_per_u.user %></td>
+        <td><%= sch_per_u.coh_per_sub_u %></td>
+        <td><%= sch_per_u.nota %></td>
+        <td><%= link_to 'Show', sch_per_u %></td>
+        <td><%= link_to 'Edit', edit_sch_per_u_path(sch_per_u) %></td>
+        <td><%= link_to 'Destroy', sch_per_u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sch per u', new_sch_per_u_path %>

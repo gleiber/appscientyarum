@@ -1,0 +1,15 @@
+<% users.each do |user| %>
+	<% if user.role.descripcion == "profesor" || user.role.descripcion == "Profesor" %>
+		<tr>
+			<td><%= user.nombre %></td>
+		    <td><%= user.email %></td>
+		    <td><%= user.telefono %></td>
+		    <td><%= user.sexo %></td>
+		    <td><%= link_to user,class: "btn btn-primary" do %>
+		        	<i class="fa fa-envelope-o" aria-hidden="true"></i>
+		        <% end %>
+		    </td>
+		</tr>
+	<% end %>
+<% end %>
+

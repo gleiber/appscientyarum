@@ -1,0 +1,1 @@
+json.partial! "contact_abouts/contact_about", contact_about: @contact_about

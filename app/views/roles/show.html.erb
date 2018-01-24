@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @role.descripcion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @role.estado %>
+</p>
+
+
+<p>
+  <strong>Funciones:</strong>
+  <ul>
+	  <% @role.funcions.each do | f|%>
+	   <li><%=f.descripcion%></li>
+	  <%end%>
+  	
+  </ul>
+</p>
+
+
+
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>

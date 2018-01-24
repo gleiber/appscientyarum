@@ -1,0 +1,29 @@
+<%= form_for(@postulate_collection_program) do |f| %>
+  <% if @postulate_collection_program.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@postulate_collection_program.errors.count, "error") %> prohibited this postulate_collection_program from being saved:</h2>
+
+      <ul>
+      <% @postulate_collection_program.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :postulate_id %><br>
+    <%= f.text_field :postulate_id %>
+  </div>
+  <div class="field">
+    <%= f.label :collection_program_id %><br>
+    <%= f.text_field :collection_program_id %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.check_box :estado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

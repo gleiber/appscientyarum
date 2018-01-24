@@ -1,0 +1,88 @@
+
+
+       <div class="row z-depth-2" style="margin-top:20px;">
+
+
+     <div class="col-md-10 col-md-offset-1  col-sm-12 col-xs-12" >
+
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Seguimiento de Proyecto </b></h1>
+     </div>
+
+      <div class="row">
+        <div class="form-group">
+           <div class="col-md-8 col-sm-6 col-xs-12">         
+           <div class="input-group2">
+           <%= label :project_tracing_id, "Proyectos" %>
+           <br>
+           <br>
+            
+
+           <% if current_user.role.descripcion == "Coordinador de Programa"  %>
+          <% @projects = Array.new  %>
+          <% if current_user.program %> 
+            <% puts "tiene un programa" %>
+            <% if current_user.program.cohort_program.each do |p| %> 
+            <% puts "tiene cohortes programas" %>
+              <% p.users.each do |u| %>
+                <% puts "usuario" %>
+                <% if u.project.present?   %>
+                  <% puts "usuario tiene project" %>
+                  <% @projects.push(u.project) %>
+              
+                 <%end %> 
+               <% end %>
+             <% end %> 
+           <% end %>
+        <% end %>
+        <% elsif current_user.role.descripcion == "Coordinador General" %>
+          <% @projects = Project.all %>
+              
+           <%= select_tag "project_tracing_id", options_for_select(@projects.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Proyeto" %>
+           <% else %>
+
+           <% @projects = Project.where(user_id: current_user.id) %>
+           
+            <%= select_tag "project_tracing_id", options_for_select(@projects.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Proyeto" %>
+
+           <% end %>
+           </div>
+           </div>
+        </div>
+
+
+      </div>
+      
+    </div>
+    <div class="row z-depth-2" style="margin-top:20px;">
+      <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+        <div class="row header" style="background-color: #1f4bae;">
+          <h1 class="center-align col-lg-12 text-center"><b> Estatus </b></h1>
+        </div>
+        <table class="table table-bordered text-center" style="margin-top:20px;">
+          <thead>
+            <tr>
+              <th class="text-center" >Fecha Emisión </th>
+              <th class="text-center" >Descripción </th>
+            <thead>
+            <tbody id="seguimiento_project">
+
+
+          	</tbody>
+        </table>
+      </div>
+    </div>
+        
+    
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+  #user_area_interest_area_interest_id {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+}
+</style>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Subject Regimen Durations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Regimen duration</th>
+      <th>Subject</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subject_regimen_durations.each do |subject_regimen_duration| %>
+      <tr>
+        <td><%= subject_regimen_duration.regimen_duration %></td>
+        <td><%= subject_regimen_duration.subject %></td>
+        <td><%= link_to 'Show', subject_regimen_duration %></td>
+        <td><%= link_to 'Edit', edit_subject_regimen_duration_path(subject_regimen_duration) %></td>
+        <td><%= link_to 'Destroy', subject_regimen_duration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subject Regimen Duration', new_subject_regimen_duration_path %>

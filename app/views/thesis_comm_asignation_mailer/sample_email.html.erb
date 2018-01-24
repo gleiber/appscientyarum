@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body >
+
+<div style="font-size: 15px">
+  Saludos estimado(a) <%= @user.nombre %>.
+  <p>
+    Por medio de la presente se le notifica que ha sido asignado a la comisión evaluadora de la tesis:
+  <p><b><%= @thesis.titulo.upcase %></b></p>
+  <p>Cuyo autor es: </p>
+  <p><b><%= @thesis.user.nombre.upcase %></b></p>
+  <p>Bajo el cargo de: <b><%= @rango.upcase %></b></p>
+  </p>
+  <p>
+    Para mayor información visite nuestra página web.
+  </p>
+
+</div>
+<br>
+<br>
+<br>
+
+</body>
+<footer>
+  <div style="align-content: center; width: 50%; padding-left: 25%; text-align: center
+  ;font-size: 20px">
+    Coordinación de Postgrado - Decanato de Ciencia y Tecnología.
+    Avenida Las Industrias. Núcleo Obelisco. Módulo D. Oficina D-8.
+   <a href="http://postgrado.ucla.edu.ve/ciencias/">post_dct@ucla.edu.ve</a>  - 0251-2591712
+  </div>
+</footer>
+</html>

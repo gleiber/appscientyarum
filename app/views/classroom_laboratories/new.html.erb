@@ -1,0 +1,37 @@
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Registrar Aulas y Laboratorios </b></h1>
+     </div>
+  
+
+</div>
+
+<%= form_for(@classroom_laboratory) do |f| %>
+  <% if @classroom_laboratory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@classroom_laboratory.errors.count, "error") %> prohibited this classroom_laboratory from being saved:</h2>
+
+      <ul>
+      <% @classroom_laboratory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field" >
+    <%= f.label :descripcion, "Descripcion" %>
+    
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', classroom_laboratories_path %>
+
+
+

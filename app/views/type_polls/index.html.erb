@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Type Polls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_polls.each do |type_poll| %>
+      <tr>
+        <td><%= type_poll.descripcion %></td>
+        <td><%= link_to 'Show', type_poll %></td>
+        <td><%= link_to 'Edit', edit_type_poll_path(type_poll) %></td>
+        <td><%= link_to 'Destroy', type_poll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type poll', new_type_poll_path %>

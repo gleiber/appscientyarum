@@ -1,0 +1,69 @@
+<%= form_for(@result) do |f| %>
+  <% if @result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@result.errors.count, "error") %> prohibited this result from being saved:</h2>
+
+      <ul>
+      <% @result.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"></i><b> Resultado de Tesis/TEG </b></h1>
+     </div>
+
+<div class="row" style="margin-top: 30px">
+      <div class="col-md-8 col-sm-6 col-xs-12 first col-md-offset-1">
+
+<div class="input-group2">   
+
+                <%= f.label :thesis_id, "Tesis/TEG" %> 
+                <br>
+                <br> 
+                <%= select_tag "thesis_id", options_for_select(@theses.collect{ |u| [u.titulo, u.id] }),:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione una Tesis/TEG" %>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 first col-md-offset-1">
+      <div class="input-group2">
+                <%= f.label :type_reviews_id, "Resultado" %>
+                <br>
+                <br>
+                <%= select_tag "type_review_id", options_for_select(@type_reviews.collect{ |u| [u.descripcion, u.id] }),:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Resultado" %>
+      </div>
+      </div>
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-6 col-xs-12">
+     <div class="input-group2">
+     <%= f.text_field :descripcion, class: "form-control2" %>
+     <%= f.label :descripcion, "Observacion" %><br>
+     </div>
+     </div>
+     </div>
+     
+     
+   <br>
+   <br> 
+   <br>
+<div class="row" style="margin-bottom: 30px; margin-top: 40px; " >
+      <div class="col-md-2 col-md-offset-4" >
+        <%= link_to results_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-2 col-md-offset-0" >
+        <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar
+        <% end %>
+      </div>
+    </div>
+
+
+
+ 
+  </div>
+<% end %>
+

@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h2 class="center-align col-lg-12 text-center"><b> <%= @slider.titulo %> </b></h2>
+     </div>
+
+     <div class="text-center">
+
+    </div>
+
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Titulo</th>
+              <th class="text-center">Descripcion</th>
+              <th class="text-center">Imagen</th>
+
+              <th  class="text-center"colspan="3">Acción</th>
+              
+            </tr>
+          </thead>
+          
+          <tbody class="searchable">
+ 
+              <tr>
+                <td><%= @slider.titulo %></td>
+                <td><%= @slider.descripcion %></td>
+                <td><img src="<%= @slider.avatar %>" class="fs-img-avatar">  </td>
+
+                <td><%= link_to edit_slider_path(@slider),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+
+              </tr>
+  
+          </tbody>
+
+          </tr>
+
+        </table>  
+
+                <%= link_to sliders_path, class: "btn btn-warning", style:"width: 100px;" do %>
+<span class="fa fa-reply"></span> Atras    
+<% end %>
+
+
+</div>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

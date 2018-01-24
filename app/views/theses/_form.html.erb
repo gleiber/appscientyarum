@@ -1,0 +1,141 @@
+     <%= form_for(@thesis,  :html => {:class => 'form'}) do |f| %>
+     <% if @thesis.errors.any? %>
+     <div id="error_explanation">
+     <h2><%= pluralize(@thesis.errors.count, "error") %> prohibited this thesis from being saved:</h2>
+     <ul>
+     <% @thesis.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+     <% end %>
+     </ul>
+     </div>
+     <% end %>
+    
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Registrar Tesis/TEG </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first" >
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :project_id, value: @project.id, hidden: true  %>
+     <%= text_field_tag :program_id, @project.user.cohort_program.program.titulo , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, " Programa " %><br>
+     </div>
+     </div> 
+     </div>
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :project_id, value: @project.id, hidden: true  %>
+     <%= text_field_tag :titulo, @project.titulo , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, "Titulo de Proyecto" %><br>
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >        
+     <div class="input-group2">
+     <%= f.text_field :user_id, value: @project.user.id, hidden: true  %>
+     <%= text_field_tag :user_id, @project.user.nombre , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, "Participante" %><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="input-group2">
+     <%= f.text_field :project_id, value: @project.id, hidden: true  %>
+     <%= text_field_tag :cohort_id, @project.user.cohort_program.cohort.descripcion , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, " Cohorte " %><br>
+     </div>
+     </div>
+     </div>
+
+     
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2"> 
+     <% tutor = User.find(@project.tutor) %>
+     <%= text_field_tag :tutor, tutor.nombre, class: "form-control2", disabled: true %>
+     <%= f.label :nombre, " Tutor " %><br>
+     </div>
+     </div> 
+     </div>
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2"> 
+     <%= f.text_field :project_id, value: @project.id, hidden: true  %>
+     <%= text_field_tag :line_investigation, @project.line_investigation.descripcion , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, "Linea de Investigación" %><br>
+     </div>
+     </div> 
+     </div>
+
+      </div>
+
+<div class="row" style="margin-top: 50px;">
+<h1 class="center-align col-lg-12 text-center"><b>Areas de interes </b></h1>
+
+<div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >
+     <div class="input-group2"> 
+     <% @project.area_interests.each do |p| %>
+     <div class="col-md-4 text-left" style="margin-top: 10px;">
+     <li><%= p.descripcion %></li>
+     </div>
+     <% end %>
+      
+     
+              
+     </div>
+     </div> 
+     </div>
+  
+</div>
+     
+
+    
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+      <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to theses_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar
+        <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+
+     <br><br>
+    
+
+
+     

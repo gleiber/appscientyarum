@@ -1,0 +1,66 @@
+
+ <% if interested.errors.any? %>
+    <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% interested.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+<%= form_for(interested) do |f| %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono %>
+    <%= f.text_field :telefono %>
+  </div>
+
+  <div class="field">
+    <%= f.label :program_id %>
+    <%= f.text_field :program_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area_interest_id %>
+    <%= f.text_field :area_interest_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail_id %>
+    <%= f.text_field :detail_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :find_out_id %>
+    <%= f.text_field :find_out_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :why_dcyt_id %>
+    <%= f.text_field :why_dcyt_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

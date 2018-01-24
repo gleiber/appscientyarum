@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject user:</strong>
+  <%= @coh_per_sub_u.subject_user %>
+</p>
+
+<p>
+  <strong>Cohort period:</strong>
+  <%= @coh_per_sub_u.cohort_period %>
+</p>
+
+<p>
+  <strong>Schedule cohort period:</strong>
+  <%= @coh_per_sub_u.schedule_cohort_period %>
+</p>
+
+<%= link_to 'Edit', edit_coh_per_sub_u_path(@coh_per_sub_u) %> |
+<%= link_to 'Back', coh_per_sub_us_path %>

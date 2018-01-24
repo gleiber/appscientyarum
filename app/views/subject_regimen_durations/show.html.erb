@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Regimen duration:</strong>
+  <%= @subject_regimen_duration.regimen_duration %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @subject_regimen_duration.subject %>
+</p>
+
+<%= link_to 'Edit', edit_subject_regimen_duration_path(@subject_regimen_duration) %> |
+<%= link_to 'Back', subject_regimen_durations_path %>

@@ -1,0 +1,36 @@
+
+ 
+
+
+     <%= form_for(@period,  :html => {:class => 'form'}) do |f| %>
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Nuevo Periodo </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+     <%= f.select :fecha_desde, options_for_select([["Enero", 1], ["Febrero", 2], ["Marzo", 3], ["Abril", 4], ["Mayo", 5], ["Junio", 6], ["Julio", 7], ["Agosto", 8], ["Septiembre", 9], ["Octubre", 10], ["Noviembre", 11], ["Diciembre", 12],]), {include_blank: "Fecha Inicio de Periodo"}, {class: "form-control selectpicker"} %>
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >        
+     <div class="input-group2">
+    
+      <%= f.select :fecha_hasta, options_for_select([["Enero", 1], ["Febrero", 2], ["Marzo", 3], ["Abril", 4], ["Mayo", 5], ["Junio", 6], ["Julio", 6], ["Agosto", 8], ["Septiembre", 9], ["Octubre", 10], ["Noviembre", 11], ["Diciembre", 12],]), {include_blank: "Fecha Final de Periodo"}, {class: "form-control selectpicker"} %>
+     </div>
+     </div>
+     </div>
+
+     
+
+
+    
+
+     </div>

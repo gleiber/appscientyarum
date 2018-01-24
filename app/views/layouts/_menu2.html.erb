@@ -1,0 +1,71 @@
+<%
+    if current_user
+        @funciones = current_user.role.funcions
+    else
+        @funciones = Funcion.all
+    end
+%>
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a href="/">
+                        <img alt="image" style="width: 100%;" src="<%= image_url current_user.avatar %>"/>
+                    </a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold"><%= current_user.nombre %></strong>
+                            </span> <span class="text-muted text-xs block"><%= current_user.role.descripcion %><b class="caret"></b></span>
+                        </span>
+                    </a>
+                    
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        	<li>  <%= link_to'Mi Perfil', edit_user_path(current_user) %></li>
+                            <li class="divider"></li>
+                            <li><a href="/users/sign_out">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        SC
+                    </div>
+                </li>
+        <% def subMenuBuilder(subfunc)
+                subFunction = @funciones.select {|func| func.id_padre == subfunc.id_funcion}
+                if subFunction.any? %>
+                    <li class="">
+                        <a href=""><i aria-hidden="true"></i></i> <span class="nav-label" data-i18n="nav.dashboard"><%=subfunc.descripcion %></span> <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level collapse ">
+                               <%
+                                    subFunction.each do |sub| 
+                                        subMenuBuilder(sub)                
+                                    end    
+                            %>            
+                            </ul>
+                        </li>
+                <% else %> 
+                    <li class=""><%= link_to subfunc.descripcion,subfunc.url %></li>
+                <% end %>
+        <% end %>
+                
+        <% @funciones.each do |funcion|
+            next if funcion.id_padre != nil 
+            childs = @funciones.select do |hash|
+                hash[:id_padre] == funcion.id_funcion  
+            end %>
+
+            <li class="">
+                <a href=""><i class="<%= funcion.icon %>" aria-hidden="true"></i><span class="nav-label" data-i18n="nav.dashboard"><%= funcion.descripcion %></span> <span class="fa arrow"></span></a>
+
+                <ul class="nav nav-second-level collapse ">
+                    <% childs.each do |child|
+                        subMenuBuilder(child)
+                    end %>
+                   
+                </ul>
+            </li>
+        <% end %>
+        </ul>
+    </div>
+</nav>

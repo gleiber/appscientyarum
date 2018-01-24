@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Find Outs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @find_outs.each do |find_out| %>
+      <tr>
+        <td><%= find_out.descripcion %></td>
+        <td><%= link_to 'Show', find_out %></td>
+        <td><%= link_to 'Edit', edit_find_out_path(find_out) %></td>
+        <td><%= link_to 'Destroy', find_out, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Find Out', new_find_out_path %>

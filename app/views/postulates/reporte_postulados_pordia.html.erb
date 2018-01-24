@@ -1,0 +1,33 @@
+<div class="row header" style="background-color: #1f4bae;">
+	<h2 class="center-align col-lg-12 text-center"></i><b>Reporte de Postulados</b></h2>
+</div>
+<div class="row" style="margin-top:50px">
+	<div class="col-md-12 text-center">
+		<h2><b>Postulados Por Día</b></h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<%= line_chart  @postuladosdias.group_by_day(:created_at).count , label: "Cantidad de postulados", xtitle: "Dia", ytitle: "Cantidad de postulados", legend: "top",download: "Cantidad_de_postulados_dia", library: {backgroundColor: "#000"} %>
+	</div>
+</div>
+<div class="row" style="margin-top:50px">
+	<div class="col-md-12 text-center">
+		<h2><b>Postulados Por Semana</b></h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<%= line_chart  @postuladosdias.group_by_week(:created_at).count , label: "Cantidad de postulados", xtitle: "Semana", ytitle: "Cantidad de postulados", legend: "top",download: "Cantidad_de_postulados_semana", library: {backgroundColor: "#000"} %>
+	</div>
+</div>
+<div class="row" style="margin-top:50px">
+	<div class="col-md-12 text-center">
+		<h2><b>Postulados Por Mes</b></h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<%= line_chart  @postuladosdias.group_by_month(:created_at).count , label: "Cantidad de postulados", xtitle: "Mes", ytitle: "Cantidad de postulados", legend: "top",download: "Cantidad_de_postulados_mes", library: {backgroundColor: "#000"} %>
+	</div>
+</div>

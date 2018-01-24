@@ -1,0 +1,80 @@
+
+<% if notice %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Noticia</span>
+            <p id="notice"><%= notice %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+<%end%>
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+  <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+    <div class="row header" style="background-color: #1f4bae;">
+      <h1 class="center-align col-lg-12 text-center"><b> Mi Tesis/TEG </b></h1>
+    </div>
+
+     <% @theses = Thesis.where(user_id: current_user.id) %>
+
+
+    <table id="tabla_vp" class="table table-hover text-center">
+      <thead>
+      <tr>
+        <th class="text-center">Titulo</th>
+        <th class="text-center">Linea de Investigación</th>
+        <th class="text-center">Programa</th>
+        <th  class="text-center" colspan="3">Acción</th>
+      </tr>
+      </thead>
+      <tbody class="searchable">
+
+            <% @theses.each do |thesis| %>
+              <tr>
+                <td><%= thesis.titulo %></td>
+                  <td><%= thesis.line_investigation.descripcion%></td>
+                <td><%= thesis.user.cohort_program.program.titulo%></td>
+
+
+                <td><%= link_to thesis,class: "btn btn-primary" do %>
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    <% end %>
+                </td>
+             
+                
+                
+              </tr>
+            <% end %>
+          
+          </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $('#filter').keyup(function () {
+
+    var rex = new RegExp($(this).val(), 'i');
+    $('.searchable tr').hide();
+    $('.searchable tr').filter(function () {
+      return rex.test($(this).text());
+    }).show();
+
+  });
+</script>
+<style type="text/css">
+  form{
+    background-color:transparent !important;
+    box-shadow: none !important;
+  }
+</style>
+
+
+

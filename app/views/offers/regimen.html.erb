@@ -1,0 +1,26 @@
+ 
+  <div class="row header" style="background-color: #1f4bae">
+    <h1 class="center-align col-lg-12 text-center"><b>Asignacion de Recursos</b></h1>
+  </div>
+  <div class="container">
+  <div class="row" style="margin-top: 50px;">
+      <div class="form-group">
+        <div class="col-md-3 col-sm-6 col-xs-12  col-md-offset-4">         
+          <div class="input-group2">
+          <%= label :desicion, "Trimestre" %>
+	         <br>
+	         <br>
+            <%= select_tag :desicion, options_for_select([["Trimestre 1", "aprobado"], ["Trimestre 2", "rechazado"]]), class: "selectpicker", "title"=>"Seleccione el Trimestre" %>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+  	<br>
+      <div class="col-md-2 col-md-offset-5" >
+        <%= link_to "/recursos_cohorte", class: "btn btn-primary ", style:"width: 100px;" do %>
+          <span class="fa fa-floppy-o"></span> Siguiente    
+        <% end %>
+      </div>
+      </div>
+  </div>

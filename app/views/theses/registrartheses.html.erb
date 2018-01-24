@@ -1,0 +1,70 @@
+     <%= form_for(@project,:html => {:class => 'form'}, url: "/theses/new" ) do |f| %>
+    
+    
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Registrar Proyecto Como Tesis/TEG </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-8 col-sm-8 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+          <% @projects = Array.new  %>
+          <% if current_user.role.descripcion == "Coordinador de Programa" %>
+               <% if current_user.program %> 
+                    <% if current_user.program.cohort_program.each do |p| %> 
+                         <% p.users.each do |u| %>                
+                              <% if u.project.present?   %>               
+                                   <% @projects.push(u.project) %>              
+                              <%end %> 
+                        <% end %>
+                    <% end %> 
+               <% end %> 
+          <% end %>
+          <% @projectss = Array.new  %> 
+          <% @projects.each do |p| %>
+               <% review = p.review_projects.last%>
+                    <% if review.present? %>
+                         <% if review.type_review.descripcion == "Aprobado" %>
+                              <% @projectss.push(p) %>              
+                         <% end %>
+                    <% end %>
+          <% end %>
+
+         
+     <%= select_tag "projectid", options_for_select(@projectss.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Proyecto" %>
+
+    
+<% elsif current_user.role.descripcion == "Coordinador General" %>
+          <% @projects = Project.all %>
+          <%= select_tag "projectid", options_for_select(@projects.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Proyecto" %>
+
+              <% end %>
+
+
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-4 col-sm-4 col-xs-12" >        
+     <div class="input-group2">
+      <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+                   Siguiente    
+          <% end %>
+     </div>
+     </div>
+     </div>
+
+     </div>
+
+
+
+     
+
+     <% end %>
+    

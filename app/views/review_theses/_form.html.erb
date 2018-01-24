@@ -1,0 +1,101 @@
+
+ <% if @review_thesis.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @review_thesis.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+      
+
+<%= form_for(@review_thesis,  :html => {:class => 'form'}, url: {action: @review_thesis.thesis.nil? ? "create" : "update", params: {id: @review_thesis.thesis_id}}) do |f| %>
+
+
+
+
+
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"></i><b> Evaluacion de Tesis/TEG </b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-6 col-xs-12 first" >
+<div class="input-group2" style="width: 90%">
+<%= f.text_field :thesis_id, value: @thesis.id, hidden: true  %>
+<%= text_field_tag :titulo, @thesis.titulo , class: "form-control2", disabled: true %>
+<%= f.label :nombre, "Titulo de Tesis/TEG" %><br>
+</div>
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 ">
+<div class="input-group2">
+<%= select_tag "type_review_id", options_for_select(@type_reviews.collect{ |u| [u.descripcion, u.id] }),:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Tipo de Evaluacion" %>
+</div>
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12  first">
+<div class="input-group2" style="width: 90%">
+<%= f.text_area :descripcion , class: "form-control2"%>
+<%= f.label :descripcion, "Observacion de Tesis/TEG " %><br>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+ 
+
+
+
+<div class="row" style="margin-top: 50px;">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+<div class="input-group2">
+<div class="col-md-6 col-sm-6 col-xs-6" >
+<%= link_to review_theses_path, class: "btn btn-warning", style:"width: 100px;" do %>
+<span class="fa fa-reply"></span> Atras    
+<% end %>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6" >
+<%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Guardar    
+<% end %>
+</div>
+</div>
+</div> 
+</div> 
+
+
+</div>
+<% end %>
+
+
+
+

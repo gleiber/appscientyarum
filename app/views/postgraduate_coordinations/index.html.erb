@@ -1,0 +1,204 @@
+<div class="form">
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b> Coordinacion de Postgrado </b></h1>
+</div>
+
+
+
+<div class="row" style="margin-top: 30px;">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first ">
+<div class="input-group2">
+<p>
+<h2 class="text-center"><b>Descripcion</b></h2>
+<%= @postgraduate_coordination.descripcion %>
+</p>
+</div>
+</div> 
+</div>
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first ">
+<div class="input-group2">
+<p>
+<h2 class="text-center"><b>Mision</b></h2>
+<%= @postgraduate_coordination.mision %>
+</p>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first ">
+<div class="input-group2">
+<p>
+<h2 class="text-center"><b>Vision</b></h2>
+<%= @postgraduate_coordination.vision %>
+</p>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first ">
+<div class="input-group2">
+<p>
+<h2 class="text-center"><b>Direccion</b></h2>
+<%= @postgraduate_coordination.direccion%>
+</p>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first ">
+<h2 class="text-center"><b>Objetivos</b></h2>
+<% @objectives.each do |objective| %>
+
+<div class="input-group2" style="margin-top: 20px">
+<p>
+
+
+ <li> <%= objective.descripcion %></li>
+
+
+</p>
+</div>
+<% end %>
+</div> 
+</div>
+
+
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+<div class="form-group">
+<div class="col-md-5 col-sm-5 col-xs-12 first col-md-offset-1">
+<table class="table table-hover text-center" style="width: 80%">
+<thead>
+<tr>
+<th class="text-center">Telefonos</th>
+</tr>
+</thead>
+<tbody>
+<% @phones.each do |phone| %>
+<tr>
+<td><%= phone.numero %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-5 col-sm-5 col-xs-12 col-md-offset-1">
+<table class="table table-hover text-center" style="width: 80%">
+<thead>
+<tr>
+<th class="text-center">Correos</th>
+</tr>
+</thead>
+<tbody>
+<% @emails.each do |email| %>
+<tr>
+<td><%= email.descripcion %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div> 
+</div>
+
+
+
+</div>
+
+
+<div class="row" style="margin-top: 50px;">
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+<div class="input-group2">
+
+
+<div class="col-md-3 col-sm-3 col-xs-6" >
+<%= link_to edit_postgraduate_coordination_path(1) ,class: "btn btn-info" do %>
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar 
+<% end %>
+</div>
+
+
+<div class="col-md-3 col-sm-3 col-xs-6" >
+<%= link_to "/objetivos", class: "btn btn-success"  do %>
+        <i class="fa fa-search" aria-hidden="true"></i> Objetivos    
+        <% end %>
+</div>
+
+
+<div class="col-md-3 col-sm-3 col-xs-6" >
+<%= link_to "/correos", class: "btn btn-success"  do %>
+      <i class="fa fa-search" aria-hidden="true"></i>   Correos    
+        <% end %>
+</div>
+
+
+<div class="col-md-3 col-sm-3 col-xs-6" >
+<%= link_to "/telefonos", class: "btn btn-success"  do %>
+         <i class="fa fa-search" aria-hidden="true"></i>   Telefonos   
+        <% end %>
+</div>
+
+
+
+
+</div>
+</div> 
+</div> 
+</div>
+
+
+
+</div>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+json.partial! "offer_users/offer_user", offer_user: @offer_user

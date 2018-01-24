@@ -1,0 +1,72 @@
+<% if notice %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Noticia</span>
+            <p id="notice"><%= notice %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Historico de Notas </b></h1>
+     </div>
+     <div class="text-center">
+    <%= link_to  new_history_note_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+    <i class="fa fa-plus"></i> Registrar Historico
+    <% end %>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Cohorte</th>
+              <th class="text-center">Periodo</th>
+               <th class="text-center">Participante</th>
+                <th class="text-center">Materia</th>
+                 <th class="text-center">Nota</th>
+              <th colspan="3" class="text-center">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @history_notes.each do |history_notes| %>
+              <tr>
+        <td><%= history_note.cohorte %></td>
+        <td><%= history_note.periodo %></td>
+        <td><%= history_note.participante %></td>
+        <td><%= history_note.materia %></td>
+        <td><%= history_note.nota %></td>
+
+
+
+                <td><%= link_to history_notes,class: "btn btn-primary" do %>
+                      <i class="fa fa-search" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+                <td><%= link_to edit_history_note_path(history_note),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+                <td><%= button_to history_note, method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Are you sure?'}, style:"margin-top: -50px;" do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>

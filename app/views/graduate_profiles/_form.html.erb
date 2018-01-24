@@ -1,0 +1,76 @@
+    <% if @graduate_profile.errors.any? %>
+          <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @graduate_profile.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+
+     <%= form_for(@graduate_profile, :html => {:class => 'form'}) do |f| %>
+
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Nuevo perfil del egresado </b></h1>
+     </div>
+
+
+     <%= f.text_field :program_id, value: @program.id ,hidden: true  %>
+     <div class="row" style="margin-top: 30px">
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :nombre, value: @program.titulo , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, "Programa" %><br>
+     </div>
+     </div> 
+     </div>
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_area :descripcion , class: "form-control2"%>
+     <%= f.label :descripcion, "Descripción  " %><br>
+     </div>
+     </div> 
+     </div>
+
+     </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to "/perfil_egresado_programa", class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+
+

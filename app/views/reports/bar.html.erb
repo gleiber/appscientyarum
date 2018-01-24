@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawMultSeries);
+</script>
+
+<div class="form">
+  <div id="chart_div"></div>
+  <div id="table_detail_tittle" class="row header" style="background-color: #1f4bae">
+    <div class="center-align col-lg-12 text-center"><h1><span id="s_detail_line">Detalles de Tésis o TEG: </span> <strong><span id="b_detail_bar"></span></strong></h1></div>
+  </div>
+
+  <div id="table_detail">
+    <table id="table_details" class="table table-hover text-center">
+      <thead>
+      <tr>
+        <th class="text-center">Proyecto</th>
+        <th class="text-center">Autor</th>
+        <th class="text-center">Tutor</th>
+      </tr>
+      </thead>
+
+      <tbody class="searchable">
+
+      </tbody>
+    </table>
+  </div>
+</div>
+

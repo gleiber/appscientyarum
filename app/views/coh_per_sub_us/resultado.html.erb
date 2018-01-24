@@ -1,0 +1,96 @@
+    <%= form_for(@coh_per_sub_u,:html => {:class => 'form'}, url: "/coh_per_sub_us/nota_materia" ) do |f| %>
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Registrar Resultados de Notas </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+	 <%= select_tag "programa_nota", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}),include_blank: "Seleccione un Programa", class: "form-control selectpicker" %>
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12"  id="combo_cohort" hidden="true">        
+     <div class="input-group2">
+  
+	 <%= select_tag "cohorte_nota", options_for_select(@cohorts.collect { |c| [c.descripcion, c.id] }, 0), include_blank: "Seleccione una Cohorte", class: "form-control selectpicker" %>
+			
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12"  id="combo_cohorte_periodo" hidden="true">
+     <div class="input-group2">
+	 <%= select_tag "cohorte_periodo_nota", options_for_select(@cohort_periods.collect { |c| [c.regimen_duration.program.regimen_study.descripcion+" "+c.regimen_duration.numero, c.id] }, 0), include_blank: "Seleccione un Periodo", class: "form-control selectpicker" %>
+			
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" id="combo_materia" hidden="true" >
+     <div class="input-group2">
+	 <%= select_tag "coh_per_sub_u_nota", options_for_select(@coh_per_sub_us.collect { |c| [c.subject_user.subject.descripcion, c.id] }, 0), include_blank: "Seleccione una Materia" , class: "form-control selectpicker"%>
+	 </div>
+     </div>
+     </div> 
+     </div>
+
+     <div class="row">
+	 <div class="col-md-12 text-center" hidden="true" id="divparticipante">
+	 <h2 ><b class="text-center">No hay participantes en este periodo con la materia Seleccionada</b></h2>
+     </div>
+	</div>
+	<div id="form_participantes" hidden="true" style="margin-top:20px">
+		<div class="row">
+			<div class="col-md-12 text-center" >
+				<h2 ><b class="text-center">Participantes</b></h2>
+			</div>
+		</div>	
+		<div class="row" id="divparticipantes" style="margin-top:30px; padding-right: 3%;padding-left: 3%">
+			
+				<div id="participantes_notas">
+					
+				</div>
+			
+			
+		</div>
+	
+
+     
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-4 col-sm-6 col-xs-6" >
+     
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+	 <span class="fa fa-floppy-o"></span> Guardar    
+	 <% end %>
+     </div>
+     </div> 
+     </div> 
+</div>
+
+     </div>
+
+     <% end %>
+     <br><br>
+    
+
+
+    

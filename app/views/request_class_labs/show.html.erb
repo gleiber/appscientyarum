@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @request_class_lab.user %>
+</p>
+
+<p>
+  <strong>Classroom laboratory schedule:</strong>
+  <%= @request_class_lab.classroom_laboratory_schedule %>
+</p>
+
+<%= link_to 'Edit', edit_request_class_lab_path(@request_class_lab) %> |
+<%= link_to 'Back', request_class_labs_path %>

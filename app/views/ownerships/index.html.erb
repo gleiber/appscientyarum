@@ -1,0 +1,39 @@
+
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Titulos Academicos</b></h1>
+     </div>
+     <div class="text-center">
+    <%= link_to new_ownership_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+   <i class="fa fa-plus" aria-hidden="true"></i> Registrar Titulos
+    <% end %>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Grado Academico</th>
+              <th class="text-center">Especialidad</th>
+              <th  class="text-center" colspan="3">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @ownerships.each do |ownership| %>
+              <tr>
+              <td><%= ownership.academic_degree.descripcion %></td>
+               <td><%= ownership.speciality.descripcion %></td>
+                <td><%= link_to edit_ownership_path(ownership),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+                <td><%= button_to ownership, method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Are you sure?'} do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+

@@ -1,0 +1,25 @@
+<%= form_for(@postulate_collection) do |f| %>
+  <% if @postulate_collection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@postulate_collection.errors.count, "error") %> prohibited this postulate_collection from being saved:</h2>
+
+      <ul>
+      <% @postulate_collection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :postulate_id %><br>
+    <%= f.text_field :postulate_id %>
+  </div>
+  <div class="field">
+    <%= f.label :collection_id %><br>
+    <%= f.text_field :collection_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

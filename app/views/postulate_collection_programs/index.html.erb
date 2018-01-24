@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Postulate Collection Programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Postulate</th>
+      <th>Collection program</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postulate_collection_programs.each do |postulate_collection_program| %>
+      <tr>
+        <td><%= postulate_collection_program.postulate %></td>
+        <td><%= postulate_collection_program.collection_program %></td>
+        <td><%= postulate_collection_program.estado %></td>
+        <td><%= link_to 'Show', postulate_collection_program %></td>
+        <td><%= link_to 'Edit', edit_postulate_collection_program_path(postulate_collection_program) %></td>
+        <td><%= link_to 'Destroy', postulate_collection_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Postulate collection program', new_postulate_collection_program_path %>

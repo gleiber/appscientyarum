@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postulate_id: 
+  academic_degree_id: 
+  user_id: 
+
+two:
+  postulate_id: 
+  academic_degree_id: 
+  user_id: 

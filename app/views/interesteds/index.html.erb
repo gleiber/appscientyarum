@@ -1,0 +1,40 @@
+
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"></i><b>Interesados</b></h1>
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center" style="margin-top: 30px">
+          <thead>
+            <tr>
+              <th class="text-center">Nombre del Interesado</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Titulo del Programa</th>
+              <th  class="text-center" colspan="1">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @interesteds.each do |interested| %>
+              <tr>
+                <td><%= interested.nombre %></td>
+                <td><%= interested.email %></td>
+                <td><%= interested.program.titulo %></td>
+                <td><%= link_to interested,class: "btn btn-primary" do %>
+                      <i class="fa fa-search" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>

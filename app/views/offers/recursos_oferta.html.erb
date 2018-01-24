@@ -1,0 +1,31 @@
+     <%= form_for(@offer, :html => {:class => 'form'}, url: "/cohort_programs/new" ) do |f| %>
+   
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Recursos para Ofertas de Programas </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-8 col-sm-8 col-xs-12 first">
+     <div class="input-group2">
+     <%= select_tag "offer_id", options_for_select(@offers.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione una Oferta" %>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-4 col-sm-4 col-xs-12">
+     <div class="input-group2">
+     <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+	 <span class="fa fa-share"></span> Siguiente    
+	 <% end %>
+	           
+     </div>
+     </div>
+     </div>
+
+     </div>
+
+     <% end %>

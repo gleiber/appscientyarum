@@ -1,0 +1,1 @@
+json.array! @day_weeks, partial: 'day_weeks/day_week', as: :day_week

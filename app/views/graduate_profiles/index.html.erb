@@ -1,0 +1,26 @@
+
+<h1>Graduate Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @graduate_profiles.each do |graduate_profile| %>
+      <tr>
+        <td><%= graduate_profile.descripcion %></td>
+        <td><%= link_to 'Show', graduate_profile %></td>
+        <td><%= link_to 'Edit', edit_graduate_profile_path(graduate_profile) %></td>
+        <td><%= link_to 'Destroy', graduate_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Graduate Profile', new_graduate_profile_path %>

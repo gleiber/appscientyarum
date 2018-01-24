@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12 " >
+        <div class="input-group2">
+            <%= label :programs, "Programa" %><br><br>
+            <%= select_tag "programs", options_for_select(@programs.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-6" id="combo_cohort">
+    		<%= f.select :cohort_id, options_for_select(@cohorts.collect { |c| [c.descripcion, c.id] }, 0), {}, { id: 'cohort_select' } %>
+    	</div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 " >
+        <div class="input-group2">
+	        <%= label :cohorts, "Cohorte" %><br><br>
+	        
+	        <%= select_tag "cohorts", options_for_select(@cohorts.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione una Cohorte" %>
+	        <%= select_tag "cohort", options_for_select(@c.collect{ |u| [u.cohort.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"cohorte" %>
+        </div>
+    </div>
+  </div>
+</div>

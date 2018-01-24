@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  email: MyString
+  telefono: MyString
+  program: one
+  area_interest: one
+  descripcion: MyString
+  detail: one
+  find_out: one
+  why_dcyt: one
+
+two:
+  nombre: MyString
+  email: MyString
+  telefono: MyString
+  program: two
+  area_interest: two
+  descripcion: MyString
+  detail: two
+  find_out: two
+  why_dcyt: two

@@ -1,0 +1,86 @@
+<% if @ownership.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @ownership.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+
+<%= form_for(@ownership , :html => {:class => 'form'}) do |f| %>
+
+  <div class="row header" style="background-color: #1f4bae; margin-top:50px;">
+        <h1 class="center-align col-lg-12 text-center"><b>Titulos Academicos</b></h1>
+      </div>
+  <div class="row container" >
+    <div class="col-md-12 text-center">
+     
+      <div class="container">
+        <div class="row" style="margin-top:50px;">
+
+        <div  class="col-md-6" >  
+           <div class="input-group2 "  style="margin: 0px auto; width: 100% ">
+    
+           <%= select_tag "academic_degree_id", options_for_select(@academic_degrees.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Grado Academico" %>
+      
+
+           </div>
+
+            </div>
+            
+
+    
+         <div  class="col-md-6" > 
+           <div class="input-group2 "  style="margin: 0px auto; width: 100% ">
+    
+           <%= select_tag "speciality_id", options_for_select(@specialities.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Especilidad" %>
+      
+
+           </div>
+
+            </div>
+    
+
+
+
+
+    
+        </div>
+
+        <br>
+        <br>
+
+       
+
+      </div>
+    </div>
+  </div>
+
+
+
+ <div class="container">
+    <div class="row" >
+        <div class="form-group col-md-2 col-md-offset-3" style="margin-top: 30px;">
+          <%= link_to ownerships_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras    
+          <% end %>
+        </div>
+        <div class="form-group col-md-2 col-md-offset-1" style="margin-top: 30px;">
+          <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Agregar    
+          <% end %>
+        </div>
+      </div>
+  </div>
+<% end %>
+<style type="text/css">
+  .container {
+    width: auto !important;
+  }
+</style>

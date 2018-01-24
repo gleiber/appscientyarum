@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poll: one
+  sexo: MyString
+  edad: MyString
+
+two:
+  poll: two
+  sexo: MyString
+  edad: MyString

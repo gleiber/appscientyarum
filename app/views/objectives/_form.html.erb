@@ -1,0 +1,59 @@
+<% if @objective.errors.any? %>
+    <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @objective.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+
+
+<%= form_for(@objective, :html => {:class => 'form'}) do |f| %>
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b>Objetivo</b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first">
+<div class="input-group2" style="width: 90%">
+<%= f.text_area :descripcion, class: "form-control2", rows: "7"%>
+<%= f.label :descripcion %><br>
+
+</div>
+</div> 
+</div>
+</div>
+
+
+
+<div class="row"">
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" >
+<div class="input-group2">
+<%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Guardar    
+<% end %>
+</div>
+</div>
+</div> 
+</div> 
+
+
+
+
+
+</div>
+
+<% end %>
+
+
+

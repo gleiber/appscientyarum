@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resource_id: 
+  classroom_laboratory_id: 
+  state_id: 
+
+two:
+  resource_id: 
+  classroom_laboratory_id: 
+  state_id: 

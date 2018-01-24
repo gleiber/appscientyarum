@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Poll:</strong>
+  <%= @survey_response.poll %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @survey_response.sexo %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @survey_response.edad %>
+</p>
+
+<%= link_to 'Edit', edit_survey_response_path(@survey_response) %> |
+<%= link_to 'Back', survey_responses_path %>

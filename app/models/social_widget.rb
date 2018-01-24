@@ -1,0 +1,4 @@
+class SocialWidget < ApplicationRecord
+
+
+end

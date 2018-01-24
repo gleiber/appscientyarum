@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contact Abouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contact_abouts.each do |contact_about| %>
+      <tr>
+        <td><%= contact_about.descripcion %></td>
+        <td><%= link_to 'Show', contact_about %></td>
+        <td><%= link_to 'Edit', edit_contact_about_path(contact_about) %></td>
+        <td><%= link_to 'Destroy', contact_about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact About', new_contact_about_path %>

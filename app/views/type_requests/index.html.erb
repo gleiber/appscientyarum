@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Type Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_requests.each do |type_request| %>
+      <tr>
+        <td><%= type_request.descripcion %></td>
+        <td><%= link_to 'Show', type_request %></td>
+        <td><%= link_to 'Edit', edit_type_request_path(type_request) %></td>
+        <td><%= link_to 'Destroy', type_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type request', new_type_request_path %>

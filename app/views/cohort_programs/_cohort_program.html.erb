@@ -1,0 +1,35 @@
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="input-group2">
+     <%= text_field_tag "cohort", cohort_program.cohort.descripcion , class:"form-control2", disabled:"true" %>
+     <%= label :cohort_id, "Cohorte"  %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12">
+     <div class="input-group2" style="width: 90%">
+     <%= text_field_tag "program", cohort_program.program.titulo , class:"form-control2", disabled:"true"  %>
+     <%= label :program_id, "Programa"  %><br>
+     </div>
+     </div> 
+     </div>
+
+ <script>
+$('.form-control2').change(function(){
+  changeState($(this));
+});
+$('.form-control2').each(function(){
+  changeState($(this));
+});
+function changeState($selector){
+   if($selector.val().length > 0 )
+     $selector.addClass('not-empty');
+ else
+   $selector.removeClass('not-empty');
+}
+</script>
+

@@ -1,0 +1,58 @@
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h2 class="center-align col-lg-12 text-center"><b> Widgets Sociales </b></h2>
+     </div>
+
+     <div class="text-center">
+
+<% if @social_widgets.length < 1 %>
+    <%= link_to  new_social_widget_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+    <i class="fa fa-plus"></i> Registrar Widget
+    <% end %>
+<% end %>
+
+    </div>
+
+        <table id="tabla_vp" class="table table-hover text-center" style= "margin-top: 30px;">
+          <thead>
+            <tr>
+              <th class="text-center"><i class="fa fa-facebook-official"></i> Facebook</th>
+              <th class="text-center"><i class="fa fa-twitter"></i> Twitter</th>
+              <th class="text-center"><i class="fa fa-instagram"></i> Instagram</th>
+              <th class="text-center"><i class="fa fa-linkedin"></i> LinkedIn</th>
+              <th  class="text-center"colspan="3">Acción</th>
+              
+            </tr>
+          </thead>
+          
+          <tbody class="searchable">
+       <% @social_widgets.each do |social_widget| %>
+              <tr>
+                <td><%= social_widget.facebook %></td>
+                <td><%= social_widget.twitter %></td>
+                <td><%= social_widget.instagram %></td>
+                <td><%= social_widget.linkedin %></td>
+
+                <td><%= link_to edit_social_widget_path(social_widget) ,class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+
+              </tr>
+            <% end %>
+          </tbody>
+
+          </tr>
+
+        </table>  
+
+
+
+</div>

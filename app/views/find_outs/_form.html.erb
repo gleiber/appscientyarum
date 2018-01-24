@@ -1,0 +1,22 @@
+<%= form_for(find_out) do |f| %>
+  <% if find_out.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(find_out.errors.count, "error") %> prohibited this find_out from being saved:</h2>
+
+      <ul>
+      <% find_out.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

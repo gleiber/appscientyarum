@@ -1,0 +1,103 @@
+     <%= form_for(@subject_user,  :html => {:class => 'form'}) do |f| %>
+     <% if @subject_user.errors.any? %>
+      <div id="error_explanation">
+      <h2><%= pluralize(@subject_user.errors.count, "error") %> prohibited this subject_user from being saved:</h2>
+
+      <ul>
+      <% @subject_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+     </div>
+     <% end %>
+    
+     <%= f.text_field :subject_id, hidden: true  %>
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Informacion de la Materia en el Periodo </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">
+     <div class="input-group2">
+     <%= f.text_field :subject_id, value: @subject_user.subject.descripcion , class: "form-control2", disabled: true %>
+     <%= f.label :subject_id, "Materia" %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="row">
+     <h2 class="center-align col-lg-12 text-center"><b><%= @cohort_period.regimen_duration.program.regimen_study.descripcion %> N° <%= @cohort_period.regimen_duration.numero %>  </b></h2>
+     </div>
+
+
+
+
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first">        
+     <div class="input-group2">
+     <%= select_tag "cohort_period_id", options_for_select(@cohort_periods.collect{ |u| [@cohort_period.regimen_duration.program.regimen_study.descripcion+" "+u.regimen_duration.numero, u.id]}),class: "form-control selectpicker", include_blank: "Nuevo  "+@cohort_period.regimen_duration.program.regimen_study.descripcion+""  %>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <div class="input-group2">
+     <% if @subject_user.user %>
+          <%= f.text_field :user_id, value: @subject_user.user.id, hidden: true  %>
+          <%= f.text_field :user, value: @subject_user.user.nombre , class: "form-control2", disabled: true %>
+     <% else %>
+          <%= f.text_field :user, value: "Sin profesor asignado" , class: "form-control2", disabled: true %>
+     <% end %>
+     <%= f.label :user_id, "Profesor" %><br>
+     
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >
+     <div class="input-group2" style="width: 90%">
+     <%= select_tag "user_id_nuevo", options_for_select(@users.collect{ |u| [u.nombre, u.id]}),class: "form-control selectpicker", include_blank: "Nuevo Profesor" %>
+     </div>
+     </div> 
+     </div>
+
+    
+
+     </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to cohorts_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+
+
+     

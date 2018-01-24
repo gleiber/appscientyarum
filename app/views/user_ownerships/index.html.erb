@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Ownerships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Ownership</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_ownerships.each do |user_ownership| %>
+      <tr>
+        <td><%= user_ownership.user %></td>
+        <td><%= user_ownership.ownership %></td>
+        <td><%= link_to 'Show', user_ownership %></td>
+        <td><%= link_to 'Edit', edit_user_ownership_path(user_ownership) %></td>
+        <td><%= link_to 'Destroy', user_ownership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Ownership', new_user_ownership_path %>

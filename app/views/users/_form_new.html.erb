@@ -1,0 +1,87 @@
+
+     <%= form_for(@user, :html => {:class => 'form'}, url: create_user_path) do |f| %>
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Nueva Oferta de Programa </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first" >        
+     <div class="input-group2">
+            <%= f.text_field :nombre, class: "form-control2"%>
+     <%= f.label :nombre, "Nombre y Apellido" %><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12"">
+     <div class="input-group2">
+            <%= f.email_field :email, class: "form-control2"%>
+      <%= f.label :email, "Correo Electrónico"%><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+            <%= f.text_field :username, class: "form-control2"%>
+     <%= f.label :username, "Usuario" %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+            <%= f.password_field :password, class: "form-control2"%>
+      <%= f.label :password, "Contraseña" %><br>
+    
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+           <%= select_tag "role_id", options_for_select(@roles.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Rol" %>
+    
+     </div>
+     </div> 
+     </div>
+
+     
+            
+
+     </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to users_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+

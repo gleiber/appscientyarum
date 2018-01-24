@@ -1,0 +1,45 @@
+
+<%= form_for(@email) do |f| %>
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
+
+      <ul>
+      <% @email.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="coord col-md-10 col-md-offset-1  col-sm-10 col-xs-10row " style="margin-top:20px;">
+    <div class="row header" style="background-color: #1f4bae;">
+    <h1 class="center-align col-lg-12 text-center"><i class=""></i><b> Editar Correo </b><i class="fa fa-envelope" aria-hidden="true"></i>
+</h1>
+    </div>
+<br>
+<br>
+
+
+
+<div class="row form-group" style="margin-top:40px">
+    <div class="row form-group" style="margin-top:40px">
+    <div class="col-md-6 col-md-offset-2">
+      <%= f.label :descripcion %><br><br>
+      <%= f.text_field :descripcion, class: "form-control" %>
+    </div>
+  </div>
+  </div>
+  
+  <<div class="row">
+    <div class="col-md-4 text-center col-md-offset-4 form-group actions">
+      <%= button_to "", class: "btn btn-primary" do %>
+             <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar   
+        <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+<br><br>

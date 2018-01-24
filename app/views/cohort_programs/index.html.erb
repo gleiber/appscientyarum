@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12 " >
+        <div class="input-group2">
+            <%= label :programs, "Programa" %><br><br>
+            <%= select_tag "programs", options_for_select(@programs.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" id="combo_cohort">
+        <%= select_tag "cohort_select", options_for_select(@cohorts.collect { |c| [c.descripcion, c.id] }, 0), include_blank: true %>
+      </div>
+    </div>
+    <div class="row" id="cohort_periods">
+    </div>
+  </div>
+</div>

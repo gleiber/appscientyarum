@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @regimen_duration.program %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @regimen_duration.numero %>
+</p>
+
+<%= link_to 'Edit', edit_regimen_duration_path(@regimen_duration) %> |
+<%= link_to 'Back', regimen_durations_path %>

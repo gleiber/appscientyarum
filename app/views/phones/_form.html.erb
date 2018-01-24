@@ -1,0 +1,50 @@
+	<% if @phone.errors.any? %>
+   		 <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @phone.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+         </div>
+     <%end%>
+
+<%= form_for(@phone,  :html => {:class => 'form'}) do |f| %>
+   
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b> Nuevo Telefono </b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 first">
+<div class="input-group2">
+<%= f.text_field :numero, class: "form-control2" %>
+<%= f.label :numero %><br>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 text-center">
+<div class="input-group2">
+<%= button_to "", class: "btn btn-primary" do %> 
+<i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar   
+<% end %>
+</div>
+</div> 
+</div>
+
+</div>
+
+<% end %>
+<br><br>
+
+
+

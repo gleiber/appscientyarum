@@ -1,0 +1,91 @@
+
+  
+
+    
+ <%= form_for(@question,  :html => {:class => 'form'}) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Nueva Pregunta </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :descripcion, value: @question.descripcion, class: "form-control2"%>
+     <%= f.label :descripcion, "Descripción" %><br>
+
+     </div>
+     </div> 
+     </div>
+
+     
+
+     </div>
+
+    <div class="row" style="margin-top:30px;">
+
+    <div class="row">
+    <h1 class="center-align col-lg-12 text-center"><b> Respuestas </b></h1>
+   
+    </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <% @answers.each do |answer| %>
+     <div class="col-md-4 " id="idRespuestas">
+     <%= check_box_tag "answers[]", answer.id, @question.answers.include?(answer) %> <%= answer.descripcion %>
+     </div>
+      <% end %>
+     
+
+     </div>
+     </div> 
+     </div>
+
+    </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to questions_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+
+
+     

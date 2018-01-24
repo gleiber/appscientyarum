@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  id_padre: MyString
+  estatus: MyString
+  url: MyString
+  id_funcion: MyString
+
+two:
+  descripcion: MyString
+  id_padre: MyString
+  estatus: MyString
+  url: MyString
+  id_funcion: MyString

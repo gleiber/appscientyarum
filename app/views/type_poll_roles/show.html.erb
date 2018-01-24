@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type poll:</strong>
+  <%= @type_poll_role.type_poll %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @type_poll_role.role %>
+</p>
+
+<%= link_to 'Edit', edit_type_poll_role_path(@type_poll_role) %> |
+<%= link_to 'Back', type_poll_roles_path %>

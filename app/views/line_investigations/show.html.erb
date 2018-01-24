@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @line_investigation.descripcion %>
+</p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @line_investigation.program.titulo %>
+</p>
+
+<%= link_to 'Edit', edit_line_investigation_path(@line_investigation) %> |
+<%= link_to 'Back', line_investigations_path %>

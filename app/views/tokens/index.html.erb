@@ -1,0 +1,61 @@
+<% if notice %>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue">
+        <div class="card-content white-text">
+          <span class="card-title">Noticia</span>
+          <p id="notice"><%= notice %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"></i><b>Usuarios</b></h1>
+    </div>
+
+    <br>
+    <br>
+    
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+               <th class="text-center">Avatar</th>
+              <th class="text-center">Usuario</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Rol</th>
+              <th  class="text-center" colspan="2">Acción</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+              <% @users.each do |user| %>
+              <tr>
+                <td> <%= image_tag user.avatar.url(:thumb)%></td>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role.descripcion %></td>
+                <td><%= link_to edit_token_path(user),class: "btn btn-primary" do %>
+                 <i class="fa fa-search-plus" aria-hidden="true"></i><% end %>
+          
+
+
+
+               
+              </tr>
+            <% end %>
+
+          </tbody> 
+        </table>
+      </div>
+    </div>
+    <style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>

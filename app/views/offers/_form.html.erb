@@ -1,0 +1,148 @@
+    
+      <% if @offer.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @offer.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+      
+     <%= form_for(@offer,  :html => {:class => 'form'}) do |f| %>
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Oferta de Programa </b></h1>
+     </div>
+
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <% if @offer.program %>
+        <%= select_tag "id_program", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}, @offer.program.titulo),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+     <% else %>
+        <%= select_tag "id_program", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+     <% end %>
+
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px;" >        
+     <div class="input-group2">
+     <%= text_field_tag :fecha_desde, value = nil, {readonly: true, class: "form-control2 form_date"} %>
+     <%= f.label :fecha_desde, "Fecha Desde" %><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px;">
+     <div class="input-group2">
+     <%= text_field_tag :fecha_hasta, value = nil, {readonly: true, class: "form-control2 form_date"} %>
+     <%= f.label :fecha_hasta, "Fecha Hasta" %><br>
+     </div>
+     </div>
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_area :titulo, class: "form-control2",autoresize: "true" %>
+     <%= f.label :titulo, "Titulo" %><br>
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <div class="btn btn-primary btn-file " style="width: 100px; margin-top:10px; ">
+     <i class="fa fa-file-image-o"></i> 
+     Imagen  <%= f.file_field :avatar, id: "imagen_oferta" %>
+     </div>
+     </div>
+     </div> 
+     </div>
+
+     </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+      <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= link_to offers_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+     <span class="fa fa-floppy-o"></span> Guardar    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+
+
+     <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+     <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+     <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+
+     <script >
+     $('.form_date').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+     autoclose: 1,
+     todayHighlight: 1,
+     startView: 2,
+     minView: 2,
+     forceParse:0,
+     clearBtn: true,
+     format: 'dd-mm-yyyy'
+     });
+
+
+
+     </script>
+
+     <style>
+     .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td{
+     padding: 7px;
+     }
+     .datetimepicker td, .datetimepicker th {
+     text-align: center;
+     width: 20px;
+     height: 20px;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     border-radius: 4px;
+     border: 0;
+     }
+
+      
+      
+     
+     </style>

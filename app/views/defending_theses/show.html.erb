@@ -1,0 +1,93 @@
+
+<%= form_for(@defending_thesis, :html => {:style => 'width: 80%'}) do |f| %>
+   
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+
+     <div class="row header" style="background-color: #1f4bae;">
+        <h1 class="center-align col-lg-12 text-center"><b>Vista Defensa de Tesis/TEG</b></h1>
+     </div>
+
+
+  <div  style="margin-top: 30px">
+
+    <div class="row">
+       <div class="form-group">
+          <div class="col-md-12 col-sm-6 col-xs-12 " >
+            <div class="input-group2">
+              <%= f.label :nombre, "Titulo de Tesis/TEG" %><br><br>
+              <%= text_field_tag :titulo, @thesis.titulo , class: "form-control2", disabled: true %>
+
+            </div>
+          </div>
+        </div> 
+    </div>
+         <%= f.hidden_field :thesis_id, :value => @thesis.id %>
+
+
+
+      <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :fecha, "Fecha de Defensa de la Tesis/TEG" %>
+            <br>
+            
+            <%= f.text_field :fecha,value: @defending_thesis.fecha.strftime("%d/%m/%Y"), class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :hora, "Hora de Defensa de la Tesis/TEG" %>
+            <br>
+            <%= f.text_field :hora,value: @defending_thesis.hora.strftime("%I:%M%p")  , class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+
+                        
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :lugar, "Aula de Defensa de la Tesis/TEG" %>
+            <br>
+            <%= f.text_field :lugar, class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+
+ 
+
+</div> 
+<br>
+  <div class="row" style="margin-bottom: 70px; margin-top: 70px; " >
+      <div class="col-md-2  col-md-offset-4" >
+        <%= link_to defending_theses_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-2 " >
+        <%= link_to edit_defending_thesis_path, class: "btn btn-primary", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Editar
+        <% end %>
+      </div> 
+  </div>
+
+
+  
+        </div>
+      </div>
+
+    <%end%>
+
+
+

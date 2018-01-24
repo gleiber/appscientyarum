@@ -1,0 +1,107 @@
+<%= form_tag("/reportes/redir", method: "post", class: "form") do %>
+<!--<div class="form">-->
+
+<div class="row header" style="background: #1f4bae;">
+<h1 class="center-align col-lg-12 text-center"><b> Reportes estadísticos</b></h1>
+</div>
+
+<div class="row">
+ <div class="form-group">
+ <div class="col-md-12 col-sm-12 col-xs-12 first" >
+ <div class="input-group2" style="width: 90%">
+  <%= select_tag :option, options_for_select([['Gráfica de Barras - Relación de proyectos publicados  y tesis o TEG  por programas', 1],['Gráfica pastel - Porción de egresados del postgrado distribuido por programas', 2],['Gráfica de pastel - Porción de respuestas a encuestas por preguntas', 4],['Gráfica pastel - Porción de interesados del postgrado distribuido por programas', 5]]), selected: :option,class: "selectpicker form-control",'data-live-search'=>"true", "title"=>"Seleccione el tipo de grafico" %>
+ </div>
+ </div>
+ </div>
+ </div>
+
+
+
+<div class="row" style="margin-top: 30px">
+
+
+<div id="div-programs" style="display: none">
+<div class="row" >
+<h2 class="center-align col-lg-12 text-center"><b>Seleccione los programas que desea procesar</b></h2>
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first" >
+<div class="input-group2">
+<% @programs.each do |p| %>
+<div class="col-md-4 " id="idUsers">
+<%= check_box_tag "programs[]", p.id.to_i %> <%=  p.titulo %>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="div-encuestas" style="display: none">
+<div class="row">
+<h2 class="center-align col-lg-12 text-center"><b>Seleccione la encuesta que desea visualizar</b></h2>
+</div>
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first" >
+<div class="input-group2">
+<%= select_tag :encuesta ,options_for_select(@polls.collect{ |u| [u.descripcion.titleize, u.id]}), selected: :encuesta,class: "selectpicker form-control",'data-live-search'=>"true", "title"=>"Seleccione una encuesta"%>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+
+<div class="row" style="margin-top: 50px">
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" >
+<div class="input-group2">
+<%= button_to "Guardar", class:"btn btn-primary" do %>
+<span class="glyphicon glyphicon-list-alt" ></span> Procesar
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!--</div>-->
+<% end %>
+
+
+    
+
+
+
+
+
+
+
+<style>
+  .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td{
+    padding: 7px;
+  }
+  .datetimepicker td, .datetimepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+  }
+
+
+
+
+</style>
+
+
+
+
+
+

@@ -1,0 +1,3 @@
+<% cohort_periods.each do |cohort_period| %>
+	<option value="<%= cohort_period.id %>"><%= cohort_period.regimen_duration.program.regimen_study.descripcion+" "+cohort_period.regimen_duration.numero %></option>
+<% end %>

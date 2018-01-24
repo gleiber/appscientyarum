@@ -1,0 +1,39 @@
+
+<%= form_for(@phone) do |f| %>
+  <% if @phone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phone.errors.count, "error") %> prohibited this phone from being saved:</h2>
+
+      <ul>
+      <% @phone.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="coord col-md-10 col-md-offset-1 table-responsive col-sm-10 col-xs-10row z-depth-2" style="margin-top:20px;">
+    <div class="row header" style="background-color: #1f4bae;">
+    <h1 class="center-align col-lg-12 text-center"><i class=""></i><b> Editar Telefonos </b><i class="fa fa-phone-square" aria-hidden="true"></i>
+</h1>
+    </div>
+
+
+
+
+  <div class="row form-group" style="margin-top:40px">
+    <div class="col-md-6 col-md-offset-2">
+      <%= f.label :numero %><br><br>
+      <%= f.text_field :numero, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 text-center col-md-offset-4 form-group actions">
+      <%= button_to "", class: "btn btn-primary" do %>
+             <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar   
+        <% end %>
+    </div>
+  </div>
+<% end %>
+<br><br>

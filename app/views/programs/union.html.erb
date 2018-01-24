@@ -1,0 +1,48 @@
+     <%= form_for(@program) do |f| %>
+     <% if @program.errors.any? %>
+     <div id="error_explanation">
+     <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2> <ul>
+     <% @program.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+     <% end %>
+     </ul>
+     </div>
+     <% end %>
+
+<div>
+<div class="container" style="margin-top:100px">
+  <div class="row container">
+    <div class="col-md-5 col-sm-6 col-md-offset-2 col-xs-12 first">         
+      <div class="">
+      <%= label_tag :program, "Programa" %>
+      <br><br>
+      <%= select_tag "program", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}), class: "selectpicker form-control", 'data-live-search'=>"true", 'title'=>"Seleccione un Programa"%>
+      <!-- , {:class =>"select_combobox",:onchange=>"reset_form(this.id,'page_type_msg');"} -->
+      </div>
+    </div>
+
+   </div>
+
+
+
+  <div>
+ <div class="row" style="margin-top:50px;">
+    <h1 class="col-md-6 col-md-offset-2" ><b>Materias</b></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-m1">
+      <div class="row">
+      <% @subjects.each do |subject| %>
+        <div class="col-md-2" id="idMaterias">
+          <%= check_box_tag "subjects[]", subject.id%> <%= subject.descripcion %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>

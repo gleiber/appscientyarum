@@ -1,0 +1,61 @@
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+
+
+
+       <div class="row header" style="background-color: #1f4bae;"">
+       <h1 class="center-align col-lg-12 text-center"><b> Configuracion </b></h1>
+        </div>
+
+     <div class="container" style=" margin-top: 50px;">
+
+             <div class="row">
+            <div class="form-group">
+             <div class="col-md-6 col-sm-6 col-xs-12">         
+             <div class="input-group2"
+
+                 <%= f.label :nombre %><br/>
+                <%= f.text_field :username %>
+
+  
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+                 <%= f.label :password %> <i>(dejar en blanco si no desea cambiarla)</i>
+  <%= f.password_field :password, :autocomplete => "off" %>
+
+  
+  <%= f.label :confirmar_contraseña %>
+  
+
+  <%= f.password_field :password_confirmation %>
+  
+  <%= f.label :contraseña_actual %> <i>(necesitamos tu contraseña actual para confirmar los cambios)</i>
+  
+
+  <%= f.password_field :current_password %>
+  
+
+
+  <%= f.submit "Actualizar" %>
+
+
+  </div>
+  </div>
+  </div>
+  
+
+  </div>
+
+</div>
+
+
+
+
+<% end %>
+
+
+

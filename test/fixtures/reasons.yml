@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descipcion: MyString
+  type_reason_id: 
+  request_classroom_laboratory_id: 
+
+two:
+  descipcion: MyString
+  type_reason_id: 
+  request_classroom_laboratory_id: 

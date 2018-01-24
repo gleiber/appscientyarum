@@ -1,0 +1,4 @@
+class Evento < ApplicationRecord
+
+	
+end

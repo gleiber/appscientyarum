@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  regimen_duration: one
+  subject: one
+
+two:
+  regimen_duration: two
+  subject: two

@@ -1,0 +1,29 @@
+<%= form_for(@classroom_laboratory_resource) do |f| %>
+  <% if @classroom_laboratory_resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@classroom_laboratory_resource.errors.count, "error") %> prohibited this classroom_laboratory_resource from being saved:</h2>
+
+      <ul>
+      <% @classroom_laboratory_resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :resource_id %><br>
+    <%= f.text_field :resource_id %>
+  </div>
+  <div class="field">
+    <%= f.label :classroom_laboratory_id %><br>
+    <%= f.text_field :classroom_laboratory_id %>
+  </div>
+  <div class="field">
+    <%= f.label :state_id %><br>
+    <%= f.text_field :state_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

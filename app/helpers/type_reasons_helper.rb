@@ -1,0 +1,2 @@
+module TypeReasonsHelper
+end

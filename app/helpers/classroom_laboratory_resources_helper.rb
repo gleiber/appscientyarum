@@ -1,0 +1,2 @@
+module ClassroomLaboratoryResourcesHelper
+end

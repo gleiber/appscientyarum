@@ -1,0 +1,76 @@
+<%= form_for(@subject, :html => {:class => 'form'}) do |f| %>
+<% if @subject.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+
+<ul>
+<% @subject.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b> Nueva materia </b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 first">
+<div class="input-group2" >
+<%= f.text_field :descripcion, class: "form-control2" %>
+<%= f.label :descripcion, "Descripción" %><br>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" >        
+<div class="input-group2">
+<%= f.text_field :unidades_credito, class: "form-control2" %>
+<%= f.label :unidades_credito, "Unidades de Credito" %><br>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="input-group2">
+<%= select_tag "type_subject_id", options_for_select(@type_subjects.collect{ |u| [u.descripcion, u.id]}), class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione el Tipo de Materia" %>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div class="row" style="margin-top: 50px;">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+<div class="input-group2">
+<div class="col-md-6 col-sm-6 col-xs-6" >
+<%= link_to subjects_path, class: "btn btn-warning", style:"width: 100px;" do %>
+<span class="fa fa-reply"></span> Atras    
+<% end %>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6" >
+<%= button_to "offers_path", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Guardar    
+<% end %>
+</div>
+</div>
+</div> 
+</div> 
+
+
+</div>
+
+<% end %>

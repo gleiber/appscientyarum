@@ -1,0 +1,39 @@
+<%= form_for(@user, url: "create_user_areainterest", :html => {:class => 'form'}) do |f| %>
+      <div class="row header" style="background-color: #1f4bae; margin-top:50px;">
+        <h1 class="center-align col-lg-12 text-center"><b>Seleccione sus Areas de Interes</b></h1>
+      </div>
+  <div class="row container" >
+    <div class="col-md-12 text-center">
+      <%= f.text_field :id,value: @user.id , hidden: true  %>
+      <div class="container">
+        <div class="row" style="margin-top:50px;">
+
+          <% @area_interests.each do |area_interest| %>
+            <div class="col-md-4 text-left" style="margin-top:20px;">
+              <%= check_box_tag "area_interests[]", area_interest.id, @user.area_interests.include?(area_interest) %> <%= area_interest.descripcion %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" >
+        <div class="form-group col-md-2 col-md-offset-3" style="margin-top: 30px;">
+          <%= link_to users_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras    
+          <% end %>
+        </div>
+        <div class="form-group col-md-2 col-md-offset-1" style="margin-top: 30px;">
+          <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar    
+          <% end %>
+        </div>
+      </div>
+  </div>
+<% end %>
+<style type="text/css">
+  .container {
+    width: auto !important;
+  }
+</style>

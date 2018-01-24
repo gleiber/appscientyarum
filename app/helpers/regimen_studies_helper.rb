@@ -1,0 +1,2 @@
+module RegimenStudiesHelper
+end

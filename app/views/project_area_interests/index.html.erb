@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Project Area Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Area interest</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_area_interests.each do |project_area_interest| %>
+      <tr>
+        <td><%= project_area_interest.project %></td>
+        <td><%= project_area_interest.area_interest %></td>
+        <td><%= link_to 'Show', project_area_interest %></td>
+        <td><%= link_to 'Edit', edit_project_area_interest_path(project_area_interest) %></td>
+        <td><%= link_to 'Destroy', project_area_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project Area Interest', new_project_area_interest_path %>

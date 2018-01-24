@@ -1,0 +1,6 @@
+<% area_interests.each do |area_interest| %>
+    <div class="col-md-4 text-left" id="idRecaudos" style="margin-top:20px;">
+      <%= check_box_tag "area_interests[]", area_interest.id %> <%= area_interest.descripcion %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,39 @@
+<% cohort_periods.each do |cohort_period| %>
+
+<div class="container">
+	<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+	    <div class="row" >
+	    	<h3 class="center-align col-lg-12 text-left"><b> <%= cohort_period.regimen_duration.program.regimen_study.descripcion %> # <%= cohort_period.regimen_duration.numero %> </b></h3>
+	    </div>
+	    <div class="row">
+	        <table id="tabla_vp" class="table table-hover text-center">
+	         	<thead>
+		            <tr>
+		              <th class="text-center" width="380px">Materia</th>
+		              <th class="text-center" width="380px">Profesor</th>
+		              <th  class="text-center" >Acción</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+				    <% cohort_period.coh_per_sub_us.each do |c| %>
+				    <tr>
+				        <td><%= c.subject_user.subject.descripcion %></td>
+				        <td>
+				        	<% if c.subject_user.user %>
+				        		<%= c.subject_user.user.nombre %>
+				        	<% else %>
+				        		Sin profesor asignado
+				        	<% end %>		
+				        </td>
+				        <td><%= link_to appviews_calendar_path,class: "btn btn-info" do %>
+		                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>   
+		                    <% end %>
+		                </td>
+				    </tr>
+				    <% end %>
+				</tbody>
+	        </table>
+		</div>
+	</div>
+</div>
+<%end%>	

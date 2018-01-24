@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resource:</strong>
+  <%= @classroom_laboratory_resource.resource %>
+</p>
+
+<p>
+  <strong>Classroom laboratory:</strong>
+  <%= @classroom_laboratory_resource.classroom_laboratory %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @classroom_laboratory_resource.state %>
+</p>
+
+<%= link_to 'Edit', edit_classroom_laboratory_resource_path(@classroom_laboratory_resource) %> |
+<%= link_to 'Back', classroom_laboratory_resources_path %>

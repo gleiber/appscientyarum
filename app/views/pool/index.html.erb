@@ -1,0 +1,77 @@
+ <% if notice %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Noticia</span>
+            <p id="notice"><%= notice %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+       <div class="row z-depth-2" style="margin-top:20px;">
+
+
+     <div class="col-md-10 col-md-offset-1  col-sm-12 col-xs-12" >
+
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Pool de Profesores </b></h1>
+     </div>
+     <div class="row">
+        <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">         
+     <div class="input-group2">
+     <%= label :line_investigation_id, "Linea de Investigacion " %>
+     <br>
+     <br>
+     <%= select_tag "line_investigation_id", options_for_select(
+    @line_investigations.collect{ |u| [u.descripcion, u.id]}), class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione linea" %>
+     
+     </div>
+     </div>
+     <div class=" col-md-6   col-lg-5" style="margin-top:5px;">
+        <%= button_to "Guardar", class:"btn btn-primary" do %>
+          <span class="glyphicon glyphicon-search" ></span> buscar
+          <% end %>
+      </div>
+     </div>
+
+
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Nombre </th>
+              <th class="text-center">Correo</th>
+              <th class="text-center">rol</th>
+              <th class="text-center" colspan="3">Acción</th>
+            </tr3>
+          </thead>
+          <tbody class="searchable">
+ 
+            <% @users.each do |users| %>
+             <%if users.role.descripcion == "profesor"%>
+              <tr>
+                <td><%= users.username %></td>
+                <td><%= users.email%></td>
+                 <td><%= users.role.descripcion %></td>
+                <td><%= link_to users,class: "btn btn-primary" do %>
+                   <i class="fa fa-eye" aria-hidden="true"></i>
+
+                    <% end %>
+                    <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    </div>
+  
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>

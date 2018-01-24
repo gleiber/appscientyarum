@@ -1,0 +1,67 @@
+<div class="form">
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b> Lineas de Investigacion por Programa </b></h1>
+</div>
+<%= form_for(@program, url: "/line_investigations/new" ) do |f| %>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="form-group">
+<div class="col-md-9 col-sm-9 col-xs-12 first";>
+<div class="input-group2">
+<%= select_tag "program_id_line", options_for_select(@programs.collect{ |u| [u.titulo, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Programa" %>
+
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-3 col-sm-3 col-xs-12" >        
+<div class="input-group2">
+<%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Agregar    
+<% end %>
+</div>
+</div>
+</div>
+
+</div>
+<% end %>
+
+
+
+<div class="row" style="margin-top: 50px;">
+
+<div class="row">
+<h1 class="center-align col-lg-12 text-center"><b> Lineas de Investigacion </b></h1>
+</div>
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+
+<table class="table table-hover text-center" style="margin-top:20px;">
+<thead>
+<tr>
+<th class="text-center" >Descripción</th>
+<th colspan="1" class="text-center" >Acción</th>
+</tr>
+</thead>
+<tbody id="lineas">
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+

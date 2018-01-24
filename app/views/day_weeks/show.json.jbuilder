@@ -1,0 +1,1 @@
+json.partial! "day_weeks/day_week", day_week: @day_week

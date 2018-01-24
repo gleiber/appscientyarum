@@ -1,0 +1,141 @@
+<%= form_for(@project, :html => {:style => 'width: 80%'}) do |f| %>
+    <% if @project.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+          <ul>
+            <% @project.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-10 col-xs-10" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b>Editar  Proyecto </b></h1>
+     </div>
+     <div  style="margin-top: 30px">
+
+
+      <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+          <div class="input-group2">
+             <%= f.label :user_id, "Participante" %>
+            <br>
+            <br>
+            <%= select_tag "user_id", options_for_select(@users.collect { |u| [u.nombre, u.id] }, @project.user_id), :class =>"selectpicker form-control",  'data-live-search'=>"true", "title"=>"Seleccione un Participante" , disabled: true %>
+          </div>
+        </div>
+      </div>
+     <div class="form-group">
+        <div class="col-md-4 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :cohorts_id, "Cohorte" %>
+            <br> <br>
+                  <% user = User.find(@project.user) %>
+
+            <%= f.text_field :user_id, value: user.cohort_program.cohort.descripcion ,class: "form-control2",rows: "1", disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+       <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :program_id, "Programa " %>
+            <br>
+                  <% user = User.find(@project.user) %>
+
+            <%= f.text_field :user_id, value: user.cohort_program.program.titulo ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+
+    
+
+
+      
+        <div class="form-group">
+          <div class="col-md-12 " >
+            <div class="input-group2">
+              <%= f.label :titulo, "Titulo del Proyeto  " %>
+              <br>
+              <br>
+              <%= f.text_field :titulo , class: "form-control2"%>
+            </div>
+          </div>
+        </div>
+     
+     
+
+
+
+      <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+           <div class="input-group2">
+            <%= f.label :tutor_id, "Tutor" %>
+            <br>
+            <br>
+           
+            <%= select_tag "tutor_id", options_for_select(@users1.collect { |u| [u.nombre, u.id] }, @project.tutor), :class =>"selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione un Tutor"  %>
+          </div>
+        </div>
+      </div>
+
+
+       <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+           <div class="input-group2">
+            <%= f.label :line_investigations, "Línea de investigación" %>
+            <br>
+            <br>
+           
+            <%= select_tag "select_line", options_for_select(@line_investigations.collect { |u| [u.descripcion, u.id] }, @project.line_investigation_id), :class =>"selectpicker form-control", 'data-live-search' => "true", :title => "Seleccione una línea "  %>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-12 col-sm-6 col-xs-12 col-md-offset-0">
+            <div class="input-group2">
+             <%= f.label :titulo, "Areas Interes" %>
+              <br>
+              <br>
+              <div id="area_interes_project">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="row" style="margin-bottom: 30px; margin-top: 40px; " >
+      <div class="col-md-2 col-md-offset-3" >
+        <%= link_to projects_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-2 col-md-offset-1" >
+        <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar
+        <% end %>
+      </div>
+    </div>
+     <br>
+    <br>
+
+     </div>
+     </div>
+
+      <%end%>

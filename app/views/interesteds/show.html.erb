@@ -1,0 +1,122 @@
+
+
+<div class="form">
+
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"><b> Interesado </b></h1>
+</div>
+
+<div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12 first" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :nombre, @interested.nombre, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :nombre, "Nombre" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :email,@interested.email, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :email, "Correo" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :telefono, @interested.telefono, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :telefono, "Telefono" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :program, @interested.program.titulo, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :program, "Programa en el que esta interesado" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :area_interest, @interested.area_interest.descripcion, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :area_interest, "Area de Interes" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :descripcion, @interested.descripcion, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :descripcion, "Por que esta interesado" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :detail, @interested.detail.descripcion, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :detail, "Detalle" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :find_out,@interested.find_out.descripcion, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :find_out, "Como supo de nosotros" %><br>
+     </div>
+     </div> 
+     </div>
+
+      <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px">
+     <div class="input-group2">
+     <%= text_field_tag :why_dcyt,@interested.why_dcyt.descripcion, {readonly: true, class: "form-control2"} %>
+      <%= label_tag :why_dcyt, "Por que este decanato" %><br>
+     </div>
+     </div> 
+     </div>
+
+
+
+
+
+</div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12" >
+     <div class="input-group2">
+     <%= link_to interesteds_path, class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     </div>
+     </div> 
+    
+
+
+     </div>
+  
+
+
+
+</div>
+<br><br>

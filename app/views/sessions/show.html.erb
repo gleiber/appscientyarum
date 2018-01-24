@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Classroom laboratory schedule:</strong>
+  <%= @session.classroom_laboratory_schedule %>
+</p>
+
+<p>
+  <strong>Coh per sub u:</strong>
+  <%= @session.coh_per_sub_u %>
+</p>
+
+<%= link_to 'Edit', edit_session_path(@session) %> |
+<%= link_to 'Back', sessions_path %>

@@ -1,0 +1,83 @@
+
+ <% if @review_project.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @review_project.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+
+
+<%= form_for(@review_project, :html => {:style => 'width: 80%'}, url: {action: @review_project.project.nil? ? "create" : "update", params: {id: @review_project.project_id}}) do |f| %>
+
+  
+
+
+   
+<div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"></i><b> Evaluacion de Proyecto </b></h1>
+     </div>
+
+<div class="row" style="margin-top: 30px">
+
+
+<div class="row">
+        <div class="form-group">
+          <div class="col-md-12 col-sm-6 col-xs-12 first" >
+            <div class="input-group2">
+              <%= f.label :nombre, "Titulo de Proyecto" %><br><br>
+              <%= f.text_field :project_id, value: @project.id, hidden: true  %>
+              <%= text_field_tag :titulo, @project.titulo , class: "form-control2", disabled: true %>
+            </div>
+          </div>
+        </div>
+
+ 
+     <div class="col-md-6 col-sm-6 col-xs-12 first col-md-offset-1">
+         <div class="input-group2">
+                <%= f.label :type_reviews_id, "Tipo de Evaluacion " %>
+                <br>
+                <br>
+                <%= select_tag "type_review_id", options_for_select(@type_reviews.collect{ |u| [u.descripcion, u.id] }),:class => "selectpicker form-control", 'data-live-search' => "true", :title => "Tipo de Evaluacion" %>
+          </div>
+      </div>
+      
+           <div class="row">
+        <div class="form-group">
+          <div class="col-md-12 " >
+            <div class="input-group2">
+              <%= f.label :descripcion, "Observacion del Proyeto  " %><br><br>
+              <%= f.text_field :descripcion , class: "form-control2"%>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   <br>
+   <br> 
+ 
+
+ <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
+      <div class="col-md-2 col-md-offset-4" >
+        <%= link_to review_projects_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-2 col-md-offset-2" >
+        <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar
+        <% end %>
+      </div>
+    </div>
+
+ 
+  </div>
+  </div>
+<% end %>

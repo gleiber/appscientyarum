@@ -1,0 +1,152 @@
+
+      <% if @program.errors.any? %>
+         <div class="row">
+            <div class="col-md-offset-2 col-sm-6 col-xs-12 ">
+              <div class="alert alert-danger">
+                <div class="card-content white-text">
+                  <span class="card-title">Errores:</span>
+                  <% @program.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <%end%>
+<%= form_for(@program, :html => {:class => 'form'}) do |f| %>
+
+<div class="row header" style="background-color: #1f4bae">
+<h1 class="center-align col-lg-12 text-center"></i><b> Nuevo Programa </b></h1>
+</div>
+
+
+<div class="row" style="margin-top: 30px;">
+
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 " >
+<div class="input-group2" style="width: 90%">
+<%= f.text_area :titulo, class: "form-control2" %>
+<%= f.label :titulo, "Titulo" %><br>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 " >
+<div class="input-group2">
+<%= select_tag "user_id", options_for_select(@users.collect{ |u| [u.nombre, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Coordinador" %>
+</div>
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 " >
+<div class="input-group2">
+<%= f.text_field :grado_egresado, class: "form-control2" %>
+<%= f.label :grado_egresado, "Grado Egresado" %><br>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="input-group2">
+<%= select_tag "regimen_study_id", options_for_select(@regimen_study.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione un Regimen" %>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 " >
+<div class="input-group2">
+<%= f.text_field :duracion, class: "form-control2" %>
+<%= f.label :duracion, "Duración" %><br>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 " >
+<div class="input-group2">
+<%= select_tag "modality_id", options_for_select(@modality.collect{ |u| [u.descripcion, u.id]}),class: "selectpicker form-control", 'data-live-search'=>"true", "title"=>"Seleccione una modalidad" %>
+</div>
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12" >
+<div class="input-group2">
+<div class="btn btn-primary btn-file " style="width: 100px;">
+<i class="fa fa-file-image-o"></i> 
+Imagen  <%= f.file_field :avatar%>
+</div>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-6 col-xs-12 " >
+<div class="input-group2" style="width: 90%"  style="padding-top: 15px">
+<%= f.text_area :descripcion, class: "form-control2" %>
+<%= f.label :descripcion, "Descripción" %><br>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<div class="row" style=" margin-top:30px;">
+
+<div class="row">
+<h2 class="center-align col-lg-12 text-center"><b>Seleccione los Recaudos</b></h2>
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-6 col-xs-12 " >
+<div class="input-group2" >
+
+<% @collections.each do |collection| %>
+<div class="col-md-4 text-left" id="idRecaudos" style="margin-top:20px;">
+<%= check_box_tag "collections[]", collection.id %> <%= collection.descripcion %>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="row" style="margin-top: 50px;">
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div class="input-group2">
+<div class="col-md-6 col-sm-6 col-xs-6 text-center" >
+<%= link_to programs_path, class: "btn btn-warning", style:"width: 100px;" do %>
+<span class="fa fa-reply"></span> Atras    
+<% end %>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6 text-center" >
+<%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+<span class="fa fa-floppy-o"></span> Guardar    
+<% end %>
+</div>
+</div>
+</div> 
+</div> 
+</div>
+
+
+
+
+<% end %>
+<br><br>
+
+

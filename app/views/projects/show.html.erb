@@ -1,0 +1,166 @@
+<%= form_for(@project, :html => {:style => 'width: 80%'}) do |f| %>
+    <% if @project.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+          <ul>
+            <% @project.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+
+     <div class="row header" style="background-color: #1f4bae;">
+        <h1 class="center-align col-lg-12 text-center"><b>Vista  Proyecto </b></h1>
+     </div>
+
+  <div  style="margin-top: 30px">
+
+      <div class="form-group">
+        <div class="col-md-8 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :user_id, "Participante" %>
+            <br>
+                  <% user = User.find(@project.user) %>
+            <%= f.text_field :user_id, value: user.nombre ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :cohorts_id, "Cohorte" %>
+            <br>
+                  <% user = User.find(@project.user) %>
+
+            <%= f.text_field :user_id, value: user.cohort_program.cohort.descripcion ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :program_id, "Programa " %>
+            <br>
+                  <% user = User.find(@project.user) %>
+
+            <%= f.text_field :user_id, value: user.cohort_program.program.titulo ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+      
+       <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :titulo, "Titulo del Proyecto" %>
+            <br>
+            <%= f.text_field :titulo, class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-md-6 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :tutor, "Tutor" %>
+            <br>
+                  <% tutor = User.find(@project.tutor) %>
+            <%= f.text_field :tutor, value: tutor.nombre,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+
+      
+  
+
+     
+
+
+      <div class="form-group">
+        <div class="col-md-6 col-sm-12 col-xs-12 ">
+         <div class="input-group2 textarea">
+             <%= f.label :line_investigations, "Línea de investigación" %>
+            <br>
+
+            <%= f.text_field :line_investigation_id, value: @project.line_investigation.descripcion  ,class: "form-control2",rows: "1", style: "margin-top: 27px" , disabled:"true" %>
+          </div>
+        </div>
+      </div>
+
+    
+      
+      <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+          <div class="input-group2">
+             <%= f.label :area_interest, "Areas de Interes" %>
+             <br>
+             <br>
+
+            <ul>
+            <div class="row">
+               <% @area_interests.each do |a| %>
+                   <div class="col-md-4">
+                    <li>
+                     <%= a.descripcion %>
+                    </li>
+                     
+                   </div>
+                  <% end %>
+                </div>
+            </ul>
+         </div>
+       </div>
+      </div>
+
+
+</div>
+<br>   
+    <% if @project.user_id == current_user.id %>
+
+    <div class="row" style="margin-bottom: 70px; margin-top: 70px; " >
+      <div class="col-md-2  col-md-offset-4" >
+        <%= link_to mi_proyecto_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-4 " >
+        <%= link_to seguimiento_path, class: "btn btn-primary", style:"width: 120px;" do %>
+            <span class="fa fa-map-marker"></span> seguimiento
+        <% end %> 
+      </div>
+   </div>
+
+  <% else %>
+
+  <div class="row" style="margin-bottom: 70px; margin-top: 70px; " >
+      <div class="col-md-2  col-md-offset-4" >
+        <%= link_to projects_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      <div class="col-md-2 " >
+        <%= link_to edit_project_path, class: "btn btn-primary", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Editar
+        <% end %>
+      </div>
+      
+ </div>
+
+   <% end %>
+  </div>
+</div>
+
+    <%end%>

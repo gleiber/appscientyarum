@@ -1,0 +1,138 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h2 class="center-align col-lg-12 text-center"><b> Slider principal web </b></h2>
+     </div>
+
+     <div class="text-center">
+    <%= link_to  new_slider_path, {class:"btn btn-success", style: "margin: 25px auto;" } do %>
+    <i class="fa fa-plus"></i> Registrar Slider
+    <% end %>
+
+
+    </div>
+
+
+
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Titulo</th>
+              
+              <th class="text-center">Imagen</th>
+              
+              <th  class="text-center" colspan="3">Acción</th>
+              
+            </tr>
+          </thead>
+          
+          <tbody class="searchable">
+            <% @sliders.each do |slider| %>
+              <tr>
+                <td  class="cell"><%= slider.titulo %></td>
+
+                <td><img src="<%= slider.avatar %>" class="fs-img-avatar">  </td>
+                <td><%= link_to slider,class: "btn btn-primary" do %>
+                      <i class="fa fa-search" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+                <td><%= link_to edit_slider_path(slider),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+
+        <td><%= button_to slider, method: :delete, class: "btn btn-warning", data: { confirm: 'Esta seguro?'} do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        </td>
+              </tr>
+            <% end %>
+          </tbody>
+
+          </tr>
+
+        </table>  
+
+
+
+</div>
+
+<div class="col-md-1">
+    <button type="button" class="btn btn-success btn-ayuda" data-toggle="modal" data-target="#modalAyuda"><i class="fa fa-question-circle-o fa-2x"></i> </button>
+  
+</div>
+
+<br>
+<br>
+
+
+<div id="modalAyuda" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center"><img src="/images/logo_sc_peq.png"> Ayuda Scientiarum</h4>
+      </div>
+      <div class="modal-body">
+        <img src="/images/ayudaslider.jpg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+  <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+    <div class="row header" style="background-color: #1f4bae;">
+      <h1 class="center-align col-lg-12 text-center"><b> Evaluaciones de Proyectos </b></h1>
+    </div>
+    <div class="form-group">
+          <div class="col-md-12 col-sm-6 col-xs-12 first" >
+            <div class="input-group2">
+              <%= label :nombre, "Titulo de Proyecto" %><br><br>
+              <%= text_field_tag :titulo, @project.titulo , class: "form-control2", disabled: true %>
+            </div>
+          </div>
+        </div>
+   
+    <table id="tabla_vp" class="table table-hover text-center">
+      <thead>
+      <tr>
+        <th class="text-center">Tipo de Revision</th>
+        <th class="text-center">Descripcion</th>
+  
+      </tr>
+      </thead>
+      <tbody class="searchable">
+      <% @review_projects.each do |review_project| %>
+         <tr>
+            <td><%= review_project.type_review.descripcion %></td>
+            <td><%= review_project.descripcion %></td>    
+         </tr>
+      
+      <% end %>
+      </tbody>
+    </table>
+    <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
+      <div class="col-md-2 col-md-offset-5" >
+        <%= link_to review_projects_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $('#filter').keyup(function () {
+
+    var rex = new RegExp($(this).val(), 'i');
+    $('.searchable tr').hide();
+    $('.searchable tr').filter(function () {
+      return rex.test($(this).text());
+    }).show();
+
+  });
+</script>
+<style type="text/css">
+  form{
+    background-color:transparent !important;
+    box-shadow: none !important;
+  }
+</style>
+

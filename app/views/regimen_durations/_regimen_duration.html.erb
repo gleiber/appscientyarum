@@ -1,0 +1,39 @@
+<div class="form-group">
+<div class="col-md-6 col-sm-6 col-xs-12 first">
+<div class="input-group2">
+<h3> <%= regimen_duration.program.regimen_study.descripcion %> N° <%= regimen_duration.numero%> </h3>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 first">
+<%= render 'subject_regimen_durations/form', subject_regimen_duration: @subject_regimen_duration,   regimen_duration: regimen_duration, remote: true %>
+</div> 
+</div>
+
+<div class="form-group" style="padding-top: 25px">
+<div class="col-md-12 col-sm-12 col-xs-12" >
+<div class="input-group2">
+<table id="tabla<%= regimen_duration.numero%>" class="table text-center table-hover">
+<thead class="thead-inverse">
+<tr>
+<th class="text-center" height="">Materia</th>
+<th class="text-center">Acción</th>
+</tr>
+</thead>
+<tbody>
+<% regimen_duration.subject_regimen_durations.each do |subject_regimen_duration| %>
+<tr>
+<td><%= subject_regimen_duration.subject.descripcion %></td>
+<td><%= button_to subject_regimen_duration, method: :delete, remote: true, class: "btn btn-warning", id: "btn_subject_regimen_duration", data: { confirm: '¿Seguro que desea eliminar la materia de este regimen?'} do %>
+<span class="glyphicon glyphicon-trash"></span>
+<% end %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+</div>
+</div> 
+</div>

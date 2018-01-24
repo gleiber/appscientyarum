@@ -1,0 +1,2 @@
+module CohPerSubUsHelper
+end

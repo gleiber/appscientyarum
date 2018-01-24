@@ -1,0 +1,136 @@
+
+
+
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+  <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+    <div class="row header" style="background-color: #1f4bae;">
+      <h1 class="center-align col-lg-12 text-center"><b>  Jurado Evaluador </b></h1>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 25px" >
+        <div class="input-group2">
+         
+          <%= text_field_tag :titulo, @eva_comm_thesis.thesis.titulo , class: "form-control2", disabled: true %>
+           <%= label :nombre, "Titulo de la Tesis/TEG" %><br>
+        </div>
+      </div>
+    </div>
+   
+    <table id="tabla_vp" class="table table-hover text-center"  style="padding-top: 25px">
+      <thead>
+        <tr>
+          <th class="text-center">Principal 1</th>
+          <th class="text-center">Principal 2</th>
+          <th class="text-center">Principal 3</th>
+          <th class="text-center">Suplente 1</th>
+          <th class="text-center">Suplente 2</th>
+          <th class="text-center">Suplente 3</th>
+           <th class="text-center">Coordinador</th>
+         
+        </tr>
+      </thead>
+      <tbody class="searchable">
+         <tr>
+         <td>
+            <% if @eva_comm_thesis.principal_1 %>
+              <% principal_1 = User.find(@eva_comm_thesis.principal_1) %>
+              <%= principal_1.nombre %>
+              <% else %>
+              No Fue Seleccionado
+              <%end%>
+         </td>
+         <td>
+              <% if @eva_comm_thesis.principal_2 %>
+              <% principal_2 = User.find(@eva_comm_thesis.principal_2) %>
+              <%= principal_2.nombre %>
+              <% else %>
+              No Fue Seleccionado
+              <%end%>
+         </td>
+         <td>
+              <% if @eva_comm_thesis.principal_3 %>
+              <% principal_3 = User.find(@eva_comm_thesis.principal_3) %>
+              <%= principal_3.nombre %>
+              <% else %>
+              No Fue Seleccionado
+              <%end%>
+         </td>
+         
+         <td>
+             <% if @eva_comm_thesis.suplente_1 %>
+              <% suplente_1 = User.find(@eva_comm_thesis.suplente_1) %>
+              <%= suplente_1.nombre %>
+              <% else %>
+              No Fue Seleccionado
+              <%end%>
+         </td>
+         <td>
+              <% if @eva_comm_thesis.suplente_2 %>
+              <% suplente_2 = User.find(@eva_comm_thesis.suplente_2) %>
+              <%= suplente_2.nombre %>
+              <% else %>
+              No Fue Seleccionado
+              <%end%>
+         </td>
+         <td>
+              <% if @eva_comm_thesis.suplente_3 %>
+              <% suplente_3 = User.find(@eva_comm_thesis.suplente_3) %>
+              <%= suplente_3.nombre %>
+              <% else %>
+              No Fue Seleccionado
+              <%end%>
+         </td>
+         </td>
+          <td>
+              <% coordinador = User.find(@eva_comm_thesis.coordinador) %>
+              <%= coordinador.nombre %>
+         </td>
+         
+            
+
+
+         </tr>
+      </tbody>
+    </table>
+   
+
+    <div class="row" style="margin-bottom: 30px; margin-top: 30px;">
+      <div class="col-md-2 col-md-offset-5" >
+        <%= link_to eva_comm_theses_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras
+        <% end %>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $('#filter').keyup(function () {
+
+    var rex = new RegExp($(this).val(), 'i');
+    $('.searchable tr').hide();
+    $('.searchable tr').filter(function () {
+      return rex.test($(this).text());
+    }).show();
+
+  });
+</script>
+
+<style type="text/css">
+  form{
+    background-color:transparent !important;
+    box-shadow: none !important;
+  }
+</style>
+
+
+
+

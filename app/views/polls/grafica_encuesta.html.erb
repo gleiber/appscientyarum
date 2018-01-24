@@ -1,0 +1,40 @@
+
+
+<br><br>
+<br>
+
+	<%= image_tag Gchart.bar(:data => @data_pregunta2, :bar_width_and_spacing => '25,6,12', :encoding => 'extended',:size => '600x400',:legend => @titulo_pregunta2, :bar_colors => ['000000', '0088FF','1BFF2E', '0088FF'])%>
+<br>
+<%= image_tag @pastel2%>
+<br>
+<%= image_tag @pastel3%>
+<br>
+<%= image_tag @pastel4%>
+<br><br><br>       =========================ESTA===============================
+<%= column_chart ({"Respuesta 1" => 10, "Respuesta 2" => 5, "Respuesta 3" => 3}), width: "600px", height: "400px", discrete: true, title: "Pregunta 1" %>
+
+
+<div class="row">
+	<% @poll.questions.each do |q| %>
+		<div class="col-md-6">
+			<%= column_chart q.answers.map { |answer| {data: ({"Respuesta 1" => 10, "Respuesta 2" => 5, "Respuesta 32" => 3})} }, width: "600px", height: "400px", discrete: true, title: q.descripcion %>
+		</div>
+	<% end %>
+</div>
+
+survey_responses = encuesta_respuestas
+survey_response_questons = encuesta_respuesta_pregunta
+
+*traerme todas las encuestas respondidas para una encuesta seleccionada:
+
+		poll.survey_responses
+
+*traerme las respuestas con las preguntas y ordenar por cantidad
+	
+
+		poll.survey_responses do |survey_response|
+			survey_response.survey_response_questons do |survey_response_queston|
+
+			end
+		end
+		

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Why Dcyts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @why_dcyts.each do |why_dcyt| %>
+      <tr>
+        <td><%= why_dcyt.descripcion %></td>
+        <td><%= link_to 'Show', why_dcyt %></td>
+        <td><%= link_to 'Edit', edit_why_dcyt_path(why_dcyt) %></td>
+        <td><%= link_to 'Destroy', why_dcyt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Why Dcyt', new_why_dcyt_path %>

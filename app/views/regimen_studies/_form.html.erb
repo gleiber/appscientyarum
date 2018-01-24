@@ -1,0 +1,22 @@
+<%= form_for(regimen_study) do |f| %>
+  <% if regimen_study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(regimen_study.errors.count, "error") %> prohibited this regimen_study from being saved:</h2>
+
+      <ul>
+      <% regimen_study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module TypeNewsHelper
+end

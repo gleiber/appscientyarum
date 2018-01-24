@@ -1,0 +1,194 @@
+<%= form_for(@role_funcion,:html => {:class => 'form'}, url: "/actualizar_asociacion") do |f| %>
+  <% if @role_funcion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@role_funcion.errors.count, "error") %> prohibited this role_funcion from being saved:</h2>
+
+      <ul>
+      <% @role_funcion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Editar Funciones del Rol </b></h1>
+  </div>
+
+  <div class="row" style="margin-top: 50px; text-center">
+   <div class="form-group">
+           <div class="col-md-6 col-sm-6 col-xs-12">         
+           <div class="input-group2">
+           <%= f.text_field :role_id, value: @role.id, hidden: true  %>
+        
+           <%= f.text_field :nombre, value: @role.descripcion, class: "form-control2", disabled: true %>
+           <%= f.label :role_id, "Rol" %>
+           </div>
+           </div>
+        </div>
+     
+  </div>
+
+
+  <div class="row container" style="margin-top: 30px">
+    <div class="col-md-12 text-center">
+    
+      <div class="row" >
+        <h1 class="center-align col-lg-12 text-center"><b>Opciones del Menú</b></h1>
+      </div>
+<div class="row">
+<% @inicio = 25 %>
+<% @medio = 51 %>
+<% @fin = 97 %>
+  <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10" >
+      <table id="tabla_vp" class="row center-align table table-hover">
+        <tbody class="searchable">
+        <thead>
+          <% @funcions.each_with_index do |funcion, index| %>
+          <% if index <= @inicio %>
+            <% if funcion.id_padre == nil %>
+            <thead>
+              <tr>
+                <th class="text-center">
+                <br>
+                <h3>
+                  <%= funcion.descripcion %>
+                </th>
+                </h3>
+              </tr>
+              </thead>
+              <% @padre = funcion.id_funcion%>
+            <% else %>
+              <tr>
+                <td class="text-left">
+                  <% if funcion.id_padre == @padre %>
+                      <% siguiente = @funcions.find_by(id: index+2)  %>
+                      <% if siguiente.nil? == false and siguiente.id_padre == funcion.id_funcion %>
+                          <h4><%= funcion.descripcion %></h4>
+                      <% else %>
+                          <%= check_box_tag "funcions[]", funcion.id, @role.funcions.include?(funcion)%>
+                          <%= funcion.descripcion %>    
+                      <% end %>
+                  <% else %>
+                    <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                      <%= check_box_tag "funcions[]", funcion.id, @role.funcions.include?(funcion)%> 
+                      <%= funcion.descripcion %>
+                    </div>
+                  <% end %>
+                <td>
+              </tr>
+            <% end %>
+          <% end %>
+          <% end %>
+          </thead>
+        </tbody>
+      </table>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10" >
+      <table id="tabla_vp" class="row center-align table table-hover">
+        <tbody class="searchable">
+        <thead>
+          <% @funcions.each_with_index do |funcion, index| %>
+          <% if index > @inicio and index < @medio %>
+            <% if funcion.id_padre == nil %>
+            <thead>
+              <tr>
+                <th class="text-center">
+                <br>
+                <h3>
+                  <%= funcion.descripcion %>
+                </th>
+                </h3>
+              </tr>
+              </thead>
+              <% @padre = funcion.id_funcion%>
+            <% else %>
+                <tr>
+                  <td class="text-left">
+                    <% if funcion.id_padre == @padre %>
+                        <% siguiente = @funcions.find_by(id: index+2)  %>
+                        <% if siguiente.nil? == false and siguiente.id_padre == funcion.id_funcion %>
+                            <h4><%= funcion.descripcion %></h4>
+                        <% else %>
+                            <%= check_box_tag "funcions[]", funcion.id, @role.funcions.include?(funcion)%>
+                            <%= funcion.descripcion %>    
+                        <% end %>
+                    <% else%>
+                      <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offse-1">
+                        <%= check_box_tag "funcions[]", funcion.id, @role.funcions.include?(funcion)%> 
+                        <%= funcion.descripcion %>
+                      </div>
+                    <% end %>
+                  <td>
+                </tr>
+            <% end %>
+          <% end %>
+          <% end %>
+          </thead>
+        </tbody>
+      </table>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10" >
+      <table id="tabla_vp" class="row center-align table table-hover">
+        <tbody class="searchable">
+        <thead>
+          <% @funcions.each_with_index do |funcion, index| %>
+          <% if index >= @medio and index <= @fin %>
+            <% if funcion.id_padre == nil %>
+            <thead>
+              <tr>
+                <th class="text-center">
+                <br>
+                <h3>
+                  <%= funcion.descripcion %>
+                </th>
+                </h3>
+              </tr>
+              </thead>
+              <% @padre = funcion.id_funcion%>
+            <% else %>
+                <tr>
+                  <td class="text-left">
+                    <% if funcion.id_padre == @padre %>
+                        <% siguiente = @funcions.find_by(id: index+2)  %>
+                        <% if siguiente.nil? == false and siguiente.id_padre == funcion.id_funcion %>
+                            <h4><%= funcion.descripcion %></h4>
+                        <% else %>
+                            <%= check_box_tag "funcions[]", funcion.id, @role.funcions.include?(funcion)%>
+                            <%= funcion.descripcion %>    
+                        <% end %>
+                    <% else%>
+                      <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offse-1">
+                        <%= check_box_tag "funcions[]", funcion.id, @role.funcions.include?(funcion)%> 
+                        <%= funcion.descripcion %>
+                      </div>
+                    <% end %>
+                  <td>
+                </tr>
+            <% end %>
+          <% end %>
+          <% end %>
+          </thead>
+        </tbody>
+      </table>
+  </div>
+</div>
+      <div class="row" style="margin-bottom: 60px;">
+        <div class="form-group col-md-2 col-md-offset-2" style="margin-top: 30px;">
+          <%= link_to role_funcions_path, class: "btn btn-warning", style:"width: 100px;" do %>
+            <span class="fa fa-reply"></span> Atras    
+          <% end %>
+        </div>
+        <div class="form-group col-md-2 col-md-offset-3" style="margin-top: 30px;">
+          <%= button_to "", class: "btn btn-primary ", style:"width: 100px;" do %>
+            <span class="fa fa-floppy-o"></span> Guardar    
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<style type="text/css">
+  .container {
+    width: 100% !important;
+}
+</style>

@@ -1,0 +1,2 @@
+class ThesisRegistrationMailer < ApplicationMailer
+end

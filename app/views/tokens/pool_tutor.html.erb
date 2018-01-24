@@ -1,0 +1,26 @@
+<table id="tabla_vp" class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Nombre </th>
+      <th class="text-center">Correo</th>
+      <th class="text-center">rol</th>
+      <th class="text-center" colspan="3">Acción</th>
+    </tr3>
+  </thead>
+  <tbody class="searchable">
+
+    <% @users.each do |users| %>
+     <%if users.role.descripcion == "profesor" || users.role.descripcion == "Profesor" %>
+      <tr>
+        <td><%= users.username %></td>
+        <td><%= users.email%></td>
+         <td><%= users.role.descripcion %></td>
+        <td><%= link_to users,class: "btn btn-primary" do %>
+           <i class="fa fa-eye" aria-hidden="true"></i>
+
+            <% end %>
+            <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

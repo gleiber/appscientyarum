@@ -1,0 +1,13 @@
+<%= simple_form_for(@survey_response_question) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :survey_response %>
+    <%= f.association :question %>
+    <%= f.association :answer %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

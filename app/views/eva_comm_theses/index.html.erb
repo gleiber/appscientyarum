@@ -1,0 +1,91 @@
+
+
+    <div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Jurado Evaluador </b></h1>
+     </div>
+
+     <% if current_user.role.descripcion == "Coordinador de Programa" %>
+          <% @theses = Array.new  %>
+          <% if current_user.program %> 
+            <% puts "tiene un programa" %>
+            <% if current_user.program.cohort_program.each do |p| %> 
+            <% puts "tiene cohortes programas" %>
+              <% p.users.each do |u| %>
+                <% puts "usuario" %>
+                <% if u.thesis.present?   %>
+                  <% puts "usuario tiene thesis" %>
+                  <% @theses.push(u.thesis) %>
+              
+                <%end %> 
+              <% end %>
+            <% end %> 
+          <% end %>
+        <% end %>
+      <% end %>
+     
+        <table id="tabla_vp" class="table table-hover text-center" style="margin-top: 25px">
+          <thead>
+            <tr>
+        <th class="text-center">Titulo</th>
+        <th class="text-center">Participante</th>
+        <th class="text-center">Programa</th>
+        <th  class="text-center" colspan="3">Acción</th>
+      </tr>
+          </thead>
+          <tbody class="searchable">
+
+            <% if @theses%>
+           <% @theses.each do |thesis| %>
+              <tr>
+            <td><%= thesis.titulo %></td>
+            <td><%= thesis.user.nombre %></td>
+            <td><%= thesis.user.cohort_program.program.titulo%></td>
+  
+
+
+            <% if thesis.eva_comm_thesis %>
+               <td><%= link_to thesis.eva_comm_thesis,class: "btn btn-primary" do %>
+                  <i class="fa fa-search" aria-hidden="true"></i>
+              <% end %>
+               </td>
+
+              <% else %>
+             
+               <td><%= link_to new_eva_comm_thesis_url(thesis_id: thesis.id),class: "btn btn-info" do %>
+                  <i class="" aria-hidden="true"></i>
+                  <span class=""></span> Asignar
+
+              <% end %>
+
+               <% end %>
+               </td>
+
+           
+          
+          </tr>
+            
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+<script type="text/javascript">
+  $('#filter').keyup(function () {
+
+    var rex = new RegExp($(this).val(), 'i');
+    $('.searchable tr').hide();
+    $('.searchable tr').filter(function () {
+      return rex.test($(this).text());
+    }).show();
+
+  });
+</script>
+
+
+

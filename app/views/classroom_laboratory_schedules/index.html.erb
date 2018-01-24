@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Classroom Laboratory Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Classroom laboratory</th>
+      <th>Schedule</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classroom_laboratory_schedules.each do |classroom_laboratory_schedule| %>
+      <tr>
+        <td><%= classroom_laboratory_schedule.classroom_laboratory %></td>
+        <td><%= classroom_laboratory_schedule.schedule %></td>
+        <td><%= link_to 'Show', classroom_laboratory_schedule %></td>
+        <td><%= link_to 'Edit', edit_classroom_laboratory_schedule_path(classroom_laboratory_schedule) %></td>
+        <td><%= link_to 'Destroy', classroom_laboratory_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Classroom laboratory schedule', new_classroom_laboratory_schedule_path %>

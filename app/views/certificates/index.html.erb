@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row z-depth-2" style="margin-top:20px;">
+
+
+    <div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b>  Mis Constancias </b></h1>
+     </div>
+     <div class="text-center">
+       <% @descrip = 'Solicitar Constancia'%>
+       <%if CohortUser.where(:user_id => current_user.id).count != 0%>
+           <% @descrip = 'Solicitar otras constancia' %>
+           <!--Caso en el que el usuario logeado esta cursando algo (tentativo) -->
+           <%= link_to 'Generar constancia de estudio',"/certificates/study_certificate.pdf", {class:"btn btn-success", style: "margin: 25px auto;" }%>
+       <% end %>
+       <%if !User.find(current_user.id).project.nil? and
+           ReviewProject.where(:project_id => User.find(current_user.id)).where(:type_review_id => 1).count > 0 %>
+           <% @descrip = 'Solicitar otras constancia' %>
+           <!--Caso en el que el usuario logeado esta cursando algo (tentativo) -->
+           <%= link_to 'Generar constancia de proyecto aprobado',"/certificates/approved_project_certificate.pdf", {class:"btn btn-success", style: "margin: 25px auto;" }%>
+       <% end %>
+    <%= link_to @descrip, new_certificate_path, {class:"btn btn-success", style: "margin: 25px auto;" }%>
+
+
+    </div>
+        <table id="tabla_vp" class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Fecha de Solicitud</th>
+              <th class="text-center">Fecha de Actualización</th>
+              <th class="text-center">Tipo de Constancia</th>
+              <th class="text-center">Estado</th>
+            </tr>
+          </thead>
+          <tbody class="searchable">
+            <% @certificates.each do |certificate| %>
+              <tr>
+                <td><%= certificate.created_at.strftime("%d/%m/%Y") %></td>
+                <td><%= certificate.updated_at.strftime("%d/%m/%Y") %></td>
+                <td><%= certificate.type_certificate.descripcion %></td>
+                <td><%= certificate.type_status_certificate.descripcion %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>

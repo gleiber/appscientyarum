@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @speciality.descripcion %>
+</p>
+
+<p>
+  <strong>Academic degree:</strong>
+  <%= @speciality.academic_degree %>
+</p>
+
+<%= link_to 'Edit', edit_speciality_path(@speciality) %> |
+<%= link_to 'Back', specialities_path %>

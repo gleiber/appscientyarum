@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Program Califications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id user</th>
+      <th>Id program</th>
+      <th>Comment</th>
+      <th>Calification</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @program_califications.each do |program_calification| %>
+      <tr>
+        <td><%= program_calification.id_user %></td>
+        <td><%= program_calification.id_program %></td>
+        <td><%= program_calification.comment %></td>
+        <td><%= program_calification.calification %></td>
+        <td><%= link_to 'Show', program_calification %></td>
+        <td><%= link_to 'Edit', edit_program_calification_path(program_calification) %></td>
+        <td><%= link_to 'Destroy', program_calification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program Calification', new_program_calification_path %>

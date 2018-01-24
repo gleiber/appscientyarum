@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @tracing.project %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tracing.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_tracing_path(@tracing) %> |
+<%= link_to 'Back', tracings_path %>

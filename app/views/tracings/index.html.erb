@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tracings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tracings.each do |tracing| %>
+      <tr>
+        <td><%= tracing.project %></td>
+        <td><%= tracing.descripcion %></td>
+        <td><%= link_to 'Show', tracing %></td>
+        <td><%= link_to 'Edit', edit_tracing_path(tracing) %></td>
+        <td><%= link_to 'Destroy', tracing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tracing', new_tracing_path %>

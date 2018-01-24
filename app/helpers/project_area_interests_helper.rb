@@ -1,0 +1,2 @@
+module ProjectAreaInterestsHelper
+end

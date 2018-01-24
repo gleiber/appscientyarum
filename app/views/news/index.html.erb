@@ -1,0 +1,49 @@
+
+
+<div class="col-md-10 col-md-offset-1 table-responsive col-sm-12 col-xs-12" >
+     <div class="row header" style="background-color: #1f4bae;">
+     <h2 class="center-align col-lg-12 text-center"><b> Cartelera de noticia </b></h2>
+     </div>
+
+    
+
+        <table id="tabla_vp" class="table table-hover text-center" style="margin-top: 30px;">
+          <thead>
+            <tr>
+              <th class="text-center">Titulo</th>
+              <th class="text-center">Descripcion</th>
+              <th class="text-center">Imagen</th>
+              <th class="text-center">Estado</th>
+
+              <th  class="text-center"colspan="3">Acción</th>
+              
+            </tr>
+          </thead>
+          
+          <tbody class="searchable">
+            <% @news.each do |news| %>
+              <tr>
+                <td><%= news.titulo %></td>
+                <td><%= news.descripcion %></td>
+                <td><img src="<%= news.avatar %>" class="fs-img-avatar">  </td>
+                <td><%= news.estado %></td></td>
+               
+                <td><%= link_to edit_news_path(news),class: "btn btn-info" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+                    <% end %>
+                </td>
+        <td><%= button_to news, method: :delete, class: "btn btn-warning", data: { confirm: 'Esta seguro?'} do %>
+          <span class="fa fa-user-plus"></span> Estatus
+                  <% end %>
+        </td>
+              </tr>
+            <% end %>
+          </tbody>
+
+          </tr>
+
+        </table>  
+
+
+
+</div>

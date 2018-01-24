@@ -1,0 +1,25 @@
+<%= form_for(@cohort_period) do |f| %>
+  <% if @cohort_period.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cohort_period.errors.count, "error") %> prohibited this cohort_period from being saved:</h2>
+
+      <ul>
+      <% @cohort_period.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cohort_id %><br>
+    <%= f.text_field :cohort_id %>
+  </div>
+  <div class="field">
+    <%= f.label :period_id %><br>
+    <%= f.text_field :period_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

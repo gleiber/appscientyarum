@@ -1,0 +1,90 @@
+<div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Asignacion de Materias-Profesores a Periodos</b></h1>
+</div>
+<br><br>
+<div class="container">
+	<br><br>
+	<div class="row panel panel-success">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2 ><b class="text-center">Programa de Ciencias en la Computación Mención Ingeniería de Software</b></h2>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<h3><b>Trimestre 1</b></h3>
+				</div>
+			</div>
+			<div class="row ">
+		        <div class="col-md-2 col-sm-6 col-xs-12  col-md-offset-2">         
+		            <%= label "id", "Período: Enero-Abril" %>
+		        </div>
+		        <div class="col-md-2 col-sm-6 col-xs-12  ">         
+		            <%= select_tag :desicion, options_for_select([["Trimestre 1", "aprobado"], ["Trimestre 2", "rechazado"]]), include_blank: true, class: "selectpicker form-control", "title"=>"Materia" %>
+		        </div>
+		        <div class="col-md-2 col-sm-6 col-xs-12  ">         
+		            <%= select_tag :desicion, options_for_select([["Trimestre 1", "aprobado"], ["Trimestre 2", "rechazado"]]), include_blank: true, class: "selectpicker form-control", "title"=>"Profesor"%>
+		        </div>
+				<div class="col-md-1" style="margin-top: -30px;">
+					<%= button_to "Agregar", root_url, :method => :get, class:"btn btn-primary" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<table id="tabla_vp" class="table table-hover text-center">
+			          <thead>
+			            <tr>
+			              <th class="text-center">Materia</th>
+			              <th class="text-center">Profesor</th>
+			              <th  class="text-center"colspan="2">Acción</th>
+			            </tr>
+			          </thead>
+			          <tbody class="searchable">
+				          <tr>
+				          	<td>Ing. Software 1</td>
+				          	<td>Romulo Dominguez</td>
+				          	<td>
+				          		<td><%= link_to "",class: "btn btn-info" do %>
+						              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+						            <% end %>
+						        </td>
+			                </td>
+			                <td><%= button_to "", method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Are you sure?'}, style:"margin-top: -50px;" do %>
+			                    <span class="glyphicon glyphicon-trash"></span>
+			                  <% end %>
+			                </td>
+				          </tr>
+				          </tr>
+				          <tr>
+				          	<td>Ing. Software 2</td>
+				          	<td>Romulo Dominguez</td>
+				          	<td>
+				          		<td><%= link_to "",class: "btn btn-info" do %>
+						              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>   
+						            <% end %>
+						        </td>
+			                </td>
+			                <td><%= button_to "", method: :delete, remote: true, class: "btn btn-warning", data: { confirm: 'Are you sure?'}, style:"margin-top: -50px;" do %>
+			                    <span class="glyphicon glyphicon-trash"></span>
+			                  <% end %>
+			                </td>
+				          </tr>
+			          </tbody>
+			        </table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br><br><br>
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+  .container {
+    width: auto !important;
+	}
+</style>

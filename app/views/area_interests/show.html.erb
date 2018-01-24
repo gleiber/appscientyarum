@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line investigation:</strong>
+  <%= @area_interest.line_investigation.descripcion %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @area_interest.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_area_interest_path(@area_interest) %> |
+<%= link_to 'Back', area_interests_path %>

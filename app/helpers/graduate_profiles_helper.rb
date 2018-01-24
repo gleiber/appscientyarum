@@ -1,0 +1,2 @@
+module GraduateProfilesHelper
+end

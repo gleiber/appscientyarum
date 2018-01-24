@@ -1,0 +1,1 @@
+json.extract! @postulate, :id, :nombre, :cedula, :direccion, :sexo, :email, :telefono, :fecha_nacimiento, :estado_civil, :find_out_id, :city_id, :detail_id, :collections, :why_dcyt_id, :institution_id

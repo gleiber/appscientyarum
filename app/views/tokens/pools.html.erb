@@ -1,0 +1,62 @@
+ <% if notice %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue">
+          <div class="card-content white-text">
+            <span class="card-title">Noticia</span>
+            <p id="notice"><%= notice %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+       <div class="row z-depth-2" style="margin-top:20px;">
+
+
+     <div class="col-md-10 col-md-offset-1  col-sm-12 col-xs-12" >
+
+     <div class="row header" style="background-color: #1f4bae;">
+     <h1 class="center-align col-lg-12 text-center"><b> Pool de Profesores </b></h1>
+     </div>
+     <%= form_for(@user, url: "/pool_tutor") do |f| %>
+     <div class="row">
+        <div class="form-group">
+          <div class="col-md-6 col-sm-6 col-xs-12">         
+            <div class="input-group2">
+              <%= label :area_interest_id, "Linea de Investigacion " %>
+              <br>
+              <br>
+              <%= f.grouped_collection_select :area_interest_id, LineInvestigation.order(:descripcion), :area_interests, :descripcion, :id, :descripcion, class: "form-control", include_blank: true %>
+     
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-md-6   col-lg-5" style="margin-top:5px;">
+          <%= button_to "Guardar", class:"btn btn-primary" do %>
+            <span class="glyphicon glyphicon-search" ></span> buscar
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+     </div>
+     
+<br><br>
+    </div>
+        
+    
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+  #user_area_interest_area_interest_id {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+}
+</style>
+

@@ -1,0 +1,36 @@
+<div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Asignacidassfon de Recursos</b></h1>
+</div>
+<div class="container" style="margin-top:100px">
+	<div class="row container">
+		<div class="col-md-5 col-sm-6 col-md-offset-2 col-xs-12 first">         
+			<div class="">
+			<%= label_tag :program_id, "Ofertas de Programas" %>
+			<br><br>
+			<%= select_tag "offer_id", options_for_select(@offers.collect{ |u| [u.titulo, u.id]}), class: "selectpicker form-control", 'data-live-search'=>"true", 'title'=>"Seleccione una Oferta"%>
+			<!-- , {:class =>"select_combobox",:onchange=>"reset_form(this.id,'page_type_msg');"} -->
+			</div>
+		</div>
+		<div class="">
+			<div class="col-md-2 col-sm-6 col-md-offset-1 col-xs-12 first" >        
+			<div class="">
+			<%= label_tag :cohort_id, "Cohorte" %>
+			<br><br>
+			<%= select_tag "cohort_id", options_for_select(@cohorts.collect{ |u| [u.descripcion, u.id]}), class: "selectpicker form-control", 'data-live-search'=>"true", 'title'=>"Seleccione una Cohorte"%>
+			<!-- , {:class =>"select_combobox",:onchange=>"reset_form(this.id,'page_type_msg');"} -->
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px;">
+		<div class="col-md-2 col-md-offset-5" >
+			<%= button_to "Siguiente", 'periodo-regimen', :method => :get, class:"btn btn-primary" %>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+  form{
+    background-color:transparent !important; 
+    box-shadow: none !important;
+  }
+</style>

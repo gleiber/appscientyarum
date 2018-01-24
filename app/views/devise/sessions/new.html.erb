@@ -1,0 +1,63 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+
+  <div class="loginColumns animated fadeInDown">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2 class="font-bold">Inicia sesion en SCIENTIARUM</h2>
+
+                <p>
+                    Scientiarum es un sistema que brinda a todos los usuarios la facilidad de participar en distintas ofertas
+                    de la cordinacion de postgrado del decanato de ciencia y tecnologia.
+                </p>
+                <p>
+                  Entra y navega en los muchos beneficios  de Scientiarum
+                 </p>
+
+              
+            </div>
+            <div class="col-md-6">
+                
+                   
+  <div class="row" style="margin-top:50px">
+    <div class="input-field col s12 l4 offset-l1">
+      <i class="material-icons prefix blue-text">usuario</br></i>
+      <%= f.text_field :username, class:"blue-text"%>
+    
+    </div>
+   
+  </div>
+  <div class="row"   style="margin-top:50px">
+    <div class="input-field col s12 l4 offset-l1" >
+      <i class="material-icons prefix blue-text text-center"">contraseña</br></i>
+       <%= f.password_field :password, class:"blue-text", autocomplete: "off" %>
+      
+    
+    </div>
+  </div>
+  <div class="row " style="margin-top:50px">
+      <%= f.button "Entrar", class:"blue waves-effect waves-light btn" %>
+  </div>
+
+     <div>   
+      
+
+        
+  </div>
+
+
+  <% end %>
+                   
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                Fsociety 2017
+            </div>
+           
+        </div>
+    </div>

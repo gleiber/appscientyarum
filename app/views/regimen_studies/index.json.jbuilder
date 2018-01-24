@@ -1,0 +1,1 @@
+json.array! @regimen_studies, partial: 'regimen_studies/regimen_study', as: :regimen_study

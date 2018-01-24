@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChartPieInteresados);
+</script>
+
+<div class="form">
+  <div id="chart_div"></div>
+  <br>
+  <div id="table_pie_details" style="display: none">
+
+    <div id="table_detail_tittle" class="row header" style="background-color: #1f4bae">
+      <div class="center-align col-lg-12 text-center"><h2>Comentario de los egresados en: <strong><span id="b_detail_line"></span></strong> </h2></div>
+    </div>
+
+    <div id="table_detail">
+      <table id="table_details" class="table table-hover text-center">
+        <thead>
+        <tr>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Teléfono</th>
+        </tr>
+        </thead>
+
+        <tbody class="searchable">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

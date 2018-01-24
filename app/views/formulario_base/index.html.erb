@@ -1,0 +1,183 @@
+
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+        <h1>Formulario Base para cualquier informacion</h1>
+    </div>
+  </div>
+  <div class="row" style="margin-top:40px">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <label for="example-text-input" class="">Text</label>
+          <input class="form-control" type="text" placeholder="Texto" id="example-text-input">  
+        </div>
+        <div class="col-lg-6">
+          <label for="example-email-input">Email</label>
+          <input class="form-control" type="email" placeholder="Email" id="example-email-input">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <label for="example-tel-input">Telephone</label>
+          <input class="form-control" type="tel" placeholder="041214213" id="example-tel-input">
+        </div>
+        <div class="col-lg-6">
+          <label for="example-password-input" >Password</label>
+          <input class="form-control" type="password" placeholder="*******" id="example-password-input">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <label for="example-number-input" >Number</label>
+          <input class="form-control" type="number" placeholder="42" id="example-number-input">
+        </div>
+        <div class="col-lg-6">
+          <label for="exampleInputFile">Archivo</label>
+          <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+          <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <label for="dtp_input2" class="">Date Picking</label>
+          <div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+            <input class="form-control" size="16" type="text" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+          <input type="hidden" id="dtp_input2" value="" /><br/>
+        </div>
+        <div class="col-lg-6">
+          <label for="dtp_input3" class="control-label">Time Picking</label>
+          <div class="input-group date form_time " data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+            <input class="form-control" size="16" type="text" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+          </div>
+          <input type="hidden" id="dtp_input3" value="" /><br/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <h4>Radio</h4>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Option one
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              Option two
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+              Option three
+            </label>
+          </div>
+        </div>
+        <div class="col-lg-4 ">
+          <h4>Check box</h4>
+          <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+          <label class="checkbox-inline"><input type="checkbox" value="">Option 2</label>
+          <label class="checkbox-inline"><input type="checkbox" value="">Option 3</label>
+        </div>
+        <div class="col-lg-4">
+          <h4>Radio</h4>
+          <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+          <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+          <label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-12">
+          <label for="comment">Text Area:</label>
+          <textarea class="form-control" rows="7" id="comment"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <label for="ComboBox">ComboBox</label>
+          <select class="form-control" id="ComboBox">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-lg-12">
+          <button type="button" class="btn btn-default">Default</button>
+
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <button type="button" class="btn btn-primary">Primary</button>
+
+          <!-- Indicates a successful or positive action -->
+          <button type="button" class="btn btn-success">Success</button>
+
+          <!-- Contextual button for informational alert messages -->
+          <button type="button" class="btn btn-info">Info</button>
+
+          <!-- Indicates caution should be taken with this action -->
+          <button type="button" class="btn btn-warning">Warning</button>
+
+          <!-- Indicates a dangerous or potentially negative action -->
+          <button type="button" class="btn btn-danger">Danger</button>
+
+          <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+          <button type="button" class="btn btn-link">Link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+<script type="text/javascript">
+  $('.form_date').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0,
+        format: 'dd-mm-yyyy'
+    });
+  $('.form_time').datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+    });
+  
+</script>
+<style type="text/css">
+  .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > tfoot > tr > td{
+    padding: 7px;
+    }
+.datetimepicker td, .datetimepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+}
+</style>

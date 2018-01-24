@@ -1,0 +1,4 @@
+module TypeSubjectsHelper
+
+	
+end

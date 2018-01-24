@@ -1,0 +1,1 @@
+json.array! @find_outs, partial: 'find_outs/find_out', as: :find_out

@@ -1,0 +1,1 @@
+json.array! @program_subjects, partial: 'program_subjects/program_subject', as: :program_subject

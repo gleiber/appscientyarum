@@ -1,0 +1,59 @@
+
+   <%= form_for(@line_investigation, :html => {:class => 'form'}) do |f| %>
+     <div class="row header" style="background-color: #1f4bae">
+     <h1 class="center-align col-lg-12 text-center"><b> Nueva Linea de Investigacion </b></h1>
+     </div>
+      <%= f.text_field :program_id, value: @program.id ,hidden: true  %>
+     <div class="row" style="margin-top: 30px">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12 first">
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :nombre, value: @program.titulo , class: "form-control2", disabled: true %>
+     <%= f.label :nombre, "Programa" %><br>
+
+     </div>
+     </div> 
+     </div>
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12" >        
+     <div class="input-group2" style="width: 90%">
+     <%= f.text_field :descripcion , class: "form-control2"%>
+      <%= f.label :descripcion, "Linea de Investigacion" %><br>
+     </div>
+     </div>
+     </div>
+
+     </div>
+
+
+
+     <div class="row" style="margin-top: 50px;">
+
+
+     <div class="form-group">
+     <div class="col-md-12 col-sm-12 col-xs-12  text-center" >
+     <div class="input-group2">
+      <div class="col-md-6 col-sm-6 col-xs-6" >
+    <%= link_to "/lineas_programa", class: "btn btn-warning", style:"width: 100px;" do %>
+     <span class="fa fa-reply"></span> Atras    
+     <% end %>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-6" >
+     <%= button_to "", class: "btn btn-primary", style: "width: 100px;" do %>
+     <i class="fa fa-floppy-o"></i> Guardar
+     <% end %>
+     </div>
+     </div>
+     </div> 
+     </div> 
+
+
+     </div>
+
+     <% end %>
+    
+
+  

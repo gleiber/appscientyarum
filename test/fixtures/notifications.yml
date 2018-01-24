@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tittle: MyString
+  event: MyString
+  viewed: false
+  id_user: MyString
+
+two:
+  tittle: MyString
+  event: MyString
+  viewed: false
+  id_user: MyString

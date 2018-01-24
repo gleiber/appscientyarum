@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Request Responses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type req resp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @request_responses.each do |request_response| %>
+      <tr>
+        <td><%= request_response.type_req_resp %></td>
+        <td><%= link_to 'Show', request_response %></td>
+        <td><%= link_to 'Edit', edit_request_response_path(request_response) %></td>
+        <td><%= link_to 'Destroy', request_response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request response', new_request_response_path %>

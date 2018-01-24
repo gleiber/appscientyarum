@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart','bar']});
+    google.charts.setOnLoadCallback(drawChartPieEncuesta);
+//    google.charts.setOnLoadCallback(drawStacked);
+</script>
+
+<div class="form">
+
+  <div id="chart_div"></div>
+  <br>
+  <br>
+  <br>
+  <div class="row header" style="background-color: #1f4bae">
+    <h1 class="center-align col-lg-12 text-center"></i><b> Preguntas de la encuesta </b></h1>
+  </div>
+
+
+
+  <div class="row">
+    <div class="text-center">
+      <div class=" col-md-12   col-lg-12" style="margin-top:5px;">
+        <% $preguntas.each do |p|%>
+            <%= button_to p.descripcion,"javascript:drawStacked("+p.id.to_s+")",class:"btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+  <br>
+
+  <div id="chart_div_stacked"></div>
+
+</div>
+
+
+<style>
+  .button_to{
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+</style>
+
+
+
+
+
+

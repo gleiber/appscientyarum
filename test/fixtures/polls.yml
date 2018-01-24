@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  type_poll_id: 
+
+two:
+  descripcion: MyString
+  type_poll_id: 

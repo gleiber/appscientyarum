@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= action_cable_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SCIENTIARUM</title>
+        <%= favicon_link_tag 'logo.png' %>
+
+
+    
+
+    <!-- Include style per-controller - vendor plugins -->
+    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+
+    <!-- Main css styles -->
+    <%= stylesheet_link_tag    'application'%>
+    <%= stylesheet_link_tag "estilo" %>
+
+    <!-- Main javascript files -->
+    <%= javascript_include_tag 'application'%>
+    <%= csrf_meta_tag %>
+
+ <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+     <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+     <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+
+
+
+<script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+<link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+
+
+</head>
+<body>
+
+<!-- Skin configuration box -->
+<!-- <%= render 'layouts/skinconfig' %> -->
+
+    <!-- Wrapper-->
+    <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
+
+        <!-- Navigation -->
+        <% if current_user %>
+            <%= render 'layouts/menu' %>
+        <% else %>
+            <%= render 'layouts/menu' %>
+        <% end %>
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
+
+            <!-- Page wrapper -->
+
+            <%=
+              if current_user
+                #TODO: Cambiar la comparacion del id de usuario por el current user
+                render 'layouts/topnavbar', notif: Notification.where(:id_user =>current_user.id).reverse, counter: Notification.where(:viewed => FALSE).where(:id_user =>current_user.id).count
+
+              else
+                  #TODO: Cambiar la comparacion del id de usuario por el current user
+                  render 'layouts/topnavbar', notif: Notification.where(:id_user =>1).reverse, counter: Notification.where(:viewed => FALSE).where(:id_user =>1).count
+
+              end
+               %>
+
+           <% if notice %>
+              <div class="row">
+                <div class="col-md-offset-2 col-sm-6 col-xs-12">
+                  <div class="alert alert-info">
+                    <div class="card-content white-text">
+                      <span class="card-title">SCIENTIARUM</span>
+                      <p id="notice"><%= notice %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%end%>
+
+              <% if alert %>
+              <div class="row">
+                <div class="col-md-offset-2 col-sm-6 col-xs-12">
+                  <div class="alert alert-danger">
+                    <div class="card-content white-text">
+                      <span class="card-title">Error</span>
+                      <p id="alert"><%= alert %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%end%>
+
+
+
+
+
+
+            <!-- Main view  -->
+            <%= yield %>
+
+         
+
+        </div>
+        <!-- End page wrapper-->
+
+        <!-- Right sidebar -->
+        <%= render 'layouts/rightsidebar' %>
+
+    </div>
+    <!-- End wrapper-->
+
+    <!-- Include javascript per-controller - vendor plugins -->
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
+
+<script>
+$('.form-control2').change(function(){
+  changeState($(this));
+});
+$('.form-control2').each(function(){
+  changeState($(this));
+});
+function changeState($selector){
+   if($selector.val().length > 0 )
+     $selector.addClass('not-empty');
+ else
+   $selector.removeClass('not-empty');
+}
+</script>
+
+    <!-- Include javascript per-view -->
+    <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+
+
+</body>
+</html>

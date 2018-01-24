@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Postulate Area Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Area interest</th>
+      <th>Postulate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postulate_area_interests.each do |postulate_area_interest| %>
+      <tr>
+        <td><%= postulate_area_interest.area_interest %></td>
+        <td><%= postulate_area_interest.postulate %></td>
+        <td><%= link_to 'Show', postulate_area_interest %></td>
+        <td><%= link_to 'Edit', edit_postulate_area_interest_path(postulate_area_interest) %></td>
+        <td><%= link_to 'Destroy', postulate_area_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Postulate Area Interest', new_postulate_area_interest_path %>

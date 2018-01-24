@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Collection Programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Collection</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collection_programs.each do |collection_program| %>
+      <tr>
+        <td><%= collection_program.program %></td>
+        <td><%= collection_program.collection %></td>
+        <td><%= link_to 'Show', collection_program %></td>
+        <td><%= link_to 'Edit', edit_collection_program_path(collection_program) %></td>
+        <td><%= link_to 'Destroy', collection_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collection program', new_collection_program_path %>
